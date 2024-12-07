@@ -23,6 +23,7 @@
 #include "registry.h"
 #include "setting.h"
 #include "target.h"
+#include "threadwatcher.h"
 #include "windowstool.h"
 #include "fixscancodemap.h"
 #include "vk2tchar.h"
@@ -85,6 +86,7 @@ class Mayu
 	bool m_isSettingDialogOpened;			/// is setting dialog opened ?
 
 	Engine m_engine;				/// engine
+	std::unique_ptr<ThreadWatcher> m_threadWatcher;
 
 	bool m_usingSN;		   /// using WTSRegisterSessionNotification() ?
 	time_t m_startTime;				/// mayu started at ...
@@ -206,16 +208,6 @@ private:
 								  n->m_isKanaLockToggled,
 								  n->m_isImeLockToggled,
 								  n->m_isImeCompToggled);
-#if 0
-			Acquire a(&m_log, 0);
-			if (n->m_isKanaLockToggled) {
-				m_log << _T("Notify::Type_lockState Kana on  : ");
-			} else {
-				m_log << _T("Notify::Type_lockState Kana off : ");
-			}
-			m_log << n->m_debugParam << ", "
-			<< g_hookData->m_correctKanaLockHandling << std::endl;
-#endif
 			break;
 		}
 
@@ -226,13 +218,7 @@ private:
 
 		case Notify::Type_threadAttach: {
 			NotifyThreadAttach *n = (NotifyThreadAttach *)cd->lpData;
-			m_engine.threadAttachNotify(n->m_threadId);
-			break;
-		}
-
-		case Notify::Type_threadDetach: {
-			NotifyThreadDetach *n = (NotifyThreadDetach *)cd->lpData;
-			m_engine.threadDetachNotify(n->m_threadId);
+			m_threadWatcher->attach(n->m_threadId);
 			break;
 		}
 
@@ -470,7 +456,7 @@ private:
 								mii.wID = ID_MENUITEM_reloadBegin + index;
 								tstringi name(what.str(1));
 								mii.dwTypeData = const_cast<_TCHAR *>(name.c_str());
-								mii.cch = name.size();
+								mii.cch = (UINT)name.size();
 
 								InsertMenuItem(hMenuSubSub, index, TRUE, &mii);
 							}
@@ -502,13 +488,13 @@ private:
 						// escape NLS keys success
 						break;
 					case YAMY_ERROR_TIMEOUT_INJECTION:
-						ret = This->errorDialogWithCode(IDS_escapeNlsKeysRetry, i_wParam, MB_RETRYCANCEL | MB_ICONSTOP);
+						ret = This->errorDialogWithCode(IDS_escapeNlsKeysRetry, (int)i_wParam, MB_RETRYCANCEL | MB_ICONSTOP);
 						if (ret == IDRETRY) {
 							This->m_fixScancodeMap.escape(true);
 						}
 						break;
 					default:
-						This->errorDialogWithCode(IDS_escapeNlsKeysFailed, i_wParam, MB_OK);
+						This->errorDialogWithCode(IDS_escapeNlsKeysFailed, (int)i_wParam, MB_OK);
 						break;
 					}
 				} else {
@@ -1030,6 +1016,9 @@ public:
 			m_isSettingDialogOpened(false),
 			m_sessionState(0),
 			m_engine(m_log) {
+
+		m_threadWatcher.reset(new ThreadWatcher(&m_engine));
+
 		Registry reg(MAYU_REGISTRY_ROOT);
 		reg.read(_T("escapeNLSKeys"), &m_escapeNlsKeys, 0);
 		m_hNotifyMailslot = CreateMailslot(NOTIFY_MAILSLOT_NAME, 0, MAILSLOT_WAIT_FOREVER, (SECURITY_ATTRIBUTES *)NULL);

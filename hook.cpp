@@ -94,7 +94,6 @@ static Globals g;
 // Prototypes
 
 
-static void notifyThreadDetach();
 static void notifyShow(NotifyShow::Show i_show, bool i_isMDI);
 static void notifyLog(_TCHAR *i_msg);
 static bool mapHookData(bool i_isYamy);
@@ -187,7 +186,6 @@ BOOL WINAPI DllMain(HINSTANCE i_hInstDLL, DWORD i_fdwReason,
 	case DLL_THREAD_ATTACH:
 		break;
 	case DLL_PROCESS_DETACH:
-		notifyThreadDetach();
 		unmapHookData();
 		if (g.m_hMailslot != INVALID_HANDLE_VALUE) {
 			CloseHandle(g.m_hMailslot);
@@ -201,7 +199,6 @@ BOOL WINAPI DllMain(HINSTANCE i_hInstDLL, DWORD i_fdwReason,
 #endif // HOOK_LOG_TO_FILE
 		break;
 	case DLL_THREAD_DETACH:
-		notifyThreadDetach();
 		break;
 	default:
 		break;
@@ -271,7 +268,7 @@ bool notify(void *i_data, size_t i_dataSize)
 	DWORD len;
 	if (g.m_hMailslot != INVALID_HANDLE_VALUE) {
 		BOOL ret;
-		ret = WriteFile(g.m_hMailslot, i_data, i_dataSize, &len, NULL);
+		ret = WriteFile(g.m_hMailslot, i_data, (DWORD)i_dataSize, &len, NULL);
 #ifndef NDEBUG
 		if (ret == 0) {
 			HOOK_RPT2("MAYU: %S WriteFile to mailslot failed(0x%08x)\r\n", g.m_moduleName, GetLastError());
@@ -281,7 +278,7 @@ bool notify(void *i_data, size_t i_dataSize)
 #endif // !NDEBUG
 	} else {
 		cd.dwData = reinterpret_cast<Notify *>(i_data)->m_type;
-		cd.cbData = i_dataSize;
+		cd.cbData = (DWORD)i_dataSize;
 		cd.lpData = i_data;
 		if (g.m_hwndTaskTray == 0 || cd.dwData == Notify::Type_threadDetach)
 			return false;
@@ -420,16 +417,6 @@ static void notifySync()
 }
 
 
-/// notify DLL_THREAD_DETACH
-static void notifyThreadDetach()
-{
-	NotifyThreadDetach ntd;
-	ntd.m_type = Notify::Type_threadDetach;
-	ntd.m_threadId = GetCurrentThreadId();
-	notify(&ntd, sizeof(ntd));
-}
-
-
 /// notify WM_COMMAND, WM_SYSCOMMAND
 static void notifyCommand(
 	HWND i_hwnd, UINT i_message, WPARAM i_wParam, LPARAM i_lParam)
@@ -498,13 +485,13 @@ static void funcRecenter(HWND i_hwnd)
 	POINTL p = { (rc.right + rc.left) / 2, (rc.top + rc.bottom) / 2 };
 	int line;
 	if (isEdit) {
-		line = SendMessage(i_hwnd, EM_CHARFROMPOS, 0, MAKELPARAM(p.x, p.y));
+		line = (int)SendMessage(i_hwnd, EM_CHARFROMPOS, 0, MAKELPARAM(p.x, p.y));
 		line = HIWORD(line);
 	} else {
-		int ci = SendMessage(i_hwnd, EM_CHARFROMPOS, 0, (LPARAM)&p);
-		line = SendMessage(i_hwnd, EM_EXLINEFROMCHAR, 0, ci);
+		int ci = (int)SendMessage(i_hwnd, EM_CHARFROMPOS, 0, (LPARAM)&p);
+		line = (int)SendMessage(i_hwnd, EM_EXLINEFROMCHAR, 0, ci);
 	}
-	int caretLine = SendMessage(i_hwnd, EM_LINEFROMCHAR, -1, 0);
+	int caretLine = (int)SendMessage(i_hwnd, EM_LINEFROMCHAR, -1, 0);
 	SendMessage(i_hwnd, EM_LINESCROLL, 0, caretLine - line);
 }
 
@@ -648,10 +635,10 @@ LRESULT CALLBACK getMessageProc(int i_nCode, WPARAM i_wParam, LPARAM i_lParam)
 				funcRecenter(msg.hwnd);
 				break;
 			case MayuMessage_funcSetImeStatus:
-				funcSetImeStatus(msg.hwnd, msg.lParam);
+				funcSetImeStatus(msg.hwnd, (int)msg.lParam);
 				break;
 			case MayuMessage_funcSetImeString:
-				funcSetImeString(msg.hwnd, msg.lParam);
+				funcSetImeString(msg.hwnd, (int)msg.lParam);
 				break;
 			}
 		}
