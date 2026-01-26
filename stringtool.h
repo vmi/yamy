@@ -12,7 +12,7 @@
 #  include <iosfwd>
 #  include <fstream>
 #  include <locale>
-#  include <boost/regex.hpp>
+#  include <regex>
 #  include <stdio.h>				// for snprintf
 
 
@@ -31,9 +31,33 @@ typedef std::basic_ifstream<_TCHAR> tifstream;
 /// ofstream for generic international text
 typedef std::basic_ofstream<_TCHAR> tofstream;
 /// basic_regex for generic international text
-typedef boost::basic_regex<_TCHAR> tregex;
+class tregex : public std::basic_regex<_TCHAR> {
+private:
+    tstring m_pattern;
+
+public:
+	tregex() : std::basic_regex<_TCHAR>(), m_pattern() {
+    }
+
+	tregex(const _TCHAR* i_pattern,
+		std::regex::flag_type i_flags = (std::regex::ECMAScript))
+		: std::basic_regex<_TCHAR>(i_pattern, i_flags),
+		m_pattern(i_pattern) {
+	}
+
+	tregex(const tstring &i_pattern,
+		std::regex::flag_type i_flags = (std::regex::ECMAScript))
+		: std::basic_regex<_TCHAR>(i_pattern, i_flags),
+		m_pattern(i_pattern) {
+	}
+
+	const tstring &str() const {
+		return m_pattern;
+    }
+
+};
 /// match_results for generic international text
-typedef boost::match_results<tstring::const_iterator> tsmatch;
+typedef std::match_results<tstring::const_iterator> tsmatch;
 
 
 /// string with custom stream output

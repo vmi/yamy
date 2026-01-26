@@ -147,11 +147,11 @@ tstringi normalizePath(tstringi i_path)
 {
 	tregex regSlash(_T("^(.*)/(.*)$"));
 	tsmatch what;
-	while (boost::regex_search(i_path, what, regSlash))
+	while (std::regex_search(i_path, what, regSlash))
 		i_path = what.str(1) + _T("\\") + what.str(2);
 
 	tregex regTailBackSlash(_T("^(.*)\\\\$"));
-	while (boost::regex_search(i_path, what, regTailBackSlash))
+	while (std::regex_search(i_path, what, regTailBackSlash))
 		i_path = what.str(1);
 
 	return i_path;
@@ -197,7 +197,7 @@ tstringi getModuleDirectory()
 	tregex reg(_T("^(.*)\\\\[^\\\\]*$"));
 	tsmatch what;
 	tstringi path(buf);
-	if (boost::regex_search(path, what, reg))
+	if (std::regex_search(path, what, reg))
 		return what.str(1);
 	else
 		return path;

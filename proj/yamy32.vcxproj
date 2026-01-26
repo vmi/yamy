@@ -153,10 +153,6 @@
       <Project>{33af9375-55c1-480e-93cc-52951d42858f}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="regex32.vcxproj">
-      <Project>{2376fa78-c8b7-4ed0-b4e3-b5ad778a8c0f}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="yamy32dll.vcxproj">
       <Project>{af8183b3-0ff2-4a6a-8b8d-9bb9baee6dcc}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
