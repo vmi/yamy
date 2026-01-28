@@ -362,7 +362,7 @@ static void updateShow(HWND i_hwnd, NotifyShow::Show i_show)
 #else
 	LONG style = GetWindowLong(i_hwnd, GWL_STYLE);
 #endif
-	if (!(style & WS_MAXIMIZEBOX) && !(style & WS_MAXIMIZEBOX))
+	if ((style & (WS_MAXIMIZEBOX | WS_MINIMIZEBOX)) == 0)
 		return; // ignore window that has neither maximize or minimize button
 
 	if (style & WS_CHILD) {
