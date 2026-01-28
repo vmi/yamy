@@ -543,7 +543,7 @@ static void funcSetImeString(HWND i_hwnd, int i_size)
 	CloseHandle(hPipe);
 
 	ImeDescLen = ImmGetDescription(GetKeyboardLayout(0),
-								   ImeDesc, sizeof(ImeDesc));
+								   ImeDesc, NUMBER_OF(ImeDesc));
 	if (_tcsncmp(ImeDesc, _T("SKKIME"), ImeDescLen) > 0)
 		denom = sizeof(_TCHAR);
 
