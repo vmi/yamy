@@ -50,9 +50,17 @@ struct Notify {
 ///
 struct NotifySetFocus : public Notify {
 	DWORD m_threadId;				///
-	DWORD m_hwnd;				///
+	DWORD _m_hwnd;				///
 	_TCHAR m_className[GANA_MAX_PATH];		///
 	_TCHAR m_titleName[GANA_MAX_PATH];		///
+
+	inline HWND getHwnd() const {
+		return reinterpret_cast<HWND>(static_cast<uintptr_t>(_m_hwnd));
+	}
+
+	inline void setHwnd(HWND i_hwnd) {
+		_m_hwnd = static_cast<DWORD>(reinterpret_cast<uintptr_t>(i_hwnd));
+    }
 };
 
 
@@ -138,12 +146,28 @@ public:
 	USHORT m_syncKey;				///
 	bool m_syncKeyIsExtended;			///
 	bool m_doesNotifyCommand;			///
-	DWORD m_hwndTaskTray;				///
+	DWORD _m_hwndTaskTray;				///
 	bool m_correctKanaLockHandling;		/// does use KL- ?
 	MouseHookType m_mouseHookType;		///
 	int m_mouseHookParam;			///
-	DWORD m_hwndMouseHookTarget;		///
+	DWORD _m_hwndMouseHookTarget;		///
 	POINT m_mousePos;				///
+
+	inline HWND getHwndTaskTray() const {
+		return reinterpret_cast<HWND>(static_cast<uintptr_t>(_m_hwndTaskTray));
+    }
+
+	inline void setHwndTaskTray(HWND i_hwnd) {
+		_m_hwndTaskTray = static_cast<DWORD>(reinterpret_cast<uintptr_t>(i_hwnd));
+	}
+
+	inline HWND getHwndMouseHookTarget() const {
+		return reinterpret_cast<HWND>(static_cast<uintptr_t>(_m_hwndMouseHookTarget));
+    }
+
+	inline void setHwndMouseHookTarget(HWND i_hwnd) {
+		_m_hwndMouseHookTarget = static_cast<DWORD>(reinterpret_cast<uintptr_t>(i_hwnd));
+	}
 };
 
 
@@ -155,7 +179,7 @@ public:
 
 #  ifndef _HOOK_CPP
 extern DllImport HookData *g_hookData;
-extern DllImport int installMessageHook(DWORD i_hwndTaskTray);
+extern DllImport int installMessageHook(HWND i_hwndTaskTray);
 extern DllImport int uninstallMessageHook();
 extern DllImport int installKeyboardHook(INPUT_DETOUR i_keyboardDetour, Engine *i_engine, bool i_install);
 extern DllImport int installMouseHook(INPUT_DETOUR i_mouseDetour, Engine *i_engine, bool i_install);

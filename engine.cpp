@@ -853,7 +853,7 @@ unsigned int Engine::mouseDetour(WPARAM i_message, MSLLHOOKSTRUCT *i_mid)
 		case WM_MOUSEMOVE: {
 			LONG dx = i_mid->pt.x - g_hookData->m_mousePos.x;
 			LONG dy = i_mid->pt.y - g_hookData->m_mousePos.y;
-			HWND target = reinterpret_cast<HWND>(g_hookData->m_hwndMouseHookTarget);
+			HWND target = g_hookData->getHwndMouseHookTarget();
 
 			LONG dr = 0;
 			dr += (i_mid->pt.x - m_msllHookCurrent.pt.x) * (i_mid->pt.x - m_msllHookCurrent.pt.x);

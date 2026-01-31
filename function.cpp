@@ -2240,11 +2240,10 @@ void Engine::funcMouseHook(FunctionParam *i_param,
 		else
 			target = i_param->m_hwnd;
 
-		g_hookData->m_hwndMouseHookTarget =
-			reinterpret_cast<DWORD>(getToplevelWindow(target, &isMDI));
+		g_hookData->setHwndMouseHookTarget(getToplevelWindow(target, &isMDI));
 		break;
 		default:
-			g_hookData->m_hwndMouseHookTarget = NULL;
+			g_hookData->setHwndMouseHookTarget(NULL);
 			break;
 		}
 	}

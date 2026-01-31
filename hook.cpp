@@ -75,7 +75,7 @@ struct Globals {
 	INPUT_DETOUR m_keyboardDetour;
 	INPUT_DETOUR m_mouseDetour;
 	Engine *m_engine;
-	DWORD m_hwndTaskTray;				///
+	HWND m_hwndTaskTray;				///
 	HANDLE m_hMailslot;
 	bool m_isInitialized;
 #ifdef HOOK_LOG_TO_FILE
@@ -160,7 +160,7 @@ bool initialize(bool i_isYamy)
 	_tsetlocale(LC_ALL, _T(""));
 	g.m_WM_MAYU_MESSAGE =
 		RegisterWindowMessage(addSessionId(WM_MAYU_MESSAGE_NAME).c_str());
-	g.m_hwndTaskTray = g_hookData->m_hwndTaskTray;
+	g.m_hwndTaskTray = g_hookData->getHwndTaskTray();
 	if (!i_isYamy) {
 		NotifyThreadAttach ntd;
 		ntd.m_type = Notify::Type_threadAttach;
@@ -391,7 +391,7 @@ static void notifyName(HWND i_hwnd, Notify::Type i_type = Notify::Type_name)
 	NotifySetFocus *nfc = new NotifySetFocus;
 	nfc->m_type = i_type;
 	nfc->m_threadId = GetCurrentThreadId();
-	nfc->m_hwnd = reinterpret_cast<DWORD>(i_hwnd);
+	nfc->setHwnd(i_hwnd);
 	tcslcpy(nfc->m_className, className.c_str(), NUMBER_OF(nfc->m_className));
 	tcslcpy(nfc->m_titleName, titleName.c_str(), NUMBER_OF(nfc->m_titleName));
 
@@ -822,15 +822,15 @@ through:
 
 
 /// install message hook
-DllExport int installMessageHook(DWORD i_hwndTaskTray)
+DllExport int installMessageHook(HWND i_hwndTaskTray)
 {
 	if (!g.m_isInitialized)
 		initialize(true);
 
 	if (i_hwndTaskTray) {
-		g_hookData->m_hwndTaskTray = i_hwndTaskTray;
+		g_hookData->setHwndTaskTray(i_hwndTaskTray);
 	}
-	g.m_hwndTaskTray = g_hookData->m_hwndTaskTray;
+	g.m_hwndTaskTray = g_hookData->getHwndTaskTray();
 	s_hookDataArch->m_hHookGetMessage =
 		SetWindowsHookEx(WH_GETMESSAGE, (HOOKPROC)getMessageProc,
 						 g.m_hInstDLL, 0);
