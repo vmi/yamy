@@ -470,7 +470,7 @@ private:
 								mii.wID = ID_MENUITEM_reloadBegin + index;
 								tstringi name(what.str(1));
 								mii.dwTypeData = const_cast<_TCHAR *>(name.c_str());
-								mii.cch = name.size();
+								mii.cch = static_cast<UINT>(name.size());
 
 								InsertMenuItem(hMenuSubSub, index, TRUE, &mii);
 							}
@@ -502,13 +502,13 @@ private:
 						// escape NLS keys success
 						break;
 					case YAMY_ERROR_TIMEOUT_INJECTION:
-						ret = This->errorDialogWithCode(IDS_escapeNlsKeysRetry, i_wParam, MB_RETRYCANCEL | MB_ICONSTOP);
+						ret = This->errorDialogWithCode(IDS_escapeNlsKeysRetry, (int)i_wParam, MB_RETRYCANCEL | MB_ICONSTOP);
 						if (ret == IDRETRY) {
 							This->m_fixScancodeMap.escape(true);
 						}
 						break;
 					default:
-						This->errorDialogWithCode(IDS_escapeNlsKeysFailed, i_wParam, MB_OK);
+						This->errorDialogWithCode(IDS_escapeNlsKeysFailed, (int)i_wParam, MB_OK);
 						break;
 					}
 				} else {

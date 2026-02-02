@@ -987,13 +987,13 @@ void Engine::shellExecute()
 		reinterpret_cast<FunctionData_ShellExecute *>(
 			m_afShellExecute->m_functionData);
 
-	int r = (int)ShellExecute(
+	int r = static_cast<int>(reinterpret_cast<intptr_t>(ShellExecute(
 				NULL,
 				fd->m_operation.eval().empty() ? _T("open") : fd->m_operation.eval().c_str(),
 				fd->m_file.eval().empty() ? NULL : fd->m_file.eval().c_str(),
 				fd->m_parameters.eval().empty() ? NULL : fd->m_parameters.eval().c_str(),
 				fd->m_directory.eval().empty() ? NULL : fd->m_directory.eval().c_str(),
-				fd->m_showCommand);
+				fd->m_showCommand)));
 	if (32 < r)
 		return; // success
 
@@ -1108,14 +1108,14 @@ void Engine::funcLoadSetting(FunctionParam *i_param, const StrExprArg &i_name)
 		tstringi dot_mayu;
 		for (size_t i = 0; i < MAX_MAYU_REGISTRY_ENTRIES; ++ i) {
 			_TCHAR buf[100];
-			_sntprintf(buf, NUMBER_OF(buf), _T(".mayu%d"), i);
+			_sntprintf(buf, NUMBER_OF(buf), _T(".mayu%d"), (int)i);
 			if (!reg.read(buf, &dot_mayu))
 				break;
 
 			tsmatch what;
 			if (std::regex_match(dot_mayu, what, split) &&
 					what.str(1) == i_name.eval()) {
-				reg.write(_T(".mayuIndex"), i);
+				reg.write(_T(".mayuIndex"), (int)i);
 				goto success;
 			}
 		}
@@ -1450,9 +1450,9 @@ static BOOL CALLBACK enumDisplayMonitorsForWindowMonitorTo(
 	ep.m_monitorinfos.push_back(mi);
 
 	if (mi.dwFlags & MONITORINFOF_PRIMARY)
-		ep.m_primaryMonitorIdx = ep.m_monitors.size() - 1;
+		ep.m_primaryMonitorIdx = (int)ep.m_monitors.size() - 1;
 	if (i_hmon == ep.m_hmon)
-		ep.m_currentMonitorIdx = ep.m_monitors.size() - 1;
+		ep.m_currentMonitorIdx = (int)ep.m_monitors.size() - 1;
 
 	return TRUE;
 }
@@ -1609,7 +1609,7 @@ void Engine::funcWindowIdentify(FunctionParam *i_param)
 			{
 				Acquire a(&m_log, 1);
 				m_log << _T("HWND:\t") << std::hex
-				<< reinterpret_cast<int>(i_param->m_hwnd)
+				<< static_cast<DWORD>(reinterpret_cast<uintptr_t>(i_param->m_hwnd))
 				<< std::dec << std::endl;
 			}
 			Acquire a(&m_log, 0);
@@ -1908,7 +1908,7 @@ void Engine::funcSetImeString(FunctionParam *i_param, const StrExprArg &i_data)
 		DisconnectNamedPipe(m_hookPipe);
 		ConnectNamedPipe(m_hookPipe, NULL);
 		error = WriteFile(m_hookPipe, i_data.eval().c_str(),
-						  i_data.eval().size() * sizeof(_TCHAR),
+						  (DWORD)(i_data.eval().size() * sizeof(_TCHAR)),
 						  &len, NULL);
 
 		//FlushFileBuffers(m_hookPipe);
@@ -1962,7 +1962,7 @@ public:
 			(*m_directSSTPServers)[id].m_path = value;
 		else if (member == _T("hwnd"))
 			(*m_directSSTPServers)[id].m_hwnd =
-				reinterpret_cast<HWND>(_ttoi(value.c_str()));
+				reinterpret_cast<HWND>(static_cast<uintptr_t>(static_cast<unsigned>(_ttoi(value.c_str()))));
 		else if (member == _T("name"))
 			(*m_directSSTPServers)[id].m_name = value;
 		else if (member == _T("keroname"))
@@ -2044,7 +2044,7 @@ void Engine::funcDirectSSTP(FunctionParam *i_param,
 
 	_TCHAR buf[100];
 	_sntprintf(buf, NUMBER_OF(buf), _T("HWnd: %d\r\n"),
-			   reinterpret_cast<int>(m_hwndAssocWindow));
+			   (int) reinterpret_cast<uintptr_t>(m_hwndAssocWindow));
 	request += buf;
 
 #ifdef _UNICODE
@@ -2066,7 +2066,7 @@ void Engine::funcDirectSSTP(FunctionParam *i_param,
 			COPYDATASTRUCT cd;
 			cd.dwData = 9801;
 #ifdef _UNICODE
-			cd.cbData = request_UTF_8.size();
+			cd.cbData = (DWORD)request_UTF_8.size();
 			cd.lpData = (void *)request_UTF_8.c_str();
 #else
 			cd.cbData = request.size();

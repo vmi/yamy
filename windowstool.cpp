@@ -224,7 +224,7 @@ bool setForegroundWindow(HWND i_hwnd)
 
 	SetForegroundWindow(i_hwnd);
 
-	SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, (void *)sp_time, 0);
+	SystemParametersInfo(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, reinterpret_cast<void *>(static_cast<uintptr_t>(sp_time)), 0);
 
 	AttachThreadInput(nTargetID, nForegroundID, FALSE);
 	return true;

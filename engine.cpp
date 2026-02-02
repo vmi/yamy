@@ -45,7 +45,7 @@ restart:
 						FocusOfThread *fot = &((*j).second);
 						Acquire a(&m_log, 1);
 						m_log << _T("RemoveThread") << std::endl;
-						m_log << _T("\tHWND:\t") << std::hex << (int)fot->m_hwndFocus
+						m_log << _T("\tHWND:\t") << std::hex << static_cast<DWORD>(reinterpret_cast<uintptr_t>(fot->m_hwndFocus))
 						<< std::dec << std::endl;
 						m_log << _T("\tTHREADID:") << fot->m_threadId << std::endl;
 						m_log << _T("\tCLASS:\t") << fot->m_className << std::endl;
@@ -72,7 +72,7 @@ restart:
 					Acquire a(&m_log, 1);
 					m_log << _T("FocusChanged") << std::endl;
 					m_log << _T("\tHWND:\t")
-					<< std::hex << (int)m_currentFocusOfThread->m_hwndFocus
+					<< std::hex << static_cast<DWORD>(reinterpret_cast<uintptr_t>(m_currentFocusOfThread->m_hwndFocus))
 					<< std::dec << std::endl;
 					m_log << _T("\tTHREADID:")
 					<< m_currentFocusOfThread->m_threadId << std::endl;
@@ -94,7 +94,7 @@ restart:
 					titleName[0] = _T('\0');
 				setFocus(hwndFore, threadId, className, titleName, true);
 				Acquire a(&m_log, 1);
-				m_log << _T("HWND:\t") << std::hex << reinterpret_cast<int>(hwndFore)
+				m_log << _T("HWND:\t") << std::hex << static_cast<DWORD>(reinterpret_cast<uintptr_t>(hwndFore))
 				<< std::dec << std::endl;
 				m_log << _T("THREADID:") << threadId << std::endl;
 				m_log << _T("CLASS:\t") << className << std::endl;
@@ -770,7 +770,7 @@ unsigned int Engine::keyboardDetour(KBDLLHOOKSTRUCT *i_kid)
 		KEYBOARD_INPUT_DATA kid;
 
 		kid.UnitId = 0;
-		kid.MakeCode = i_kid->scanCode;
+		kid.MakeCode = static_cast<USHORT>(i_kid->scanCode);
 		kid.Flags = 0;
 		if (i_kid->flags & LLKHF_UP) {
 			kid.Flags |= KEYBOARD_INPUT_DATA::BREAK;
