@@ -51,6 +51,20 @@ public:
 		m_pattern(i_pattern) {
 	}
 
+	tregex& assign(const _TCHAR* i_pattern,
+		std::regex::flag_type i_flags = (std::regex::ECMAScript)) {
+		std::basic_regex<_TCHAR>::assign(i_pattern, i_flags);
+		m_pattern = i_pattern;
+		return *this;
+    }
+
+	tregex& assign(const tstring &i_pattern,
+		std::regex::flag_type i_flags = (std::regex::ECMAScript)) {
+		std::basic_regex<_TCHAR>::assign(i_pattern, i_flags);
+		m_pattern = i_pattern;
+		return *this;
+    }
+
 	const tstring &str() const {
 		return m_pattern;
     }
