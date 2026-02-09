@@ -3,7 +3,7 @@
 
 
 #include "stringtool.h"
-#include "array.h"
+#include <vector>
 #include <locale>
 #include <malloc.h>
 #include <mbstring.h>
@@ -242,9 +242,9 @@ tstring interpretMetaCharacters(const _TCHAR *i_str, size_t i_len,
 								bool i_doesUseRegexpBackReference)
 {
 	// interpreted string is always less than i_len
-	Array<_TCHAR> result(i_len + 1);
+	std::vector<_TCHAR> result(i_len + 1);
 	// destination
-	_TCHAR *d = result.get();
+	_TCHAR *d = result.data();
 	// end pointer
 	const _TCHAR *end = i_str + i_len;
 
@@ -379,7 +379,7 @@ case_default:
 		}
 	}
 	*d =_T('\0');
-	return result.get();
+	return result.data();
 }
 
 
@@ -402,8 +402,8 @@ tstring addSessionId(const _TCHAR *i_str)
 std::string guardRegexpFromMbcs(const char *i_str)
 {
 	size_t len = strlen(i_str);
-	Array<char> buf(len * 2 + 1);
-	char *p = buf.get();
+	std::vector<char> buf(len * 2 + 1);
+	char *p = buf.data();
 	while (*i_str) {
 		if (_ismbblead(static_cast<u_char>(*i_str)) && i_str[1]) {
 			*p ++ = *i_str ++;
@@ -412,7 +412,7 @@ std::string guardRegexpFromMbcs(const char *i_str)
 		}
 		*p ++ = *i_str ++;
 	}
-	return std::string(buf.get(), p);
+	return std::string(buf.data(), p);
 }
 #endif // !_MBCS
 
@@ -423,9 +423,9 @@ std::wstring to_wstring(const std::string &i_str)
 	size_t size = mbstowcs(NULL, i_str.c_str(), i_str.size() + 1);
 	if (size == (size_t)-1)
 		return std::wstring();
-	Array<wchar_t> result(size + 1);
-	mbstowcs(result.get(), i_str.c_str(), i_str.size() + 1);
-	return std::wstring(result.get());
+	std::vector<wchar_t> result(size + 1);
+	mbstowcs(result.data(), i_str.c_str(), i_str.size() + 1);
+	return std::wstring(result.data());
 }
 
 
@@ -435,9 +435,9 @@ std::string to_string(const std::wstring &i_str)
 	size_t size = wcstombs(NULL, i_str.c_str(), i_str.size() + 1);
 	if (size == (size_t)-1)
 		return std::string();
-	Array<char> result(size + 1);
-	wcstombs(result.get(), i_str.c_str(), i_str.size() + 1);
-	return std::string(result.get());
+	std::vector<char> result(size + 1);
+	wcstombs(result.data(), i_str.c_str(), i_str.size() + 1);
+	return std::string(result.data());
 }
 
 
@@ -481,7 +481,7 @@ std::string to_UTF_8(const std::wstring &i_str)
 			size += 3;
 	}
 
-	Array<char> result(size);
+	std::vector<char> result(size);
 	int ri = 0;
 
 	// make UTF-8

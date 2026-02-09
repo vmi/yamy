@@ -5,7 +5,7 @@
 #include "misc.h"
 
 #include "windowstool.h"
-#include "array.h"
+#include <vector>
 
 #include <windowsx.h>
 #include <malloc.h>
@@ -276,8 +276,8 @@ void editInsertTextAtLast(HWND i_hwnd, const tstring &i_text,
 	Edit_SetSel(i_hwnd, len, len);
 
 	// \n -> \r\n
-	Array<_TCHAR> buf(i_text.size() * 2 + 1);
-	_TCHAR *d = buf.get();
+	std::vector<_TCHAR> buf(i_text.size() * 2 + 1);
+	_TCHAR *d = buf.data();
 	const _TCHAR *str = i_text.c_str();
 	for (const _TCHAR *s = str; s < str + i_text.size(); ++ s) {
 		if (*s == _T('\n'))
@@ -286,7 +286,7 @@ void editInsertTextAtLast(HWND i_hwnd, const tstring &i_text,
 	}
 	*d = _T('\0');
 
-	Edit_ReplaceSel(i_hwnd, buf.get());
+	Edit_ReplaceSel(i_hwnd, buf.data());
 }
 
 

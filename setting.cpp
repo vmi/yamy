@@ -12,7 +12,7 @@
 #include "setting.h"
 #include "windowstool.h"
 #include "vkeytable.h"
-#include "array.h"
+#include <vector>
 
 #include <algorithm>
 #include <fstream>
@@ -1293,23 +1293,23 @@ bool readFile(tstring *o_data, const tstringi &i_filename)
 		return false;
 
 	// read file
-	Array<BYTE> buf(static_cast<size_t>(sbuf.st_size) + 1);
-	if (fread(buf.get(), static_cast<size_t>(sbuf.st_size), 1, fp) != 1) {
+	std::vector<BYTE> buf(static_cast<size_t>(sbuf.st_size) + 1);
+	if (fread(buf.data(), static_cast<size_t>(sbuf.st_size), 1, fp) != 1) {
 		fclose(fp);
 		return false;
 	}
-	buf.get()[sbuf.st_size] = 0;			// mbstowcs() requires null
+	buf[static_cast<size_t>(sbuf.st_size)] = 0;			// mbstowcs() requires null
 	// terminated string
 
 #ifdef _UNICODE
 	//
-	if (buf.get()[0] == 0xffU && buf.get()[1] == 0xfeU &&
+	if (buf[0] == 0xffU && buf[1] == 0xfeU &&
 			sbuf.st_size % 2 == 0)
 		// UTF-16 Little Endien
 	{
 		size_t size = static_cast<size_t>(sbuf.st_size) / 2;
 		o_data->resize(size);
-		BYTE *p = buf.get();
+		BYTE *p = buf.data();
 		for (size_t i = 0; i < size; ++ i) {
 			wchar_t c = static_cast<wchar_t>(*p ++);
 			c |= static_cast<wchar_t>(*p ++) << 8;
@@ -1320,13 +1320,13 @@ bool readFile(tstring *o_data, const tstringi &i_filename)
 	}
 
 	//
-	if (buf.get()[0] == 0xfeU && buf.get()[1] == 0xffU &&
+	if (buf[0] == 0xfeU && buf[1] == 0xffU &&
 			sbuf.st_size % 2 == 0)
 		// UTF-16 Big Endien
 	{
 		size_t size = static_cast<size_t>(sbuf.st_size) / 2;
 		o_data->resize(size);
-		BYTE *p = buf.get();
+		BYTE *p = buf.data();
 		for (size_t i = 0; i < size; ++ i) {
 			wchar_t c = static_cast<wchar_t>(*p ++) << 8;
 			c |= static_cast<wchar_t>(*p ++);
@@ -1337,21 +1337,21 @@ bool readFile(tstring *o_data, const tstringi &i_filename)
 	}
 
 	// try multibyte charset
-	size_t wsize = mbstowcs(NULL, reinterpret_cast<char *>(buf.get()), 0);
+	size_t wsize = mbstowcs(NULL, reinterpret_cast<char *>(buf.data()), 0);
 	if (wsize != size_t(-1)) {
-		Array<wchar_t> wbuf(wsize);
-		mbstowcs(wbuf.get(), reinterpret_cast<char *>(buf.get()), wsize);
-		o_data->assign(wbuf.get(), wbuf.get() + wsize);
+		std::vector<wchar_t> wbuf(wsize);
+		mbstowcs(wbuf.data(), reinterpret_cast<char *>(buf.data()), wsize);
+		o_data->assign(wbuf.data(), wbuf.data() + wsize);
 		fclose(fp);
 		return true;
 	}
 
 	// try UTF-8
 	{
-		Array<wchar_t> wbuf(static_cast<size_t>(sbuf.st_size));
-		BYTE *f = buf.get();
-		BYTE *end = buf.get() + sbuf.st_size;
-		wchar_t *d = wbuf.get();
+		std::vector<wchar_t> wbuf(static_cast<size_t>(sbuf.st_size));
+		BYTE *f = buf.data();
+		BYTE *end = buf.data() + sbuf.st_size;
+		wchar_t *d = wbuf.data();
 		enum { STATE_1, STATE_2of2, STATE_2of3, STATE_3of3 } state = STATE_1;
 
 		while (f != end) {
@@ -1387,7 +1387,7 @@ bool readFile(tstring *o_data, const tstringi &i_filename)
 				break;
 			}
 		}
-		o_data->assign(wbuf.get(), d);
+		o_data->assign(wbuf.data(), d);
 		fclose(fp);
 		return true;
 
@@ -1399,7 +1399,7 @@ not_UTF_8:
 	// assume ascii
 	o_data->resize(static_cast<size_t>(sbuf.st_size));
 	for (off_t i = 0; i < sbuf.st_size; ++ i)
-		(*o_data)[i] = buf.get()[i];
+		(*o_data)[i] = buf[i];
 	fclose(fp);
 	return true;
 }

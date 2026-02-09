@@ -4,7 +4,7 @@
 
 #include "registry.h"
 #include "stringtool.h"
-#include "array.h"
+#include <vector>
 #include <malloc.h>
 
 
@@ -110,11 +110,11 @@ bool Registry::read(HKEY i_root, const tstring &i_path, const tstring &i_name,
 			if (ERROR_MORE_DATA ==
 					RegQueryValueEx(hkey, i_name.c_str(), NULL, &type, &dummy, &size)) {
 				if (0 < size) {
-					Array<BYTE> buf(size);
+					std::vector<BYTE> buf(size);
 					if (ERROR_SUCCESS == RegQueryValueEx(hkey, i_name.c_str(),
-														 NULL, &type, buf.get(), &size)) {
+														 NULL, &type, buf.data(), &size)) {
 						buf.back() = 0;
-						*o_value = reinterpret_cast<_TCHAR *>(buf.get());
+						*o_value = reinterpret_cast<_TCHAR *>(buf.data());
 						RegCloseKey(hkey);
 						return true;
 					}
@@ -182,13 +182,13 @@ bool Registry::read(HKEY i_root, const tstring &i_path, const tstring &i_name,
 		if (ERROR_MORE_DATA ==
 				RegQueryValueEx(hkey, i_name.c_str(), NULL, &type, &dummy, &size)) {
 			if (0 < size) {
-				Array<BYTE> buf(size);
+				std::vector<BYTE> buf(size);
 				if (ERROR_SUCCESS == RegQueryValueEx(hkey, i_name.c_str(),
-													 NULL, &type, buf.get(), &size)) {
+													 NULL, &type, buf.data(), &size)) {
 					buf.back() = 0;
 					o_value->clear();
-					const _TCHAR *p = reinterpret_cast<_TCHAR *>(buf.get());
-					const _TCHAR *end = reinterpret_cast<_TCHAR *>(buf.end());
+					const _TCHAR *p = reinterpret_cast<_TCHAR *>(buf.data());
+					const _TCHAR *end = reinterpret_cast<_TCHAR *>(buf.data() + buf.size());
 					while (p < end && *p) {
 						o_value->push_back(p);
 						p += o_value->back().length() + 1;
