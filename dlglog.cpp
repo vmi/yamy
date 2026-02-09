@@ -60,7 +60,7 @@ public:
 		m_log->setDebugLevel(isChecked ? 1 : 0);
 
 		// set layout manager
-		typedef LayoutManager LM;
+		using LM = LayoutManager;
 		addItem(GetDlgItem(m_hwnd, IDOK),
 				LM::ORIGIN_LEFT_EDGE, LM::ORIGIN_BOTTOM_EDGE,
 				LM::ORIGIN_LEFT_EDGE, LM::ORIGIN_BOTTOM_EDGE);

@@ -87,7 +87,7 @@ tostream &operator<<(tostream &i_ost, VKey i_data)
 
 
 // ToWindowType table
-typedef TypeTable<ToWindowType> TypeTable_ToWindowType;
+using TypeTable_ToWindowType = TypeTable<ToWindowType>;
 static const TypeTable_ToWindowType g_toWindowTypeTable[] = {
 	{ ToWindowType_toOverlappedWindow, _T("toOverlappedWindow") },
 	{ ToWindowType_toMainWindow,       _T("toMainWindow")       },
@@ -122,7 +122,7 @@ bool getTypeValue(ToWindowType *o_type, const tstring &i_name)
 
 
 // GravityType table
-typedef TypeTable<GravityType> TypeTable_GravityType;
+using TypeTable_GravityType = TypeTable<GravityType>;
 static const TypeTable_GravityType g_gravityTypeTable[] = {
 	{ GravityType_C,  _T("C")  },
 	{ GravityType_N,  _T("N")  },
@@ -166,7 +166,7 @@ bool getTypeValue(GravityType *o_type, const tstring &i_name)
 
 
 // MouseHookType table
-typedef TypeTable<MouseHookType> TypeTable_MouseHookType;
+using TypeTable_MouseHookType = TypeTable<MouseHookType>;
 static const TypeTable_MouseHookType g_mouseHookTypeTable[] = {
 	{ MouseHookType_None,  _T("None")  },
 	{ MouseHookType_Wheel,  _T("Wheel")  },
@@ -200,7 +200,7 @@ bool getTypeValue(MouseHookType *o_type, const tstring &i_name)
 
 
 // ModifierLockType table
-typedef TypeTable<MayuDialogType> TypeTable_MayuDialogType;
+using TypeTable_MayuDialogType = TypeTable<MayuDialogType>;
 static const TypeTable_MayuDialogType g_mayuDialogTypeTable[] = {
 	{ MayuDialogType_investigate, _T("investigate")  },
 	{ MayuDialogType_log,         _T("log")          },
@@ -233,7 +233,7 @@ bool getTypeValue(MayuDialogType *o_type, const tstring &i_name)
 
 
 // ToggleType table
-typedef TypeTable<ToggleType> TypeTable_ToggleType;
+using TypeTable_ToggleType = TypeTable<ToggleType>;
 static const TypeTable_ToggleType g_toggleType[] = {
 	{ ToggleType_toggle, _T("toggle") },
 	{ ToggleType_off, _T("off") },
@@ -270,7 +270,7 @@ bool getTypeValue(ToggleType *o_type, const tstring &i_name)
 
 
 // ModifierLockType table
-typedef TypeTable<ModifierLockType> TypeTable_ModifierLockType;
+using TypeTable_ModifierLockType = TypeTable<ModifierLockType>;
 static const TypeTable_ModifierLockType g_modifierLockTypeTable[] = {
 	{ ModifierLockType_Lock0, _T("lock0") },
 	{ ModifierLockType_Lock1, _T("lock1") },
@@ -311,7 +311,7 @@ bool getTypeValue(ModifierLockType *o_type, const tstring &i_name)
 
 
 // ShowCommandType table
-typedef TypeTable<ShowCommandType> TypeTable_ShowCommandType;
+using TypeTable_ShowCommandType = TypeTable<ShowCommandType>;
 static const TypeTable_ShowCommandType g_showCommandTypeTable[] = {
 	{ ShowCommandType_hide,            _T("hide")            },
 	{ ShowCommandType_maximize,        _T("maximize")        },
@@ -354,7 +354,7 @@ bool getTypeValue(ShowCommandType *o_type, const tstring &i_name)
 
 
 // ModifierLockType table
-typedef TypeTable<TargetWindowType> TypeTable_TargetWindowType;
+using TypeTable_TargetWindowType = TypeTable<TargetWindowType>;
 static const TypeTable_TargetWindowType g_targetWindowType[] = {
 	{ TargetWindowType_overlapped, _T("overlapped") },
 	{ TargetWindowType_mdi,        _T("mdi")        },
@@ -387,7 +387,7 @@ bool getTypeValue(TargetWindowType *o_type, const tstring &i_name)
 
 
 // BooleanType table
-typedef TypeTable<BooleanType> TypeTable_BooleanType;
+using TypeTable_BooleanType = TypeTable<BooleanType>;
 static const TypeTable_BooleanType g_booleanType[] = {
 	{ BooleanType_false, _T("false") },
 	{ BooleanType_true,  _T("true")  },
@@ -419,7 +419,7 @@ bool getTypeValue(BooleanType *o_type, const tstring &i_name)
 
 
 // LogicalOperatorType table
-typedef TypeTable<LogicalOperatorType> TypeTable_LogicalOperatorType;
+using TypeTable_LogicalOperatorType = TypeTable<LogicalOperatorType>;
 static const TypeTable_LogicalOperatorType g_logicalOperatorType[] = {
 	{ LogicalOperatorType_or, _T("||") },
 	{ LogicalOperatorType_and,  _T("&&")  },
@@ -452,7 +452,7 @@ bool getTypeValue(LogicalOperatorType *o_type, const tstring &i_name)
 
 
 // WindowMonitorFromType table
-typedef TypeTable<WindowMonitorFromType> TypeTable_WindowMonitorFromType;
+using TypeTable_WindowMonitorFromType = TypeTable<WindowMonitorFromType>;
 static const TypeTable_WindowMonitorFromType g_windowMonitorFromType[] = {
 	{ WindowMonitorFromType_primary, _T("primary") },
 	{ WindowMonitorFromType_current, _T("current") },
@@ -520,7 +520,7 @@ tostream &operator<<(tostream &i_ost, const FunctionData *i_data)
 class FunctionCreator
 {
 public:
-	typedef FunctionData *(*Creator)();		///
+	using Creator = FunctionData *(*)();		///
 
 public:
 	const _TCHAR *m_name;				/// function name
@@ -997,7 +997,7 @@ void Engine::shellExecute()
 	if (32 < r)
 		return; // success
 
-	typedef TypeTable<int> ErrorTable;
+	using ErrorTable = TypeTable<int>;
 	static const ErrorTable errorTable[] = {
 		{ 0, _T("The operating system is out of memory or resources.") },
 		{ ERROR_FILE_NOT_FOUND, _T("The specified file was not found.") },
@@ -1933,10 +1933,10 @@ public:
 
 class ParseDirectSSTPData
 {
-	typedef std::cmatch MR;
+	using MR = std::cmatch;
 
 public:
-	typedef std::map<tstring, DirectSSTPServer> DirectSSTPServers;
+	using DirectSSTPServers = std::map<tstring, DirectSSTPServer>;
 
 private:
 	DirectSSTPServers *m_directSSTPServers;
@@ -2163,8 +2163,8 @@ public:
 		ASSERT( m_dll );
 		ASSERT( m_func );
 
-		typedef void (WINAPI * PLUGIN_FUNCTION_A)(const char *i_arg);
-		typedef void (WINAPI * PLUGIN_FUNCTION_W)(const wchar_t *i_arg);
+		using PLUGIN_FUNCTION_A = void (WINAPI *)(const char *i_arg);
+		using PLUGIN_FUNCTION_W = void (WINAPI *)(const wchar_t *i_arg);
 		switch (m_type) {
 		case Type_A:
 			reinterpret_cast<PLUGIN_FUNCTION_A>(m_func)(to_string(m_funcParam).c_str());

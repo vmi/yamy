@@ -300,7 +300,7 @@ void SettingLoader::load_DEFINE_ALIAS()
 // <DEFINE_SUBSTITUTE>
 void SettingLoader::load_DEFINE_SUBSTITUTE()
 {
-	typedef std::list<ModifiedKey> AssignedKeys;
+	using AssignedKeys = std::list<ModifiedKey>;
 	AssignedKeys assignedKeys;
 	do {
 		ModifiedKey mkey;
@@ -992,7 +992,7 @@ KeySeq *SettingLoader::load_KEY_SEQUENCE(
 // <KEY_ASSIGN>
 void SettingLoader::load_KEY_ASSIGN()
 {
-	typedef std::list<ModifiedKey> AssignedKeys;
+	using AssignedKeys = std::list<ModifiedKey>;
 	AssignedKeys assignedKeys;
 
 	ModifiedKey mkey;

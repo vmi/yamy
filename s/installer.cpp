@@ -302,7 +302,7 @@ DWORD createDriverService(const tstringi &i_serviceName,
 
 	if (forUsb == true) {
 		Registry reg(HKEY_LOCAL_MACHINE, MAYUD_FILTER_KEY);
-		typedef std::list<tstring> Filters;
+		using Filters = std::list<tstring>;
 		Filters filters;
 		if (!reg.read(_T("UpperFilters"), &filters))
 			return false;

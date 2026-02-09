@@ -131,11 +131,11 @@ class Parser
 {
 public:
 	///
-	typedef std::vector<Token> Tokens;
+	using Tokens = std::vector<Token>;
 
 private:
 	///
-	typedef std::vector<tstringi> Prefixes;
+	using Prefixes = std::vector<tstringi>;
 
 private:
 	size_t m_lineNumber;				/// current line number

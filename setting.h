@@ -16,8 +16,8 @@
 class Setting
 {
 public:
-	typedef std::set<tstringi> Symbols;		///
-	typedef std::list<Modifier> Modifiers;	///
+	using Symbols = std::set<tstringi>;		///
+	using Modifiers = std::list<Modifier>;	///
 
 public:
 	Keyboard m_keyboard;				///
@@ -73,9 +73,9 @@ public:
 	};
 
 private:
-	typedef std::vector<Token> Tokens;		///
-	typedef std::vector<tstringi> Prefixes;	///
-	typedef std::vector<bool> CanReadStack;	///
+	using Tokens = std::vector<Token>;		///
+	using Prefixes = std::vector<tstringi>;	///
+	using CanReadStack = std::vector<bool>;	///
 
 private:
 	Setting *m_setting;				/// loaded setting
@@ -185,7 +185,7 @@ public:
 
 
 /// get home directory path
-typedef std::list<tstringi> HomeDirectories;
+using HomeDirectories = std::list<tstringi>;
 extern void getHomeDirectories(HomeDirectories *o_path);
 
 

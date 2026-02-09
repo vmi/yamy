@@ -2,17 +2,17 @@
 #include <windows.h>
 #include "registry.h"
 
-typedef HMODULE (WINAPI *FpGetModuleHandleW)(LPCWSTR);
-typedef FARPROC (WINAPI *FpGetProcAddress)(HMODULE, LPCSTR);
-typedef BOOL (WINAPI *FpUpdatePerUserSystemParameters4)(BOOL);
-typedef BOOL (WINAPI *FpUpdatePerUserSystemParameters8)(DWORD, BOOL);
-typedef HANDLE (WINAPI *FpOpenProcess)(DWORD, BOOL, DWORD);
-typedef BOOL (WINAPI *FpOpenProcessToken)(HANDLE, DWORD, PHANDLE);
-typedef BOOL (WINAPI *FpImpersonateLoggedOnUser)(HANDLE);
-typedef BOOL (WINAPI *FpRevertToSelf)(VOID);
-typedef BOOL (WINAPI *FpCloseHandle)(HANDLE);
+using FpGetModuleHandleW = HMODULE (WINAPI *)(LPCWSTR);
+using FpGetProcAddress = FARPROC (WINAPI *)(HMODULE, LPCSTR);
+using FpUpdatePerUserSystemParameters4 = BOOL (WINAPI *)(BOOL);
+using FpUpdatePerUserSystemParameters8 = BOOL (WINAPI *)(DWORD, BOOL);
+using FpOpenProcess = HANDLE (WINAPI *)(DWORD, BOOL, DWORD);
+using FpOpenProcessToken = BOOL (WINAPI *)(HANDLE, DWORD, PHANDLE);
+using FpImpersonateLoggedOnUser = BOOL (WINAPI *)(HANDLE);
+using FpRevertToSelf = BOOL (WINAPI *)(VOID);
+using FpCloseHandle = BOOL (WINAPI *)(HANDLE);
 
-typedef struct {
+struct InjectInfo {
 	DWORD isVistaOrLater_;
 	DWORD pid_;
 	TCHAR advapi32_[64];
@@ -25,23 +25,23 @@ typedef struct {
 	FpUpdatePerUserSystemParameters8 pUpdate8;
 	FpOpenProcess pOpenProcess;
 	FpCloseHandle pCloseHandle;
-} InjectInfo;
+};
 
 class FixScancodeMap {
 private:
-	typedef struct {
+	struct ScancodeMap {
 		DWORD header1;
 		DWORD header2;
 		DWORD count;
 		DWORD entry[1];
-	} ScancodeMap;
+	};
 
-	typedef struct {
+	struct WlInfo {
 		HANDLE m_hProcess;
 		LPVOID m_remoteMem;
 		LPVOID m_remoteInfo;
 		HANDLE m_hThread;
-	} WlInfo;
+	};
 
 private:
 	static const DWORD s_fixEntryNum;

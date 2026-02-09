@@ -38,22 +38,22 @@
 #define YAMY_ERROR_ON_WRITE_SCANCODE_MAP	1026
 #define YAMY_ERROR_ON_GET_WINLOGON_PID		1027
 
-typedef unsigned char u_char;			/// unsigned char
-typedef unsigned short u_short;			/// unsigned short
-typedef unsigned long u_long;			/// unsigned long
+using u_char = unsigned char;			/// unsigned char
+using u_short = unsigned short;			/// unsigned short
+using u_long = unsigned long;			/// unsigned long
 
-typedef char int8;				/// signed 8bit
-typedef short int16;				/// signed 16bit
-typedef long int32;				/// signed 32bit
-typedef unsigned char u_int8;			/// unsigned 8bit
-typedef unsigned short u_int16;			/// unsigned 16bit
-typedef unsigned long u_int32;			/// unsigned 32bit
+using int8 = char;				/// signed 8bit
+using int16 = short;				/// signed 16bit
+using int32 = long;				/// signed 32bit
+using u_int8 = unsigned char;			/// unsigned 8bit
+using u_int16 = unsigned short;			/// unsigned 16bit
+using u_int32 = unsigned long;			/// unsigned 32bit
 #if defined(__BORLANDC__)
-typedef unsigned __int64 u_int64;			/// unsigned 64bit
+using u_int64 = unsigned __int64;			/// unsigned 64bit
 #elif _MSC_VER <= 1300
-typedef unsigned _int64 u_int64;			/// unsigned 64bit
+using u_int64 = unsigned _int64;			/// unsigned 64bit
 #else
-typedef unsigned long long u_int64;			/// unsigned 64bit
+using u_int64 = unsigned long long;			/// unsigned 64bit
 #endif
 
 

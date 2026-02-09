@@ -444,7 +444,7 @@ void Keymap::describe(tostream &i_ost, DescribeParam *i_dp) const
 		i_dp->m_doesDescribeModifiers = false;
 	}
 
-	typedef std::vector<KeyAssignment> SortedKeyAssignments;
+	using SortedKeyAssignments = std::vector<KeyAssignment>;
 	SortedKeyAssignments ska;
 	for (size_t i = 0; i < HASHED_KEY_ASSIGNMENT_SIZE; ++ i) {
 		const KeyAssignments &ka = m_hashedKeyAssignments[i];

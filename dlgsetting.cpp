@@ -25,7 +25,7 @@ class DlgSetting : public LayoutManager
 	///
 	Registry m_reg;
 
-	typedef DlgEditSettingData Data;		///
+	using Data = DlgEditSettingData;		///
 
 	///
 	void insertItem(int i_index, const Data &i_data) {
@@ -162,7 +162,7 @@ public:
 		setSelectedItem(index);
 
 		// set layout manager
-		typedef LayoutManager LM;
+		using LM = LayoutManager;
 		addItem(GetDlgItem(m_hwnd, IDC_STATIC_mayuPaths),
 				LM::ORIGIN_LEFT_EDGE, LM::ORIGIN_TOP_EDGE,
 				LM::ORIGIN_RIGHT_EDGE, LM::ORIGIN_BOTTOM_EDGE);

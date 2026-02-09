@@ -48,7 +48,7 @@ public:
 	}
 
 	/// add message
-	typedef const char *const_char_ptr;
+	using const_char_ptr = const char *;
 	template<> ErrorMessage &operator<<(const const_char_ptr &i_value) {
 		m_ost << to_wstring(i_value);
 		return *this;

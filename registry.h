@@ -16,7 +16,7 @@ class Registry
 	tstring m_path;				/// path from registry root
 
 public:
-	typedef std::list<tstring> tstrings;
+	using tstrings = std::list<tstring>;
 
 public:
 	///

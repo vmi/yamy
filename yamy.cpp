@@ -10,7 +10,7 @@
 int WINAPI _tWinMain(HINSTANCE i_hInstance, HINSTANCE /* i_hPrevInstance */,
 					 LPTSTR /* i_lpszCmdLine */, int /* i_nCmdShow */)
 {
-	typedef BOOL (WINAPI* ISWOW64PROCESS)(HANDLE hProcess, PBOOL Wow64Process);
+	using ISWOW64PROCESS = BOOL (WINAPI*)(HANDLE hProcess, PBOOL Wow64Process);
 	BOOL isWow64;
 	ISWOW64PROCESS pIsWow64Process;
 	STARTUPINFO si;

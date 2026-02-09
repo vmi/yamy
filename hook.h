@@ -137,7 +137,7 @@ enum MouseHookType {
 };
 
 class Engine;
-typedef unsigned int (WINAPI *INPUT_DETOUR)(Engine *i_engine, WPARAM i_wParam, LPARAM i_lParam);
+using INPUT_DETOUR = unsigned int (WINAPI *)(Engine *i_engine, WPARAM i_wParam, LPARAM i_lParam);
 
 ///
 class HookData

@@ -17,19 +17,19 @@
 
 
 /// string for generic international text
-typedef std::basic_string<_TCHAR> tstring;
+using tstring = std::basic_string<_TCHAR>;
 /// istream for generic international text
-typedef std::basic_istream<_TCHAR> tistream;
+using tistream = std::basic_istream<_TCHAR>;
 /// ostream for generic international text
-typedef std::basic_ostream<_TCHAR> tostream;
+using tostream = std::basic_ostream<_TCHAR>;
 /// streambuf for for generic international text
-typedef std::basic_streambuf<_TCHAR> tstreambuf;
+using tstreambuf = std::basic_streambuf<_TCHAR>;
 /// stringstream for generic international text
-typedef std::basic_stringstream<_TCHAR> tstringstream;
+using tstringstream = std::basic_stringstream<_TCHAR>;
 /// ifstream for generic international text
-typedef std::basic_ifstream<_TCHAR> tifstream;
+using tifstream = std::basic_ifstream<_TCHAR>;
 /// ofstream for generic international text
-typedef std::basic_ofstream<_TCHAR> tofstream;
+using tofstream = std::basic_ofstream<_TCHAR>;
 /// basic_regex for generic international text
 class tregex : public std::basic_regex<_TCHAR> {
 private:
@@ -71,7 +71,7 @@ public:
 
 };
 /// match_results for generic international text
-typedef std::match_results<tstring::const_iterator> tsmatch;
+using tsmatch = std::match_results<tstring::const_iterator>;
 
 
 /// string with custom stream output

@@ -138,7 +138,7 @@ extern void editInsertTextAtLast(HWND i_hwnd, const tstring &i_text,
 // Windows2000/XP specific API
 
 /// SetLayeredWindowAttributes API
-typedef BOOL (WINAPI *SetLayeredWindowAttributes_t)
+using SetLayeredWindowAttributes_t = BOOL (WINAPI *)
 (HWND hwnd, COLORREF crKey, BYTE bAlpha, DWORD dwFlags);
 extern SetLayeredWindowAttributes_t setLayeredWindowAttributes;
 
@@ -157,16 +157,16 @@ extern BOOL (WINAPI *enumDisplayMonitors)
 // WindowsXP specific API
 
 /// WTSRegisterSessionNotification API
-typedef BOOL (WINAPI *WTSRegisterSessionNotification_t)
+using WTSRegisterSessionNotification_t = BOOL (WINAPI *)
 (HWND hWnd, DWORD dwFlags);
 extern WTSRegisterSessionNotification_t wtsRegisterSessionNotification;
 
 /// WTSUnRegisterSessionNotification API
-typedef BOOL (WINAPI *WTSUnRegisterSessionNotification_t)(HWND hWnd);
+using WTSUnRegisterSessionNotification_t = BOOL (WINAPI *)(HWND hWnd);
 extern WTSUnRegisterSessionNotification_t wtsUnRegisterSessionNotification;
 
 /// WTSGetActiveConsoleSessionId API
-typedef DWORD (WINAPI *WTSGetActiveConsoleSessionId_t)(void);
+using WTSGetActiveConsoleSessionId_t = DWORD (WINAPI *)(void);
 extern WTSGetActiveConsoleSessionId_t wtsGetActiveConsoleSessionId;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

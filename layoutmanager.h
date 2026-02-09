@@ -54,7 +54,7 @@ private:
 		SmallestSize() : m_hwnd(NULL) { }
 	};
 
-	typedef std::list<Item> Items;		///
+	using Items = std::list<Item>;		///
 
 protected:
 	HWND m_hwnd;					///

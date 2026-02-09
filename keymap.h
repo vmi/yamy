@@ -112,7 +112,7 @@ public:
 class KeySeq
 {
 public:
-	typedef std::vector<Action *> Actions;	///
+	using Actions = std::vector<Action *>;	///
 
 private:
 	Actions m_actions;				///
@@ -231,14 +231,14 @@ public:
 		AssignMode m_assignMode;		///
 		Key *m_key;				///
 	};
-	typedef std::list<ModAssignment> ModAssignments; ///
+	using ModAssignments = std::list<ModAssignment>; ///
 
 	/// parameter for describe();
 	class DescribeParam
 	{
 	private:
-		typedef std::list<ModifiedKey> DescribedKeys;
-		typedef std::list<const Keymap *> DescribedKeymap;
+		using DescribedKeys = std::list<ModifiedKey>;
+		using DescribedKeymap = std::list<const Keymap *>;
 		friend class Keymap;
 
 	private:
@@ -252,7 +252,7 @@ public:
 
 private:
 	/// key assignments (hashed by first scan code)
-	typedef std::list<KeyAssignment> KeyAssignments;
+	using KeyAssignments = std::list<KeyAssignment>;
 	enum {
 		HASHED_KEY_ASSIGNMENT_SIZE = 32,	///
 	};
@@ -337,10 +337,10 @@ extern tostream &operator<<(tostream &i_ost, const Keymap *i_keymap);
 class Keymaps
 {
 public:
-	typedef std::list<Keymap *> KeymapPtrList;	///
+	using KeymapPtrList = std::list<Keymap *>;	///
 
 private:
-	typedef std::list<Keymap> KeymapList;		///
+	using KeymapList = std::list<Keymap>;		///
 
 private:
 	KeymapList m_keymapList;			/** pointer into keymaps may
@@ -370,7 +370,7 @@ public:
 class KeySeqs
 {
 private:
-	typedef std::list<KeySeq> KeySeqList;		///
+	using KeySeqList = std::list<KeySeq>;		///
 
 private:
 	KeySeqList m_keySeqList;			///

@@ -57,7 +57,7 @@ public:
 		Edit_SetText(GetDlgItem(m_hwnd, IDC_EDIT_builtBy), buf);
 
 		// set layout manager
-		typedef LayoutManager LM;
+		using LM = LayoutManager;
 
 		addItem(GetDlgItem(m_hwnd, IDC_STATIC_mayuIcon),
 				LM::ORIGIN_LEFT_EDGE, LM::ORIGIN_TOP_EDGE,

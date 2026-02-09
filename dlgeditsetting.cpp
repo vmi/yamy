@@ -48,7 +48,7 @@ public:
 		restrictSmallestSize();
 
 		// set layout manager
-		typedef LayoutManager LM;
+		using LM = LayoutManager;
 
 		addItem(GetDlgItem(m_hwnd, IDC_STATIC_mayuPathName));
 		addItem(GetDlgItem(m_hwnd, IDC_EDIT_mayuPathName),

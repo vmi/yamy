@@ -39,7 +39,7 @@ private:
 		MAX_KEYMAP_PREFIX_HISTORY = 64, ///
 	};
 
-	typedef Keymaps::KeymapPtrList KeymapPtrList;	///
+	using KeymapPtrList = Keymaps::KeymapPtrList;	///
 
 	/// focus of a thread
 	class FocusOfThread
@@ -57,9 +57,9 @@ private:
 		///
 		FocusOfThread() : m_threadId(0), m_hwndFocus(NULL), m_isConsole(false) { }
 	};
-	typedef std::map<DWORD /*ThreadId*/, FocusOfThread> FocusOfThreads;	///
+	using FocusOfThreads = std::map<DWORD /*ThreadId*/, FocusOfThread>;	///
 
-	typedef std::list<DWORD /*ThreadId*/> ThreadIds;	///
+	using ThreadIds = std::list<DWORD /*ThreadId*/>;	///
 
 	/// current status in generateKeyboardEvents
 	class Current
@@ -134,9 +134,9 @@ private:
 		WindowPosition(HWND i_hwnd, const RECT &i_rc, Mode i_mode)
 				: m_hwnd(i_hwnd), m_rc(i_rc), m_mode(i_mode) { }
 	};
-	typedef std::list<WindowPosition> WindowPositions;
+	using WindowPositions = std::list<WindowPosition>;
 
-	typedef std::list<HWND> WindowsWithAlpha; /// windows for &amp;WindowSetAlpha
+	using WindowsWithAlpha = std::list<HWND>; /// windows for &amp;WindowSetAlpha
 
 	enum InterruptThreadReason {
 		InterruptThreadReason_Terminate,
@@ -147,7 +147,7 @@ private:
 	///
 	class InputHandler {
 	public:
-		typedef int (*INSTALL_HOOK)(INPUT_DETOUR i_keyboardDetour, Engine *i_engine, bool i_install);
+		using INSTALL_HOOK = int (*)(INPUT_DETOUR i_keyboardDetour, Engine *i_engine, bool i_install);
 
 		static unsigned int WINAPI run(void *i_this);
 

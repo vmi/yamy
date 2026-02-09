@@ -58,7 +58,7 @@ public:
 
 private:
 	///
-	typedef std::vector<tstringi> Names;
+	using Names = std::vector<tstringi>;
 
 public:
 	/// if this key pressed physically
@@ -144,7 +144,7 @@ public:
 class Modifier
 {
 	///
-	typedef u_int64 MODIFIERS;
+	using MODIFIERS = u_int64;
 	///
 	MODIFIERS m_modifiers;
 	///
@@ -336,7 +336,7 @@ class Keyboard
 {
 public:
 	/// keyboard modifiers (pointer into Keys)
-	typedef std::list<Key *> Mods;
+	using Mods = std::list<Key *>;
 
 private:
 	/** keyboard keys (hashed by first scan code).
@@ -346,8 +346,8 @@ private:
 	enum {
 		HASHED_KEYS_SIZE = 128,			///
 	};
-	typedef std::list<Key> Keys;			///
-	typedef std::map<tstringi, Key *> Aliases;	/// key name aliases
+	using Keys = std::list<Key>;			///
+	using Aliases = std::map<tstringi, Key *>;	/// key name aliases
 	///
 	class Substitute
 	{
@@ -360,7 +360,7 @@ private:
 				: m_mkeyFrom(i_mkeyFrom), m_mkeyTo(i_mkeyTo) {
 		}
 	};
-	typedef std::list<Substitute> Substitutes;	/// substitutes
+	using Substitutes = std::list<Substitute>;	/// substitutes
 
 private:
 	Keys m_hashedKeys[HASHED_KEYS_SIZE];		///
