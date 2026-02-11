@@ -612,7 +612,7 @@ private:
 					}
 					case ID_MENUITEM_disable:
 						This->m_engine.enable(!This->m_engine.getIsEnabled());
-						if (This->m_engine.getIsEnabled()) {
+						if (This->m_escapeNlsKeys && This->m_engine.getIsEnabled()) {
 							This->m_fixScancodeMap.escape(true);
 						} else {
 							This->m_fixScancodeMap.escape(false);
@@ -724,7 +724,7 @@ private:
 					switch (static_cast<MayuIPCCommand>(i_wParam)) {
 					case MayuIPCCommand_Enable:
 						This->m_engine.enable(!!i_lParam);
-						if (This->m_engine.getIsEnabled()) {
+						if (This->m_escapeNlsKeys && This->m_engine.getIsEnabled()) {
 							This->m_fixScancodeMap.escape(true);
 						} else {
 							This->m_fixScancodeMap.escape(false);
