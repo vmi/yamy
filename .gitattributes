@@ -1,2 +1,9 @@
 * text=auto eol=crlf
-.git* eol=lf
+
+.git*		eol=lf
+Makefile	eol=lf
+*.mak		eol=lf
+*.html		eol=lf
+*.css		eol=lf
+*.txt		eol=lf
+/tools/*	eol=lf
