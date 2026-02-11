@@ -28,7 +28,7 @@ restart:
 
 	if (hwndFore) {
 		{
-			Acquire a(&m_cs);
+			std::lock_guard<std::recursive_mutex> lock(m_mutex);
 			if (m_currentFocusOfThread &&
 					m_currentFocusOfThread->m_threadId == threadId &&
 					m_currentFocusOfThread->m_hwndFocus == m_hwndFocus)
@@ -104,7 +104,7 @@ restart:
 		}
 	}
 
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (m_globalFocus.m_keymaps.empty()) {
 		Acquire a(&m_log, 1);
 		m_log << _T("NO GLOBAL FOCUS") << std::endl;
@@ -1039,7 +1039,7 @@ void Engine::keyboardHandler()
 			continue;
 		}
 
-		Acquire a(&m_cs);
+		std::lock_guard<std::recursive_mutex> lock(m_mutex);
 
 		if (!m_currentFocusOfThread ||
 				!m_currentKeymap) {
@@ -1357,7 +1357,7 @@ void Engine::manageTs4mayu(TCHAR *i_ts4mayuDllName,
 
 // set m_setting
 bool Engine::setSetting(Setting *i_setting) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (m_isSynchronizing)
 		return false;
 
@@ -1507,7 +1507,7 @@ void Engine::checkShow(HWND i_hwnd) {
 bool Engine::setFocus(HWND i_hwndFocus, DWORD i_threadId,
 					  const tstringi &i_className, const tstringi &i_titleName,
 					  bool i_isConsole) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (m_isSynchronizing)
 		return false;
 	if (i_hwndFocus == NULL)
@@ -1567,7 +1567,7 @@ bool Engine::setLockState(bool i_isNumLockToggled,
 						  bool i_isKanaLockToggled,
 						  bool i_isImeLockToggled,
 						  bool i_isImeCompToggled) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (m_isSynchronizing)
 		return false;
 	m_currentLock.on(Modifier::Type_NumLock, i_isNumLockToggled);
@@ -1583,7 +1583,7 @@ bool Engine::setLockState(bool i_isNumLockToggled,
 // show
 bool Engine::setShow(bool i_isMaximized, bool i_isMinimized,
 					 bool i_isMDI) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (m_isSynchronizing)
 		return false;
 	Acquire b(&m_log, 1);
@@ -1609,7 +1609,7 @@ bool Engine::setShow(bool i_isMaximized, bool i_isMinimized,
 
 // sync
 bool Engine::syncNotify() {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	if (!m_isSynchronizing)
 		return false;
 	CHECK_TRUE( SetEvent(m_eSync) );
@@ -1619,7 +1619,7 @@ bool Engine::syncNotify() {
 
 // thread attach notify
 bool Engine::threadAttachNotify(DWORD i_threadId) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	m_attachedThreadIds.push_back(i_threadId);
 	return true;
 }
@@ -1627,7 +1627,7 @@ bool Engine::threadAttachNotify(DWORD i_threadId) {
 
 // thread detach notify
 bool Engine::threadDetachNotify(DWORD i_threadId) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	m_detachedThreadIds.push_back(i_threadId);
 	m_attachedThreadIds.erase(remove(m_attachedThreadIds.begin(), m_attachedThreadIds.end(), i_threadId),
 							  m_attachedThreadIds.end());
@@ -1637,7 +1637,7 @@ bool Engine::threadDetachNotify(DWORD i_threadId) {
 
 // get help message
 void Engine::getHelpMessages(tstring *o_helpMessage, tstring *o_helpTitle) {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 	*o_helpMessage = m_helpMessage;
 	*o_helpTitle = m_helpTitle;
 }

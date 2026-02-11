@@ -11,6 +11,7 @@
 #  include "hook.h"
 #  include <set>
 #  include <queue>
+#  include <mutex>
 
 
 enum {
@@ -164,14 +165,14 @@ private:
 	private:
 		unsigned m_threadId;
 		HANDLE m_hThread;
-		HANDLE m_hEvent; 
+		HANDLE m_hEvent;
 		INSTALL_HOOK m_installHook;
 		INPUT_DETOUR m_inputDetour;
 		Engine *m_engine;
 	};
 
 private:
-	CriticalSection m_cs;				/// criticalSection
+	std::recursive_mutex m_mutex;			/// mutex
 
 	// setting
 	HWND m_hwndAssocWindow;			/** associated window (we post
@@ -565,7 +566,7 @@ public:
 		return m_isEnabled;
 	}
 
-	// 
+	//
 	void unlocked();
 	void releaseKey(uint16_t scanCode);
 

@@ -8,6 +8,7 @@
 #  include "misc.h"
 #  include "stringtool.h"
 #  include "multithread.h"
+#  include <mutex>
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,17 +34,17 @@ class TR = std::char_traits<T>, class A = std::allocator<T> >
 class basic_msgbuf : public std::basic_streambuf<T, TR>, public SyncObject
 {
 public:
-	typedef std::basic_string<T, TR, A> String;	///
-	typedef std::basic_streambuf<T, TR> Super;	///
+	using String = std::basic_string<T, TR, A>;	///
+	using Super = std::basic_streambuf<T, TR>;	///
 
 private:
 	HWND m_hwnd;					/** window handle for
 						    notification */
 	UINT m_messageId;				/// messageid for notification
+	A m_allocator;				/// allocator
 	T *m_buf;					/// for streambuf
 	String m_str;					/// for notification
-	CriticalSection m_cs;				/// lock
-	A m_allocator;				/// allocator
+	std::recursive_mutex m_mutex;			/// lock
 
 	/** debug level.
 	    if ( m_msgDebugLevel &lt;= m_debugLevel ), message is displayed
@@ -52,7 +53,10 @@ private:
 	int m_msgDebugLevel;				///
 
 private:
-	basic_msgbuf(const basic_msgbuf &);		/// disable copy constructor
+	basic_msgbuf(const basic_msgbuf &) = delete;		/// disable copy constructor
+	basic_msgbuf& operator=(const basic_msgbuf &) = delete;	/// disable copy assignment
+	basic_msgbuf(basic_msgbuf &&) = delete;		/// disable move constructor
+	basic_msgbuf& operator=(basic_msgbuf &&) = delete;	/// disable move assignment
 
 public:
 	///
@@ -74,7 +78,7 @@ public:
 
 	/// attach/detach a window
 	basic_msgbuf* attach(HWND i_hwnd) {
-		Acquire a(&m_cs);
+		std::lock_guard<std::recursive_mutex> lock(m_mutex);
 		ASSERT( !m_hwnd && i_hwnd );
 		m_hwnd = i_hwnd;
 		if (!m_str.empty())
@@ -84,7 +88,7 @@ public:
 
 	///
 	basic_msgbuf* detach() {
-		Acquire a(&m_cs);
+		std::lock_guard<std::recursive_mutex> lock(m_mutex);
 		sync();
 		m_hwnd = 0;
 		return this;
@@ -102,14 +106,14 @@ public:
 
 	/// acquire string and release the string
 	const String &acquireString() {
-		m_cs.acquire();
+		m_mutex.lock();
 		return m_str;
 	}
 
 	///
 	void releaseString() {
 		m_str.resize(0);
-		m_cs.release();
+		m_mutex.unlock();
 	}
 
 	/// set debug level
@@ -161,12 +165,12 @@ public:
 
 	/// begin writing
 	virtual void acquire() {
-		m_cs.acquire();
+		m_mutex.lock();
 	}
 
 	/// begin writing
 	virtual void acquire(int i_msgDebugLevel) {
-		m_cs.acquire();
+		m_mutex.lock();
 		m_msgDebugLevel = i_msgDebugLevel;
 	}
 
@@ -175,7 +179,7 @@ public:
 		if (!m_str.empty())
 			PostMessage(m_hwnd, m_messageId, 0, reinterpret_cast<LPARAM>(this));
 		m_msgDebugLevel = m_debugLevel;
-		m_cs.release();
+		m_mutex.unlock();
 	}
 };
 
@@ -186,9 +190,9 @@ class TR = std::char_traits<T>, class A = std::allocator<T> >
 class basic_omsgstream : public std::basic_ostream<T, TR>, public SyncObject
 {
 public:
-	typedef std::basic_ostream<T, TR> Super;	///
-	typedef basic_msgbuf<T, SIZE, TR, A> StreamBuf; ///
-	typedef std::basic_string<T, TR, A> String;	///
+	using Super = std::basic_ostream<T, TR>;	///
+	using StreamBuf = basic_msgbuf<T, SIZE, TR, A>; ///
+	using String = std::basic_string<T, TR, A>;	///
 
 private:
 	StreamBuf m_streamBuf;			///
@@ -267,7 +271,6 @@ public:
 };
 
 ///
-typedef basic_omsgstream<_TCHAR> tomsgstream;
-
+using tomsgstream = basic_omsgstream<_TCHAR>;
 
 #endif // !_MSGSTREAM_H

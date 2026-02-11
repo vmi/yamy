@@ -843,13 +843,13 @@ void Engine::funcSync(FunctionParam *i_param)
 	m_isSynchronizing = true;
 	generateKeyEvent(sync, false, false);
 
-	m_cs.release();
+	m_mutex.unlock();
 	DWORD r = WaitForSingleObject(m_eSync, 5000);
 	if (r == WAIT_TIMEOUT) {
 		Acquire a(&m_log, 0);
 		m_log << _T(" *FAILED*") << std::endl;
 	}
-	m_cs.acquire();
+	m_mutex.lock();
 	m_isSynchronizing = false;
 }
 
@@ -981,7 +981,7 @@ void Engine::funcShellExecute(FunctionParam *i_param,
 // shell execute
 void Engine::shellExecute()
 {
-	Acquire a(&m_cs);
+	std::lock_guard<std::recursive_mutex> lock(m_mutex);
 
 	FunctionData_ShellExecute *fd =
 		reinterpret_cast<FunctionData_ShellExecute *>(
@@ -1178,9 +1178,9 @@ void Engine::funcWait(FunctionParam *i_param, int i_milliSecond)
 		return;
 
 	m_isSynchronizing = true;
-	m_cs.release();
+	m_mutex.unlock();
 	Sleep(i_milliSecond);
-	m_cs.acquire();
+	m_mutex.lock();
 	m_isSynchronizing = false;
 }
 
