@@ -895,3 +895,27 @@ DllExport int installMouseHook(INPUT_DETOUR i_mouseDetour, Engine *i_engine, boo
 	}
 	return 0;
 }
+
+
+/// emergency unhook all hooks (safe to call from crash handlers)
+DllExport void emergencyUnhookAll()
+{
+	if (g.m_hHookKeyboardProc) {
+		UnhookWindowsHookEx(g.m_hHookKeyboardProc);
+		g.m_hHookKeyboardProc = NULL;
+	}
+	if (g.m_hHookMouseProc) {
+		UnhookWindowsHookEx(g.m_hHookMouseProc);
+		g.m_hHookMouseProc = NULL;
+	}
+	if (s_hookDataArch) {
+		if (s_hookDataArch->m_hHookGetMessage) {
+			UnhookWindowsHookEx(s_hookDataArch->m_hHookGetMessage);
+			s_hookDataArch->m_hHookGetMessage = NULL;
+		}
+		if (s_hookDataArch->m_hHookCallWndProc) {
+			UnhookWindowsHookEx(s_hookDataArch->m_hHookCallWndProc);
+			s_hookDataArch->m_hHookCallWndProc = NULL;
+		}
+	}
+}

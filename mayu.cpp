@@ -1335,10 +1335,24 @@ void convertRegistry()
 
 
 /// main
+static LPTOP_LEVEL_EXCEPTION_FILTER s_prevExceptionFilter = NULL;
+
+static LONG WINAPI crashExceptionFilter(EXCEPTION_POINTERS *i_ep)
+{
+	emergencyUnhookAll();
+	if (s_prevExceptionFilter)
+		return s_prevExceptionFilter(i_ep);
+	return EXCEPTION_CONTINUE_SEARCH;
+}
+
+
 int WINAPI _tWinMain(HINSTANCE i_hInstance, HINSTANCE /* i_hPrevInstance */,
 					 LPTSTR /* i_lpszCmdLine */, int /* i_nCmdShow */)
 {
 	g_hInst = i_hInstance;
+
+	// crash-safe hook cleanup
+	s_prevExceptionFilter = SetUnhandledExceptionFilter(crashExceptionFilter);
 
 	// set locale
 	CHECK_TRUE( _tsetlocale(LC_ALL, _T("")) );

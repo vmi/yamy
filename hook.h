@@ -185,6 +185,7 @@ extern DllImport int installKeyboardHook(INPUT_DETOUR i_keyboardDetour, Engine *
 extern DllImport int installMouseHook(INPUT_DETOUR i_mouseDetour, Engine *i_engine, bool i_install);
 extern DllImport bool notify(void *data, size_t sizeof_data);
 extern DllImport void notifyLockState();
+extern DllImport void emergencyUnhookAll();
 #  endif // !_HOOK_CPP
 
 
