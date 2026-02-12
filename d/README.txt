@@ -1,36 +1,36 @@
 
 
-			���g���̗J�T�h���C�o
+			窓使いの憂鬱ドライバ
 
 
-1. �R���p�C�����@
+1. コンパイル方法
 
-	Windows 200 DDK �� Visual C++ 6.0 �� build ���[�e�B���e�B��
-	�p���ăR���p�C�����܂��B
+	Windows 200 DDK と Visual C++ 6.0 で build ユーティリティを利
+	用してコンパイルします。
 
 	> cd mayu\d
 	> build
 	> cd nt4
 	> build
 
-	mayud.sys �� %windir%\system32\drivers\ �փR�s�[�� test.reg ��
-	���͂���΁A�蓮�Ńf�o�C�X�� on/off �ł��܂��B(���� Windows
-	NT4.0 �̏ꍇ�� mayudnt4.sys �� mayud.sys �Ƃ������O�ŃR�s�[)
+	mayud.sys を %windir%\system32\drivers\ へコピーし test.reg を
+	入力すれば、手動でデバイスを on/off できます。(又は Windows
+	NT4.0 の場合は mayudnt4.sys を mayud.sys という名前でコピー)
 
 
-2. �g����
+2. 使い方
 
-	mayud �𓮍삳�����
+	mayud を動作させると
 
 	      \\.\MayuDetour1
 
-	�Ƃ����f�o�C�X���ł��܂��B���̃f�o�C�X�� GENERIC_READ |
-	GENERIC_WRITE �ŊJ���܂��B
+	というデバイスができます。このデバイスを GENERIC_READ |
+	GENERIC_WRITE で開きます。
 
-	ReadFile / WriteFile �ł́A�ȉ��̍\���̂��g���܂��B�f�o�C�X��
-	�J�������ƂɁAReadFile ����ƃ��[�U�[�����͂����L�[���擾�ł�
-	�܂��BWriteFile ����ƃ��[�U�����������L�[����͂������̂悤�� 
-	Windows �𑀍삷�邱�Ƃ��ł��܂��B
+	ReadFile / WriteFile では、以下の構造体を使います。デバイスを
+	開いたあとに、ReadFile するとユーザーが入力したキーを取得でき
+	ます。WriteFile するとユーザがあたかもキーを入力したかのように 
+	Windows を操作することができます。
 
 	struct KEYBOARD_INPUT_DATA
 	{
@@ -46,30 +46,30 @@
 	  ULONG ExtraInformation;
 	};
 
-	UnitId �� Reserved �͏�� 0 �ł��BExtraInformation �ɒl��ݒ�
-	����ƁAWM_KEYDOWN �Ȃǂ̃��b�Z�[�W���������� 
-	GetMessageExtraInfo() API �ł��̒l���擾���邱�Ƃ��ł��܂��B
-	MakeCode �̓L�[�{�[�h�̃X�L�����R�[�h�ł��BFlags �� BREAK, E0,
-	E1, TERMSRV_SET_LED ���g�ݍ��킳���Ă��܂��BBREAK �̓L�[�𗣂�
-	���Ƃ��AE0 �� E1 �͊g���L�[���������Ƃ��ɐݒ肳��܂��B
+	UnitId と Reserved は常に 0 です。ExtraInformation に値を設定
+	すると、WM_KEYDOWN などのメッセージが来た時に 
+	GetMessageExtraInfo() API でその値を取得することができます。
+	MakeCode はキーボードのスキャンコードです。Flags は BREAK, E0,
+	E1, TERMSRV_SET_LED が組み合わさっています。BREAK はキーを離し
+	たとき、E0 と E1 は拡張キーを押したときに設定されます。
 
 
-3. �o�O
+3. バグ
 
-	* ReadFile �� ERROR_OPERATION_ABORTED �Ŏ��s�����ꍇ������x 
-	  ReadFile ����K�v������܂��B
+	* ReadFile が ERROR_OPERATION_ABORTED で失敗した場合もう一度 
+	  ReadFile する必要があります。
 
-	* �����̃X���b�h���� mayud �f�o�C�X�� read �����
-	  MULTIPLE_IRP_COMPLETE_REQUESTS (0x44) �ŗ����邱�Ƃ�����悤
-	  �ł��B�Č����͕s���B
+	* 複数のスレッドから mayud デバイスを read すると
+	  MULTIPLE_IRP_COMPLETE_REQUESTS (0x44) で落ちることがあるよう
+	  です。再現性は不明。
 
-	* ReadFile ����ƃ��[�U�[�����͂���܂ŉi���ɋA���Ă��܂���B
-	  NT4.0 �Ȃ�ΕʃX���b�h�� CancelIo ���邱�Ƃ� ReadFile ���L��
-	  ���Z�����邱�Ƃ��ł��܂����AWindows 2000 �ł͕��@������܂�
-	  ��B
+	* ReadFile するとユーザーが入力するまで永遠に帰ってきません。
+	  NT4.0 ならば別スレッドで CancelIo することで ReadFile をキャ
+	  ンセルすることができますが、Windows 2000 では方法がありませ
+	  ん。
 
-	* PnP �͍l�����Ă��܂���B�܂�A�L�[�{�[�h�������藣������
-	  ����Ƃǂ��Ȃ邩�킩��܂���B
+	* PnP は考慮していません。つまり、キーボードをつけたり離したり
+	  するとどうなるかわかりません。
 
-	* �L�[�{�[�h����ȏ゠��Ƃ��ł��A�f�o�C�X�͈�����ł��܂�
-	  ��B
+	* キーボードが二つ以上あるときでも、デバイスは一つしかできませ
+	  ん。

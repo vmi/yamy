@@ -1,17 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-2022-jp">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="README.css">
 <link rel="prev" href="CONTENTS-ja.html">
 <link rel="next" href="CUSTOMIZE-ja.html">
-<title>$BAk;H$$$NM+]5(B - MANUAL</title>
+<title>窓使いの憂鬱 - MANUAL</title>
 </head>
 
 <body class="manual">
 
 <div class="title">
-  <a href="http://mayu.sourceforge.net" target="_top" class="title"><img src="banner-ja.gif" alt="$BAk;H$$$NM+]5(B"></a>
+  <a href="http://mayu.sourceforge.net" target="_top" class="title"><img src="banner-ja.gif" alt="窓使いの憂鬱"></a>
 </div>
 <div class="copyright">
   Copyright &copy; 1999-2005, <a href="http://www.ganaware.jp" target="_top">TAGA Nayuta</a> &lt;nayuta&#64;users.sourceforge.net&gt;
@@ -21,24 +21,24 @@
   <dt class="h1"><a name="ABSTRACT">1. abstract</a>
       
   <dd class="d1">
-      <p>$B$$$+$s$H$b$7$,$?$$M}M3$K$h$j(B UN*X Wizard $B$,Ak;H$$$K%8%g%V%A%'%s%8$9$k;~!"$=$NA`:nBN7O$N0c$$$K$h$jM+]5$JF|!9$rAw$i$6$k$rF@$J$$$3$H$OA[A|$KFq$/$"$j$^$;$s!#!VAk;H$$$NM+]5!W$O!"$=$NM+]5$r>/$7$@$1OB$i$2$k$3$H$,$G$-$k%"%$%F%`$G$9!#(B</p>
+      <p>いかんともしがたい理由により UN*X Wizard が窓使いにジョブチェンジする時、その操作体系の違いにより憂鬱な日々を送らざるを得ないことは想像に難くありません。「窓使いの憂鬱」は、その憂鬱を少しだけ和らげることができるアイテムです。</p>
       
       <ul>
-	<li>Windows2000, WindowsXP $B$GF0$/HFMQ%-!<%P%$%s%G%#%s%0JQ99%=%U%H$G$9!#(B
-	<li>2 $B%9%H%m!<%/%-!<$r@_Dj$G$-$^$9!#(B
-	<li>$B8D!9$N%&%#%s%I%&$KJL!9$N%-!<%P%$%s%G%#%s%0$r3d$jEv$F$k$3$H$,$G$-$^$9!#(B
-	<li>Control $B$J$I$N%b%G%#%U%!%$%d%-!<$r<+M3$K:n@.$9$k$3$H$,$G$-$^$9!#(B
-	<li>$B%&%#%s%I%&$r0\F0$5$;$?$j:GBg(B/$B:G>.2=$9$k%-!<$J$I$r:n@.$G$-$^$9!#(B
-	<li>$B%(%G%#%C%H%3%s%H%m!<%k$r(B Emacs $BIw$K$9$k$3$H$,$G$-$^$9!#(B
-	<li>U*IX $BE*$JAGE($J%+%9%?%^%$%:5!G=$rDs6!$7$F$$$^$9!#(B
+	<li>Windows2000, WindowsXP で動く汎用キーバインディング変更ソフトです。
+	<li>2 ストロークキーを設定できます。
+	<li>個々のウィンドウに別々のキーバインディングを割り当てることができます。
+	<li>Control などのモディファイヤキーを自由に作成することができます。
+	<li>ウィンドウを移動させたり最大/最小化するキーなどを作成できます。
+	<li>エディットコントロールを Emacs 風にすることができます。
+	<li>U*IX 的な素敵なカスタマイズ機能を提供しています。
       </ul>
       
-      <p>$B$7$+$7!"<!$N$h$&$J4m81@-$,$"$j$^$9!#(B</p>
+      <p>しかし、次のような危険性があります。</p>
       
       <ul>
-	<li><strong>$BI8=`$G$J$$(B</strong> $B%-!<%\!<%I%I%i%$%P$rMxMQ$7$F$$$k$H(B Windows2000/XP $B$,@D2hLL$K$J$C$F=*N;$7$F$7$^$&$3$H$,$"$j$^$9!#$=$N$h$&$J>l9g$O!"I8=`$G$J$$%I%i%$%P$r%"%s%$%s%9%H!<%k$9$k$+!"!VAk;H$$$NM+]5!W$NMxMQ$r$"$-$i$a$k$7$+$"$j$^$;$s!#(B
-	<li>$BI8=`$G$J$$%I%i%$%P$H$O!"(B<strong>$B%m%8%F%C%/%^%&%9(B</strong>$B$KIUB0$N%I%i%$%P$d(B <strong>AltIME</strong> $B$N%I%i%$%P$J$I$G$9!#(B
-	<li>$BB>?M$,;HMQ$9$k2DG=@-$N$"$k(B PC $B$X$N%$%s%9%H!<%k$O4m81$G$9!#(B(<a href="#SECURITY">security</a> $B$N>O$r;2>H(B)
+	<li><strong>標準でない</strong> キーボードドライバを利用していると Windows2000/XP が青画面になって終了してしまうことがあります。そのような場合は、標準でないドライバをアンインストールするか、「窓使いの憂鬱」の利用をあきらめるしかありません。
+	<li>標準でないドライバとは、<strong>ロジテックマウス</strong>に付属のドライバや <strong>AltIME</strong> のドライバなどです。
+	<li>他人が使用する可能性のある PC へのインストールは危険です。(<a href="#SECURITY">security</a> の章を参照)
       </ul>
       
   <dt class="h1"><a name="INSTALL">2. install</a>
@@ -46,33 +46,33 @@
   <dd class="d1">
       
       <ol class="decimal">
-	<li>$BAk;H$$$NM+]50J30$N%-!<%\!<%I%+%9%?%^%$%:%=%U%H$rMxMQ$7$F$$$k>l9g$O%"%s%$%s%9%H!<%k$7$^$9!#(B
+	<li>窓使いの憂鬱以外のキーボードカスタマイズソフトを利用している場合はアンインストールします。
 	    <ul>
-	      <li>$B$?$H$($P!"(B<strong>AltIME</strong> $B$d(B <strong>RemapKey</strong> $B$d(B<strong>$B!VG-$^$M$-!W(B</strong>$B$J$I$G$9!#(B
-	      <li>$BFC$K(B <strong>AltIME</strong> $B$r;HMQ$7$F$$$?>l9g$O!"(B<a href="#FAQ">FAQ</a> $B$N:G=i$N9`L\$r$h$/FI$s$G$/$@$5$$!#(B
-	      <li><a href="http://www.pgpi.org/products/pgp/versions/freeware/win32/7.0.3/" target="_top"><strong>PGPi</strong></a> $B$rMxMQ$7$F$$$k$H$&$^$/F0$+$J$$$h$&$G$9!#(B
+	      <li>たとえば、<strong>AltIME</strong> や <strong>RemapKey</strong> や<strong>「猫まねき」</strong>などです。
+	      <li>特に <strong>AltIME</strong> を使用していた場合は、<a href="#FAQ">FAQ</a> の最初の項目をよく読んでください。
+	      <li><a href="http://www.pgpi.org/products/pgp/versions/freeware/win32/7.0.3/" target="_top"><strong>PGPi</strong></a> を利用しているとうまく動かないようです。
 	    </ul>
-	<li>$B0JA0$N%P!<%8%g%s$N!VAk;H$$$NM+]5!W$rMxMQ$7$F$$$k>l9g$O!"=*N;$5$;$^$9!#(B
+	<li>以前のバージョンの「窓使いの憂鬱」を利用している場合は、終了させます。
 	    <ul>
-	      <li>$B=*N;$5$;$k$@$1$G$h$/!"%"%s%$%s%9%H!<%k$9$kI,MW$O$"$j$^$;$s!#(B
+	      <li>終了させるだけでよく、アンインストールする必要はありません。
 	    </ul>
-	<li>$B%@%&%s%m!<%I$7$?<B9T%U%!%$%k$r(B <strong>Administrator</strong> $B8"8B$G<B9T$7$F$/$@$5$$!#$9$k$H!VAk;H$$$NM+]5!W$,%$%s%9%H!<%k$5$l$^$9!#(B
-	<li>$B%$%s%9%H!<%k$,=*$o$C$?$i%3%s%T%e!<%?$r:F5/F0$7$^$9!#(B
-	<li>$B$*9%$_$K$h$j!"%9%?!<%H%"%C%W$K%7%g!<%H%+%C%H$r:n$k$N$b$$$$$G$7$g$&!#(B
-	<li><code>mayu.exe</code> $B$r<B9T$9$k$3$H$G3+;O$7$^$9!#(B
+	<li>ダウンロードした実行ファイルを <strong>Administrator</strong> 権限で実行してください。すると「窓使いの憂鬱」がインストールされます。
+	<li>インストールが終わったらコンピュータを再起動します。
+	<li>お好みにより、スタートアップにショートカットを作るのもいいでしょう。
+	<li><code>mayu.exe</code> を実行することで開始します。
       </ol>
       
       <dl>
-	<dt class="h2"><a name="rescue_driver">$BI|5lMQ%I%i%$%P$K$D$$$F(B</a></dt>
+	<dt class="h2"><a name="rescue_driver">復旧用ドライバについて</a></dt>
 	<dd class="d2">
 	    <div>
-	      <p>Windows2000/XP $B$N>l9g!VAk;H$$$NM+]5!W%I%i%$%P$O(B <code>mayu.exe</code> $B$N<B9T$NM-L5$K4X$o$i$:%m!<%I$5$l$^$9!#$3$N$?$a!"$?$H$(!VAk;H$$$NM+]5!W$r<+F05/F0$K$7$F$$$J$/$F$b!"%I%i%$%P$NIT6q9g$K$h$C$F!VAk;H$$$NM+]5!W$N%"%s%$%s%9%H!<%k$b4^$a$?A`:n$,ITG=$K$J$k>l9g$,$"$j$^$9!#$=$N>l9g$G$b2<5-$N<j=g$K$h$C$F(B Windows $B$N:F%$%s%9%H!<%k$r2sHr$9$k$3$H$,$G$-$k>l9g$,$"$j$^$9!#(B</p>
+	      <p>Windows2000/XP の場合「窓使いの憂鬱」ドライバは <code>mayu.exe</code> の実行の有無に関わらずロードされます。このため、たとえ「窓使いの憂鬱」を自動起動にしていなくても、ドライバの不具合によって「窓使いの憂鬱」のアンインストールも含めた操作が不能になる場合があります。その場合でも下記の手順によって Windows の再インストールを回避することができる場合があります。</p>
 	      
 	      <ol class="decimal">
-		<li>$BEE8;%\%?%s$ND92!$7Ey$K$h$C$F0lC6!"6/@)E*$KEE8;$rMn$7$?$"$H2sI|%3%s%=!<%k$r5/F0$7$^$9!#>0!"2sI|%3%s%=!<%k$G$N5/F0$,$G$-$k$3$H$r(B<strong>$B!VAk;H$$$NM+]5!W$N%$%s%9%H!<%kA0$K(B</strong>$B3NG'$7$F$*$/$3$H$r$*4+$a$7$^$9!#(B</strong>($B;29M(B: <a href="http://support.microsoft.com/default.aspx?scid=kb;ja;314058">Windows XP $B2sI|%3%s%=!<%k$K$D$$$F(B</a>)
-		<li><code>%windir%\system32\drivers</code> $BFb$N(B <code>mayudrsc.sys</code> $B$r(B <code>mayud.sys</code> $B$NL>A0$G>e=q$-%3%T!<$7$^$9!#(B($BB($A(B <code>mayud.sys</code> $B$r(B <code>mayudrsc.sys</code>$B$GCV$-49$($k!#(B)
-		<li>$B:F5/F0$7$^$9!#(B
-		<li>$B%3%s%H%m!<%k%Q%M%k$+$i!VAk;H$$$NM+]5!W$r%"%s%$%s%9%H!<%k$7$^$9!#(B
+		<li>電源ボタンの長押し等によって一旦、強制的に電源を落したあと回復コンソールを起動します。尚、回復コンソールでの起動ができることを<strong>「窓使いの憂鬱」のインストール前に</strong>確認しておくことをお勧めします。</strong>(参考: <a href="http://support.microsoft.com/default.aspx?scid=kb;ja;314058">Windows XP 回復コンソールについて</a>)
+		<li><code>%windir%\system32\drivers</code> 内の <code>mayudrsc.sys</code> を <code>mayud.sys</code> の名前で上書きコピーします。(即ち <code>mayud.sys</code> を <code>mayudrsc.sys</code>で置き換える。)
+		<li>再起動します。
+		<li>コントロールパネルから「窓使いの憂鬱」をアンインストールします。
 	      </ol>
 	    </div>
 	</dd>
@@ -81,95 +81,95 @@
   <dt class="h1"><a name="UNINSTALL">3. uninstall</a>
       
   <dd class="d1">
-      <p>$B%3%s%H%m!<%k%Q%M%k$+$i!VAk;H$$$NM+]5!W$r%"%s%$%s%9%H!<%k$7$F$/$@$5$$!#%"%s%$%s%9%H!<%k8e$K:F$S%$%s%9%H!<%k$9$k>l9g$O!":F5/F08e$K%$%s%9%H!<%k$7$F2<$5$$!#$^$?!"%"%s%$%s%9%H!<%k8e$K(B <code>mayu.dll</code> $B$,;D$k>l9g$,$"$k$N$G!"$=$N>l9g$O:F5/F08e$K<j:n6H$G>C$7$F$/$@$5$$!#(B</p>
+      <p>コントロールパネルから「窓使いの憂鬱」をアンインストールしてください。アンインストール後に再びインストールする場合は、再起動後にインストールして下さい。また、アンインストール後に <code>mayu.dll</code> が残る場合があるので、その場合は再起動後に手作業で消してください。</p>
       
     <dt class="h1"><a name="MENU">4. menu</a>
 
     <dd class="d1">
 	<div>
-	  <p>$B!VAk;H$$$NM+]5!W$r<B9T$9$k$H!"%?%9%/%H%l%$$K!VAk;H$$$NM+]5!W$N%"%$%3%s$,I=<($5$l$^$9!#$3$N!VAk;H$$$NM+]5!W$N%"%$%3%s$r1&%/%j%C%/$9$k$H%a%K%e!<$,=P$F$-$^$9!#(B</p>
+	  <p>「窓使いの憂鬱」を実行すると、タスクトレイに「窓使いの憂鬱」のアイコンが表示されます。この「窓使いの憂鬱」のアイコンを右クリックするとメニューが出てきます。</p>
 
 	  <p><img src="menu-ja.png"></p>
 
 	  <dl>
-	    <dt><span class="menu-item"><a name="menu-r">$B:FFI$_9~$_(B(<u>R</u>)</a></span>
+	    <dt><span class="menu-item"><a name="menu-r">再読み込み(<u>R</u>)</a></span>
 	    <dd>
 		<div>
-		  <p>$B@_Dj%U%!%$%k$r:FFI$_9~$_$7$^$9!#(B<a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> $B$HF1$8$G$9!#(B</p>
+		  <p>設定ファイルを再読み込みします。<a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> と同じです。</p>
 		</div>
 		
-	    <dt><span class="menu-item"><a name="menu-c"></a>$BA*Br(B(<u>C</u>) &#9658;</span>
+	    <dt><span class="menu-item"><a name="menu-c"></a>選択(<u>C</u>) &#9658;</span>
 	    <dd>
 		<div>
-		  <p>$B%5%V%a%K%e!<$+$i@_Dj%U%!%$%k$N@Z$jBX$($r9T$$$^$9!#!VAk;H$$$NM+]5!W$,%G%U%)%k%H$GMQ0U$7$F$$$k%5%s%W%k@_Dj$O(B 8 $B$D$"$j$^$9!#0J2<$N>r7o$NAH$_9g$o$;$H$J$j$^$9!#(B</p>
+		  <p>サブメニューから設定ファイルの切り替えを行います。「窓使いの憂鬱」がデフォルトで用意しているサンプル設定は 8 つあります。以下の条件の組み合わせとなります。</p>
 		  
 		  <ol style="list-style-type: lower-alpha;">
-		    <li>$B%-!<%\!<%I$OF|K\8l(B 109 $B%-!<%\!<%I$+!"1Q8l(B104 $B%-!<%\!<%I$+!#(B
-		    <li>$B%-!<%H%C%W$NI=<($NDL$j$K;H$&$N$+!"(B109 ($B$^$?$O(B 104) $B%-!<%\!<%I$r;H$C$F$$$k$,!"(B104 ($B$^$?$O(B 109) $B%-!<%\!<%I$HF1$8G[CV$G;H$&$N$+!#(B
-		    <li>Emacs (UNIX $B$GI8=`E*$J%(%G%#%?$N0l$D(B) $B$K;w$;$?%P%$%s%G%#%s%0$r;H$&$+$I$&$+!#(B
+		    <li>キーボードは日本語 109 キーボードか、英語104 キーボードか。
+		    <li>キートップの表示の通りに使うのか、109 (または 104) キーボードを使っているが、104 (または 109) キーボードと同じ配置で使うのか。
+		    <li>Emacs (UNIX で標準的なエディタの一つ) に似せたバインディングを使うかどうか。
 		  </ol>
 		  
-		  <p>$B$3$N$&$A!"(Ba $B$O%$%s%9%H!<%k;~$K7hDj$5$l$k$N$G!"%5%V%a%K%e!<$KI=<($5$l$k$b$N$O(B b, c $B$NAH$_9g$o$;(B 4 $B<oN`$K$J$j$^$9!#(B</p>
+		  <p>このうち、a はインストール時に決定されるので、サブメニューに表示されるものは b, c の組み合わせ 4 種類になります。</p>
 		  
-		  <p>$B%G%U%)%k%H@_Dj0J30$KFH<+$N@_Dj$,I,MW$J>l9g$O!"(B<a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a>$B$K(B <code>.mayu</code> $B%U%!%$%k$r:n$j$=$N%U%!%$%k$K@_Dj$r5-=R$7$^$9!#$=$7$F%5%V%a%K%e!<$G(B ($B%[!<%`%G%#%l%/%H%j$+$i(B) $B$rA*$S$^$9!#>\$7$/$O(B<a href="#TUTORIAL">$B%A%e!<%H%j%"%k(B</a>$B$H(B<a href="CUSTOMIZE-ja.html">$B%+%9%?%^%$%:(B</a>$B$r;2>H$7$F$/$@$5$$!#(B</p>
+		  <p>デフォルト設定以外に独自の設定が必要な場合は、<a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a>に <code>.mayu</code> ファイルを作りそのファイルに設定を記述します。そしてサブメニューで (ホームディレクトリから) を選びます。詳しくは<a href="#TUTORIAL">チュートリアル</a>と<a href="CUSTOMIZE-ja.html">カスタマイズ</a>を参照してください。</p>
 		</div>
 		
-	    <dt><span class="menu-item"><a name="menu-s">$B@_Dj(B(<u>S</u>)...</a></span>
+	    <dt><span class="menu-item"><a name="menu-s">設定(<u>S</u>)...</a></span>
 	    <dd>
 		<div>
-		  <p><span class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</span>$B$NA*Br;h$H$J$k@_Dj%U%!%$%k$r:n@.$7$^$9!#(B</p>
+		  <p><span class="menu-item">選択(<u>C</u>) &#9658;</span>の選択肢となる設定ファイルを作成します。</p>
 		  
 		  <p class="noindent"><img src="setting-ja.png"></p>
 		  
-		  <p>$B1&B&$NLp0u%\%?%s$G%a%K%e!<$KI=<($5$l$k=g=x$rJQ99$9$k$3$H$,$G$-$^$9!#(B</p>
+		  <p>右側の矢印ボタンでメニューに表示される順序を変更することができます。</p>
 		  
-		  <p>$B!VDI2C(B(<u>A</u>)$B!WKt$O!VJT=8(B(<u>E</u>)$B!W%\%?%s$r2!$9$+!"9T$r%@%V%k%/%j%C%/$9$k$HJT=8%@%$%"%m%0%\%C%/%9$,I=<($5$l$^$9!#(B</p>
+		  <p>「追加(<u>A</u>)」又は「編集(<u>E</u>)」ボタンを押すか、行をダブルクリックすると編集ダイアログボックスが表示されます。</p>
 		  
 		  <p class="noindent"><img src="edit-setting-ja.png"></p>
 		  
-		  <p>$B!VL>A0(B(<u>N</u>)$B!W$K$O!"%a%K%e!<$KI=<($5$l$kL>A0$r5-=R$7$^$9!#!V%U%!%$%kL>(B(<u>F</u>)$B!W$r6uMs$K$9$k$H(B<a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a>$B$+$i(B <code>.mayu</code> $B$rFI$_9~$_$^$9!#!V%7%s%\%k(B(<u>S</u>)$B!W$K$O!"(B<a href="CUSTOMIZE-ja.html#cond">$B>r7oJ,4t(B</a>$B$G;HMQ$5$l$k%7%s%\%k$r5-=R$7$^$9!#%7%s%\%k$NF,$K(B <code>-D</code> $B$r$D$1!"J#?t$N%7%s%\%k$O(B <code>;</code> $B$G6h@Z$j$^$9!#(B</p>
+		  <p>「名前(<u>N</u>)」には、メニューに表示される名前を記述します。「ファイル名(<u>F</u>)」を空欄にすると<a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a>から <code>.mayu</code> を読み込みます。「シンボル(<u>S</u>)」には、<a href="CUSTOMIZE-ja.html#cond">条件分岐</a>で使用されるシンボルを記述します。シンボルの頭に <code>-D</code> をつけ、複数のシンボルは <code>;</code> で区切ります。</p>
 		</div>
 		
-	    <dt><span class="menu-item">$B0l;~Dd;_(B(<u>T</u>)</span>
+	    <dt><span class="menu-item">一時停止(<u>T</u>)</span>
 	    <dd>
 		<div>
-		  <p>$B!VAk;H$$$NM+]5!W$N5!G=$r0l;~E*$KDd;_$7$^$9!#%-!<%\!<%I$+$i$NF~NO$O!"!VAk;H$$$NM+]5!W$,B8:_$7$J$$;~$HF1$8F0:n$r$7$^$9!#$3$N$H$-!"%?%9%/%H%l%$$N%"%$%3%s$O(B <img src="pause-ja.png" align="top"> $B$K$J$j$^$9!#(B</p>
+		  <p>「窓使いの憂鬱」の機能を一時的に停止します。キーボードからの入力は、「窓使いの憂鬱」が存在しない時と同じ動作をします。このとき、タスクトレイのアイコンは <img src="pause-ja.png" align="top"> になります。</p>
 		</div>
 
-	    <dt><span class="menu-item"><strong><a name="menu-i">$BD4::(B</a>(<u>I</u>)...</strong></span>
+	    <dt><span class="menu-item"><strong><a name="menu-i">調査</a>(<u>I</u>)...</strong></span>
 	    <dd>
 		<div>
-		  <p>$BD4::%&%$%s%I%&$H%m%0%&%$%s%I%&$rI=<($7$^$9!#(B</p>
+		  <p>調査ウインドウとログウインドウを表示します。</p>
 		  
 		  <p><img src="investigate-ja.png"></p>
 		  
-		  <p>$B$=$l$>$l$N>l=j$G%-!<$r2!$9$3$H$K$h$j!"%-!<$N%9%-%c%s%3!<%I$d2>A[%-!<%3!<%I$rD4$Y$k$3$H$,$G$-$^$9!#(B</p>
+		  <p>それぞれの場所でキーを押すことにより、キーのスキャンコードや仮想キーコードを調べることができます。</p>
 		  
-		  <p>$B$^$?!"(B<img src="target.png" alt="$B%?!<%2%C%H(B"> $B$rD4$Y$?$$%&%#%s%I%&$^$G%I%i%C%0$9$k$H%&%#%s%I%&%/%i%9$H%&%#%s%I%&%?%$%H%k$,%m%0$K=PNO$5$l$^$9!#$3$3$GD4::$7$?%&%#%s%I%&%/%i%9L>$H%&%#%s%I%&%?%$%H%k$O!"@_Dj%U%!%$%k$G(B <a href="CUSTOMIZE-ja.html#keymap"><code>window</code></a> $B$K5-=R$9$k$3$H$,$G$-$^$9!#(B($B$3$3$GD4::$9$kBe$o$j$K!"(B<code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> $B$rMxMQ$7$F$bD4$Y$k$3$H$,$G$-$^$9(B)</p>
+		  <p>また、<img src="target.png" alt="ターゲット"> を調べたいウィンドウまでドラッグするとウィンドウクラスとウィンドウタイトルがログに出力されます。ここで調査したウィンドウクラス名とウィンドウタイトルは、設定ファイルで <a href="CUSTOMIZE-ja.html#keymap"><code>window</code></a> に記述することができます。(ここで調査する代わりに、<code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> を利用しても調べることができます)</p>
 		</div>
 		
-	    <dt><span class="menu-item"><a name="menu-l">$B%m%0(B(<u>L</u>)...</a></span>
+	    <dt><span class="menu-item"><a name="menu-l">ログ(<u>L</u>)...</a></span>
 	    <dd>
 		<div>
-		  <p>$B%m%0%&%$%s%I%&$rI=<($7$^$9!#(B</p>
+		  <p>ログウインドウを表示します。</p>
 		  
 		  <p><img src="log-ja.png"></p>
 
-		  <p><a href="#menu-i" class="menu-item">$BD4::(B(<u>I</u>)...</a>$B$N7k2L$d%(%i!<$J$I$,$3$3$KI=<($5$l$^$9!#(B($B!V"">\:Y(B(<u>D</u>)$B!W$r%A%'%C%/$9$k$H!"!VAk;H$$$NM+]5!W$NFbIt$NJQ49=hM}$,>\:Y$KI=<($5$l$^$9$,Hs>o$KFq2r$G$9(B)</p>
+		  <p><a href="#menu-i" class="menu-item">調査(<u>I</u>)...</a>の結果やエラーなどがここに表示されます。(「□詳細(<u>D</u>)」をチェックすると、「窓使いの憂鬱」の内部の変換処理が詳細に表示されますが非常に難解です)</p>
 		</div>
 
-	    <dt><span class="menu-item">$B%P!<%8%g%s(B(<u>V</u>)...</span>
+	    <dt><span class="menu-item">バージョン(<u>V</u>)...</span>
 	    <dd>
 		<div>
-		  <p>$B%P!<%8%g%s>pJs$J$I$rI=<($7$^$9!#%P%0%l%]!<%H$r$9$k;~$K$3$NFbMF$r%3%T!<$9$k$HJXMx$G$9!#(B</p>
+		  <p>バージョン情報などを表示します。バグレポートをする時にこの内容をコピーすると便利です。</p>
 
 		  <p><img src="version-ja.png"></p>
 		</div>
 
-	    <dt><span class="menu-item">$B%X%k%W(B(<u>H</u>)...</span>
+	    <dt><span class="menu-item">ヘルプ(<u>H</u>)...</span>
 	    <dd>
 		<div>
-		  <p>$B$3$N%^%K%e%"%k$rI=<($7$^$9!#(B</p>
+		  <p>このマニュアルを表示します。</p>
 		</div>
 		
 	  </dl>
@@ -179,132 +179,132 @@
 
     <dd class="d1">
 	<div>
-	  <!--p>$B!VAk;H$$$NM+]5!W$OHs>o$K9b5!G=$J%-!<%P%$%s%G%#%s%0JQ99%D!<%k$J$N$G$9$,!"%A%e!<%H%j%"%k$b(BGUI$B$G$N@_Dj%D!<%k$b$J$/!"0lJ}$G%^%K%e%"%k$OD9Bg$J$?$a!"=i$a$F;H$&%f!<%6!<$K$OJB30$l$FI_5o$N9b$$>uBV$,B3$$$F$$$^$7$?!#(B</p-->
+	  <!--p>「窓使いの憂鬱」は非常に高機能なキーバインディング変更ツールなのですが、チュートリアルもGUIでの設定ツールもなく、一方でマニュアルは長大なため、初めて使うユーザーには並外れて敷居の高い状態が続いていました。</p-->
 	  
-	  <p>$B$3$N>O$G$O!"!VAk;H$$$NM+]5!W$r=i$a$F;H$&%f!<%6!<$,!"<B:]$K@_Dj$r7+$jJV$7$J$,$i!"4JC1$J%+%9%?%^%$%:$G$"$l$PLdBj$J$/$G$-$k%l%Y%k$KE~C#$9$k$3$H$rL\;X$7$^$9!#$^$:$O$3$NJ8>O$K1h$C$F!"<B:]$K%5%s%W%k$N@_Dj$r;n$7$F$_$F$/$@$5$$!#>\:Y$,CN$j$?$$>l9g$K$O!"3F>O$N%j%s%/@h$G>\:Y$rFI$`$3$H$,$G$-$^$9$N$G!"5?LdE@$,$"$l$P(B 2 $B<~L\0J9_$G%j%s%/@h$r8+$F$$$1$P$h$$$G$7$g$&!#(B</p>
+	  <p>この章では、「窓使いの憂鬱」を初めて使うユーザーが、実際に設定を繰り返しながら、簡単なカスタマイズであれば問題なくできるレベルに到達することを目指します。まずはこの文章に沿って、実際にサンプルの設定を試してみてください。詳細が知りたい場合には、各章のリンク先で詳細を読むことができますので、疑問点があれば 2 周目以降でリンク先を見ていけばよいでしょう。</p>
 
-	  <p>$B$5$F!"(B<a href="#INSTALL">$B%$%s%9%H!<%k(B</a>$B$O:Q$s$G$$$^$9$h$M!)(B<a href="#menu-c">$B%G%U%)%k%H@_Dj(B</a>$B$G$OK0$-B-$i$J$$$+$i$3$l$rFI$s$G$$$k$s$G$9$h$M!)$G$O!"!VAk;H$$$NM+]5!W$N??2A$rH/4x$9$k$?$a$N!"D9$$F;$N$j$NBh0lJb$rF'$_=P$7$^$7$g$&!#(B</p>
+	  <p>さて、<a href="#INSTALL">インストール</a>は済んでいますよね？<a href="#menu-c">デフォルト設定</a>では飽き足らないからこれを読んでいるんですよね？では、「窓使いの憂鬱」の真価を発揮するための、長い道のりの第一歩を踏み出しましょう。</p>
 
 	  <dl>
-	    <dt class="h2"><a name="dotmayu">i. $B<+J,MQ$N@_Dj%U%!%$%k$r:n$k(B</a>
+	    <dt class="h2"><a name="dotmayu">i. 自分用の設定ファイルを作る</a>
 		
 	    <dd class="d2">
 		<div>
-		  <p>$B$^$:!"%?%9%/%H%l%$%a%K%e!<$N(B<a href="#menu-c" class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</a>$B$N(B<span class="menu-item">($B%[!<%`%G%#%l%/%H%j$+$i(B)</span>$B$G;H$o$l$k<+J,MQ$N@_Dj%U%!%$%k!"(B<code>.mayu</code> $B%U%!%$%k$r:n$j$^$9!#(B($B%$%s%9%H!<%k$7$?%G%#%l%/%H%j$KB8:_$9$k(B <code>dot.mayu</code> $B$rJT=8$7$F$O$$$1$^$;$s(B)</p>
+		  <p>まず、タスクトレイメニューの<a href="#menu-c" class="menu-item">選択(<u>C</u>) &#9658;</a>の<span class="menu-item">(ホームディレクトリから)</span>で使われる自分用の設定ファイル、<code>.mayu</code> ファイルを作ります。(インストールしたディレクトリに存在する <code>dot.mayu</code> を編集してはいけません)</p>
 
-		  <p>$B$^$:!"4D6-JQ?t(B <code>HOME</code> $B$G!"(B<a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a>$B$N0LCV$r;XDj$7$^$9!#%[!<%`%G%#%l%/%H%j$O!"Nc$($P$"$J$?$NL>A0$,(B mayu $B$G$"$l$P!"!V(B<code>c:\home\mayu</code>$B!W$N$h$&$J%G%#%l%/%H%j$r:n$k$N$,(B UNIX $BIw$G$*A&$a$G$9!#(B</p>
+		  <p>まず、環境変数 <code>HOME</code> で、<a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a>の位置を指定します。ホームディレクトリは、例えばあなたの名前が mayu であれば、「<code>c:\home\mayu</code>」のようなディレクトリを作るのが UNIX 風でお薦めです。</p>
 
 		  <dl>
-		    <dt class="h3">Windows2000/XP $B$N>l9g(B
+		    <dt class="h3">Windows2000/XP の場合
 		    <dd class="d3">
 			<div>
-			  <p>$B%G%9%/%H%C%W$N!V%^%$%3%s%T%e!<%?!W$N1&%/%j%C%/%a%K%e!<$N!V%W%m%Q%F%#!W$N!V>\:Y!W$N!V4D6-JQ?t!W$G!"%f!<%6!<4D6-JQ?t(B <code>HOME</code> $B$r:n@.$7!"(B<code>c:\home\mayu</code> $B$K@_Dj$7$^$9!#(B</p>
+			  <p>デスクトップの「マイコンピュータ」の右クリックメニューの「プロパティ」の「詳細」の「環境変数」で、ユーザー環境変数 <code>HOME</code> を作成し、<code>c:\home\mayu</code> に設定します。</p>
 			</div>
 
 		  </dl>
 		  
-		  <p>$B$=$7$F(B <code>c:\home\mayu</code> $B$H$$$&%G%#%l%/%H%j$r:n@.$7$F$*$-$^$9!#(B</p>
+		  <p>そして <code>c:\home\mayu</code> というディレクトリを作成しておきます。</p>
 		  
-		  <p>$B$3$N%G%#%l%/%H%j$K!"(B<code>.mayu</code> $B$H$$$&%U%!%$%k$r:n$j$^$9!#0lIt$N%(%G%#%?$G$O%I%C%H$+$i;O$^$k%U%!%$%kL>$O:n$l$J$$$+$b$7$l$^$;$s$,!"$=$N$h$&$J%(%G%#%?$r;H$C$F$$$k>l9g$K$O!"$3$N:]>h$j49$($^$7$g$&!#M-L>$I$3$m$N%F%-%9%H%(%G%#%?$G$OBgDq:n$l$k$H;W$$$^$9$,!"FC$K(B Emacs $B$,K:$l$i$l$J$$?M$K$O(B <a href="http://www.jsdlab.co.jp/~kamei/" target="_top">xyzzy</a> $B$d(B Meadow $B$J$I$,$*A&$a$G$9!#(B</p>
+		  <p>このディレクトリに、<code>.mayu</code> というファイルを作ります。一部のエディタではドットから始まるファイル名は作れないかもしれませんが、そのようなエディタを使っている場合には、この際乗り換えましょう。有名どころのテキストエディタでは大抵作れると思いますが、特に Emacs が忘れられない人には <a href="http://www.jsdlab.co.jp/~kamei/" target="_top">xyzzy</a> や Meadow などがお薦めです。</p>
 			  
-		  <p>$B?7$?$K(B <code>.mayu</code> $B$r@_Dj$7$?$j!"%G%#%l%/%H%j$r:n$k$N$,7y$J>l9g$O!"%^%$%I%-%e%a%s%H$ND>2<$K:n$C$F$b(B OK $B$G$9!#(B</p>
+		  <p>新たに <code>.mayu</code> を設定したり、ディレクトリを作るのが嫌な場合は、マイドキュメントの直下に作っても OK です。</p>
 		  
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a></p>
 		</div>
 		
-	    <dt class="h2"><a name="minimum">ii. $B:n$C$?@_Dj%U%!%$%k$K:GDc8B$N@_Dj$r=q$/(B</a>
+	    <dt class="h2"><a name="minimum">ii. 作った設定ファイルに最低限の設定を書く</a>
 		
 	    <dd class="d2">
 		<div>
 		  
-		  <p>$B$^$:!"$$$/$D$+$NI,MW$J%U%!%$%k$NFbMF$r<h$j9~$`I,MW$,$"$j$^$9!#(B<!-- $B>\:Y$O(B <a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> $B$r8+$F$/$@$5$$!#(B --></p>
+		  <p>まず、いくつかの必要なファイルの内容を取り込む必要があります。<!-- 詳細は <a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> を見てください。 --></p>
 
 		  <dl>
-		    <dt class="h3">109 $BF|K\8l%-!<%\!<%I$N>l9g(B
+		    <dt class="h3">109 日本語キーボードの場合
 		    <dd class="d3">
 			<div>
-			  <p><code>.mayu</code> $B%U%!%$%k$N@hF,$K0J2<$N$h$&$K5-=R$7$^$9!#(B</p>
+			  <p><code>.mayu</code> ファイルの先頭に以下のように記述します。</p>
 			  
 			  <p class="sample">
-			  include "109.mayu"	# 109 $B%-!<%\!<%I@_Dj(B
+			  include "109.mayu"	# 109 キーボード設定
 			  </p>
 			  
-			  <p>$B9%$_$K1~$8$F!"0J2<$N3F9T$r=q$/$+=q$+$J$$$+$r7h$a$F$/$@$5$$!#(B($B%?%9%/%H%l%$%a%K%e!<(B<a href="#menu-c" class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</a>$B$N%G%U%)%k%H@_Dj$KBP1~$7$F$$$^$9(B) </p>
+			  <p>好みに応じて、以下の各行を書くか書かないかを決めてください。(タスクトレイメニュー<a href="#menu-c" class="menu-item">選択(<u>C</u>) &#9658;</a>のデフォルト設定に対応しています) </p>
 			  
 			  <p class="sample">
-			  include "104on109.mayu"	# 109 $B%-!<%\!<%I$r(B 104 $B%-!<%\!<%IIw$K(B<br>
-			  include "default.mayu"	# Emacs $B%i%$%/$J$5$^$6$^$J@_Dj(B
+			  include "104on109.mayu"	# 109 キーボードを 104 キーボード風に<br>
+			  include "default.mayu"	# Emacs ライクなさまざまな設定
 			  </p>
 			</div>
 
-		    <dt class="h3">104 $B1Q8l%-!<%\!<%I$N>l9g(B
+		    <dt class="h3">104 英語キーボードの場合
 		    <dd class="d3">
 			<div>
-			  <p><code>.mayu</code> $B%U%!%$%k$N@hF,$K0J2<$N$h$&$K5-=R$7$^$9!#(B</p>
+			  <p><code>.mayu</code> ファイルの先頭に以下のように記述します。</p>
 			  
 			  <p class="sample">
-			  include "104.mayu"	# 104 $B%-!<%\!<%I@_Dj(B
+			  include "104.mayu"	# 104 キーボード設定
 			  </p>
 			  
-			  <p>$B9%$_$K1~$8$F!"0J2<$N3F9T$r=q$/$+=q$+$J$$$+$r7h$a$F$/$@$5$$!#(B ($B%?%9%/%H%l%$%a%K%e!<(B<a href="#menu-c" class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</a>$B$N%G%U%)%k%H@_Dj$KBP1~$7$F$$$^$9(B) </p>
+			  <p>好みに応じて、以下の各行を書くか書かないかを決めてください。 (タスクトレイメニュー<a href="#menu-c" class="menu-item">選択(<u>C</u>) &#9658;</a>のデフォルト設定に対応しています) </p>
 			  
 			  <p class="sample">
-			  include "109on104.mayu"	# 104 $B%-!<%\!<%I$r(B 109 $B%-!<%\!<%IIw$K(B<br>
-			  include "default.mayu"	# Emacs $B%i%$%/$J$5$^$6$^$J@_Dj(B
+			  include "109on104.mayu"	# 104 キーボードを 109 キーボード風に<br>
+			  include "default.mayu"	# Emacs ライクなさまざまな設定
 			  </p>
 			</div>
 			
 		  </dl>
 		  
-		  <p>$B$3$3$^$G=q$-9~$s$@$i!"%?%9%/%H%l%$%a%K%e!<$G(B<a href="#menu-c" class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</a>$B$+$i(B<span class="menu-item">($B%[!<%`%G%#%l%/%H%j$+$i(B)</span>$B$rA*$s$G$/$@$5$$!#(B<a href="#menu-l">$B%m%0%&%$%s%I%&(B</a>$B$K%(%i!<%a%C%;!<%8$,=P$J$$$h$&$G$"$l$P!"$3$3$^$G$O$&$^$/$$$C$F$$$^$9!#$3$l$G%+%9%?%^%$%:$N=`Hw$,$G$-$^$7$?!#$3$N@h$K<+J,9%$_$N@_Dj$r=q$-2C$($F$$$/$3$H$K$J$j$^$9!#$=$7$F=q$-2C$($?$i(B<a href="#menu-r" class="menu-item">$B:FFI$_9~$_(B(<u>R</u>)</a>$B$7$^$9!#(B</p>
+		  <p>ここまで書き込んだら、タスクトレイメニューで<a href="#menu-c" class="menu-item">選択(<u>C</u>) &#9658;</a>から<span class="menu-item">(ホームディレクトリから)</span>を選んでください。<a href="#menu-l">ログウインドウ</a>にエラーメッセージが出ないようであれば、ここまではうまくいっています。これでカスタマイズの準備ができました。この先に自分好みの設定を書き加えていくことになります。そして書き加えたら<a href="#menu-r" class="menu-item">再読み込み(<u>R</u>)</a>します。</p>
 
-		  <p>$B%m%0%&%$%s%I%&$K!V(Berror: failed to load.$B!W$H=P$F$$$?>l9g!"(B
-$B@_Dj%U%!%$%k$NFI$_9~$_$K<:GT$7$F$$$^$9!#@_Dj%U%!%$%k$N%Q%9$H!"9T?t!"%(%i!<%a%C%;!<%8$,I=<($5$l$F$$$k$N$G!"$=$l$r;29M$K=$@5$7$F$/$@$5$$!#(B</p>
+		  <p>ログウインドウに「error: failed to load.」と出ていた場合、
+設定ファイルの読み込みに失敗しています。設定ファイルのパスと、行数、エラーメッセージが表示されているので、それを参考に修正してください。</p>
 
-		  <p>$B;2>H(B: <a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a></p>
+		  <p>参照: <a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a></p>
 		</div>
 		
-	    <dt class="h2"><a name="key">iii. $BIaDL$N%-!<$rF~$lBX$($F$_$k(B</a>
+	    <dt class="h2"><a name="key">iii. 普通のキーを入れ替えてみる</a>
 		
 	    <dd class="d2">
 		<div>
 		  
-		  <p>$B0J2<!"@bL@$NJX59>e(B 109 $B%-!<%\!<%I$r;H$C$F$$$k$b$N$H$7$FOC$r$9$9$a$^$9(B</p>
+		  <p>以下、説明の便宜上 109 キーボードを使っているものとして話をすすめます</p>
 
-		  <p>$B$^$:!"(B<kbd>Esc</kbd> $B%-!<$H(B <kbd>$BH>3Q(B/$BA43Q(B</kbd> $B%-!<$rF~$lBX$($F$_$^$9!#$3$l$O!"(B<code>.mayu</code> $B%U%!%$%k$NKvHx$K0J2<$N$h$&$KDI2C$7$^$9!#(B</p>
+		  <p>まず、<kbd>Esc</kbd> キーと <kbd>半角/全角</kbd> キーを入れ替えてみます。これは、<code>.mayu</code> ファイルの末尾に以下のように追加します。</p>
 
 		  <p class="sample">
 		  keymap Global<br>
-		  key Esc       = $BH>3Q(B/$BA43Q(B<br>
-		  key $BH>3Q(B/$BA43Q(B = Esc<br>
+		  key Esc       = 半角/全角<br>
+		  key 半角/全角 = Esc<br>
 		  </p>
 		  
-		  <p><a href="#menu-r" class="menu-item">$B:FFI$_9~$_(B(<u>R</u>)</a>$B$r$7$F3NG'$7$F$_$F$/$@$5$$!#(B</p>
+		  <p><a href="#menu-r" class="menu-item">再読み込み(<u>R</u>)</a>をして確認してみてください。</p>
 
-		  <p>1 $B9TL\$N(B <code>keymap Global</code> $B$O!"<!$N(B <code>keymap</code> $B;XDj$^$G$N5-=R$OA4$F$N%&%$%s%I%&$GM-8z$J@_Dj$H$9$k!"$H$$$&;X<($G$9!#(B</p>
+		  <p>1 行目の <code>keymap Global</code> は、次の <code>keymap</code> 指定までの記述は全てのウインドウで有効な設定とする、という指示です。</p>
 
-		  <p>2, 3 $B9TL\$N$h$&$K(B <code>key $B%-!<L>(B = $B%-!<L>(B</code> $B$H=q$/$3$H$G!"$"$k%-!<$r2!$7$?$H$-$N5sF0$rJQ99$G$-$^$9!#>e$NNc$G$"$l$P!"(B<kbd>Esc</kbd> $B$,2!$5$l$?$H$-$O(B <kbd>$BH>3Q(B/$BA43Q(B</kbd> $B$,2!$5$l$?$h$&$K!"(B<kbd>$BH>3Q(B/$BA43Q(B</kbd> $B$,2!$5$l$?$H$-$O(B <kbd>Esc</kbd> $B$,2!$5$l$?$h$&$JF0:n$K$J$j$^$9!#(B</p>
+		  <p>2, 3 行目のように <code>key キー名 = キー名</code> と書くことで、あるキーを押したときの挙動を変更できます。上の例であれば、<kbd>Esc</kbd> が押されたときは <kbd>半角/全角</kbd> が押されたように、<kbd>半角/全角</kbd> が押されたときは <kbd>Esc</kbd> が押されたような動作になります。</p>
 
-		  <p>$B%-!<L>$O!"%?%9%/%H%l%$%a%K%e!<(B<a href="#menu-i" class="menu-item">$BD4::(B(I)...</a>$B$N!V%9%-%c%s%3!<%I$ND4::!W$GD4$Y$?$$%-!<$r2!$9$3$H$G$o$+$j$^$9!#(B<kbd>Esc</kbd> $B%-!<$H!"(B<kbd>$BH>3Q(B/$BA43Q(B</kbd> $B%-!<$r=g$K2!$7$?$H$-$N%m%0%&%$%s%I%&$K$O!"Nc$($P0J2<$N$h$&$KI=<($5$l$F$$$k$O$:$G$9!#(B</p>
+		  <p>キー名は、タスクトレイメニュー<a href="#menu-i" class="menu-item">調査(I)...</a>の「スキャンコードの調査」で調べたいキーを押すことでわかります。<kbd>Esc</kbd> キーと、<kbd>半角/全角</kbd> キーを順に押したときのログウインドウには、例えば以下のように表示されているはずです。</p>
 
 		  <p class="sample">
 		  0x01   D-Esc<br>
 		  0x01   U-Esc<br>
-		  0x29   D-$BH>3Q(B/$BA43Q(B<br>
-		  0x29   U-$BH>3Q(B/$BA43Q(B<br>
+		  0x29   D-半角/全角<br>
+		  0x29   U-半角/全角<br>
 		  </p>
 
-		  <p>$B%-!<L>$NA0$N(B <code>D-</code> $B$H$$$&$N$O%-!<$,2!$5$l$?!"(B<code>U-$BH>3Q(B/$BA43Q(B</code> $B$N(B <code>U-</code> $B$H$$$&$N$O%-!<$,N%$5$l$?!"$H$$$&>uBV$r$=$l$>$lI=$7$^$9!#(B</p>
+		  <p>キー名の前の <code>D-</code> というのはキーが押された、<code>U-半角/全角</code> の <code>U-</code> というのはキーが離された、という状態をそれぞれ表します。</p>
 		  
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#key">$B%-!<3d$jEv$F$NJQ99(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#key">キー割り当ての変更</a></p>
 		</div>
 
-	    <dt class="h2"><a name="window">iv. $BFCDj$N%&%$%s%I%&$N$_$G%-!<3d$jEv$F$rJQ99$7$F$_$k(B</a>
+	    <dt class="h2"><a name="window">iv. 特定のウインドウのみでキー割り当てを変更してみる</a>
 
 	    <dd class="d2">
 		<div>
 		  
-		  <p>$B$D$.$K!"(BInternet Explorer $B$G$N$_(B <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B%-!<$G!"(B<kbd>Home</kbd>/<kbd>End</kbd> $B$NF0$-$r$5$;$F$_$^$9!#(B<code>.mayu</code> $B$NKvHx$K0J2<$N$h$&$KDI2C$7$^$9!#(B</p>
+		  <p>つぎに、Internet Explorer でのみ <kbd>PageUp</kbd>/<kbd>PageDown</kbd> キーで、<kbd>Home</kbd>/<kbd>End</kbd> の動きをさせてみます。<code>.mayu</code> の末尾に以下のように追加します。</p>
 		  
 		  <p class="sample">
 		  window	InternetExplorer /iexplore\.exe/ : Global<br>
@@ -312,30 +312,30 @@
 		  key     PageDown = End<br>
 		  </p>
 		  
-		  <p>1 $B9TL\$N!"(B<code>window $B%-!<%^%C%WL>(B /$B%&%#%s%I%&%/%i%9L>(B/ : $B?F%-!<%^%C%WL>(B</code> $B$O!"0J9_$N;XDj$OFCDj$N%&%$%s%I%&$K$D$$$F$N$_M-8z$H$9$k!"$H$$$&;X<($G$9!#%-!<%^%C%WL>$O$o$+$j$d$9$$E,Ev$JL>A0$r$D$1$^$9!#?F%-!<%^%C%WL>$O(B Emacs $B$C$]$/$9$k$J$i(B <code>EmacsMove</code> $B$d(B <code>EmacsEdit</code> $B$K!"$=$&$G$J$1$l$P(B <code>Global</code> $B$K$9$l$P$h$$$G$7$g$&!#(B</p>
+		  <p>1 行目の、<code>window キーマップ名 /ウィンドウクラス名/ : 親キーマップ名</code> は、以降の指定は特定のウインドウについてのみ有効とする、という指示です。キーマップ名はわかりやすい適当な名前をつけます。親キーマップ名は Emacs っぽくするなら <code>EmacsMove</code> や <code>EmacsEdit</code> に、そうでなければ <code>Global</code> にすればよいでしょう。</p>
 		  
-		  <p>$B%&%$%s%I%&%/%i%9L>$rD4::$9$k$K$O!"%?%9%/%H%l%$%a%K%e!<(B<a href="#menu-i" class="menu-item">$BD4::(B(I)...</a>$B$N!V%&%#%s%I%&$ND4::!W$G!"D4$Y$?$$%&%#%s%I%&$d%3%s%H%m!<%k$K(B <img src="target.png" alt="$B%?!<%2%C%H(B"> $B$r%I%i%C%0$7$^$9!#(B</p>
+		  <p>ウインドウクラス名を調査するには、タスクトレイメニュー<a href="#menu-i" class="menu-item">調査(I)...</a>の「ウィンドウの調査」で、調べたいウィンドウやコントロールに <img src="target.png" alt="ターゲット"> をドラッグします。</p>
 		  
-		  <p>Internet Explorer $B$X%I%i%C%0$9$k$H(B ($BESCf$K$5$o$C$?A4$F$N%&%$%s%I%&$d%3%s%H%m!<%k$N>pJs$,=P$k$N$G!"B>$K$b$$$m$$$m=P$k$O$:$G$9$,(B)$B!"<!$N$h$&$JI=<($,=P$k$O$:$G$9!#(B</p>
+		  <p>Internet Explorer へドラッグすると (途中にさわった全てのウインドウやコントロールの情報が出るので、他にもいろいろ出るはずですが)、次のような表示が出るはずです。</p>
 		  
 		  <p class="sample">
 		  CLASS:	C:\Program Files\Internet Explorer\iexplore.exe:IEFrame<br>
-		  TITLE:	C:\Program Files\Internet Explorer\iexplore.exe:$BAk;H$$$NM+]5(B - README - Microsoft Internet Explorer<br>
+		  TITLE:	C:\Program Files\Internet Explorer\iexplore.exe:窓使いの憂鬱 - README - Microsoft Internet Explorer<br>
 		  Toplevel Window Position/Size: (-4, -4) / (1032x748)<br>
 		  Desktop Window Position/Size: (0, 0) / (1024x740)<br>
 		  </p>
 		  
-		  <p>$B$3$N(B <code>CLASS</code> $B$NItJ,$+$iFCD'E*$JJ8;zNs$rCj=P$7!"(B<a href="CUSTOMIZE-ja.html#regexp">$B@55,I=8=(B</a>$B$H8F$P$l$k5-K!$G(B <code>/$BJ8;zNs(B/</code> $B$N$h$&$K=q$1$P(B OK $B$G$9!#@55,I=8=$,$h$/$o$+$i$J$$>l9g$K$O!"(B<code>\</code> $B$O(B <code>\\</code>$B!"(B<code>.</code> $B$O(B <code>\.</code> $B$H=q$/$3$H$KCm0U$9$l$P$H$j$"$($:$"$^$jLdBj$O$J$$$G$7$g$&!#(B</p>
+		  <p>この <code>CLASS</code> の部分から特徴的な文字列を抽出し、<a href="CUSTOMIZE-ja.html#regexp">正規表現</a>と呼ばれる記法で <code>/文字列/</code> のように書けば OK です。正規表現がよくわからない場合には、<code>\</code> は <code>\\</code>、<code>.</code> は <code>\.</code> と書くことに注意すればとりあえずあまり問題はないでしょう。</p>
 		  
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#windowClass">$B%&%#%s%I%&%/%i%9(B/$B%?%$%H%kL>(B</a>$B!&(B<a href="CUSTOMIZE-ja.html#regexp">$B@55,I=8=(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#windowClass">ウィンドウクラス/タイトル名</a>・<a href="CUSTOMIZE-ja.html#regexp">正規表現</a></p>
 		</div>
 		
-	    <dt class="h2"><a name="modifier">v. $B%-!<$,%b%G%#%U%!%$%d%-!<$H6&$K2!$5$l$?>l9g$KCV$-49$($F$_$k(B</a>
+	    <dt class="h2"><a name="modifier">v. キーがモディファイヤキーと共に押された場合に置き換えてみる</a>
 
 	    <dd class="d2">
 		<div>
 		  
-		  <p>$B$D$.$K!"(BInternet Explorer $B$G$NF0:n$r$5$i$KJQ99$7$F!"(B<kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$G!"(B<kbd>Home</kbd>/<kbd>End</kbd> $B$r2!$7$?$h$&$KF0$+$7$F$_$^$9!#A0>O$GDI2C$7$?FbMF$rJQ99$7$F0J2<$N$h$&$K=q$-49$($^$9!#(B(<code>C-</code> $B$,%-!<L>$NA0$KDI2C$5$l$^$7$?(B)</p>
+		  <p>つぎに、Internet Explorer での動作をさらに変更して、<kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> で、<kbd>Home</kbd>/<kbd>End</kbd> を押したように動かしてみます。前章で追加した内容を変更して以下のように書き換えます。(<code>C-</code> がキー名の前に追加されました)</p>
 		  
 		  <p class="sample">
 		  window	InternetExplorer /iexplore\.exe/ : Global<br>
@@ -343,7 +343,7 @@
 		  key     C-PageDown = End<br>
 		  </p>
 		  
-		  <p>2, 3 $B9TL\$N%-!<$N;XDj$K$D$$$F$O!"$d$O$j%9%-%c%s%3!<%I$ND4::$GD4$Y$^$9!#(B<kbd>Ctrl</kbd> + <kbd>PageDown</kbd> $B$rF~NO$9$k$H!"<!$N$h$&$KI=<($5$l$^$9!#(B</p>
+		  <p>2, 3 行目のキーの指定については、やはりスキャンコードの調査で調べます。<kbd>Ctrl</kbd> + <kbd>PageDown</kbd> を入力すると、次のように表示されます。</p>
 		  
 		  <p class="sample">
 		  &nbsp;&nbsp;&nbsp;0x1d   D-LeftControl<br>
@@ -352,27 +352,27 @@
 		  &nbsp;&nbsp;&nbsp;0x1d   U-LeftControl<br>
 		  </p>
 		  
-		  <p>1, 4 $B9TL\$O(B <kbd>Ctrl</kbd> $B%-!<$N2!$7(B/$BN%$7$G$9!#(B2, 3 $B9TL\$+$i!"(B<code>C-PageDown</code> $B$,=q$/$Y$-%-!<L>$H$$$&$3$H$K$J$j$^$9!#$3$3$N(B <code>C-</code> $B$H$$$&$N$O!"(B<kbd>Ctrl</kbd> $B$,2!$5$l$F$$$k!"$H$$$&%-!<$N>uBV$rI=$95-9f$G$9!#(B<kbd>Ctrl</kbd> $B%-!<0J30$K$b!"(B<kbd>Windows</kbd> $B$d(B <kbd>Alt</kbd> $B$d(B <kbd>Shift</kbd> $B$N>uBV!"$^$?(B <kbd>CapsLock</kbd> $B$d(B <kbd>NumLock</kbd> $B$J$I$N%-!<$,%m%C%/>uBV$K$"$k$+$I$&$+$b$d$O$jF1MM$G$9!#$3$l$i$NFCJL$J%-!<$r!"!VAk;H$$$NM+]5!W$G$O!"%b%G%#%U%!%$%d$H8F$s$G$$$^$9!#(B
-$B%-!<3d$jEv$FJQ99$O!"$3$N$h$&$K%b%G%#%U%!%$%d$r4^$a$F;XDj$9$k$3$H$,$G$-$^$9!#(B
+		  <p>1, 4 行目は <kbd>Ctrl</kbd> キーの押し/離しです。2, 3 行目から、<code>C-PageDown</code> が書くべきキー名ということになります。ここの <code>C-</code> というのは、<kbd>Ctrl</kbd> が押されている、というキーの状態を表す記号です。<kbd>Ctrl</kbd> キー以外にも、<kbd>Windows</kbd> や <kbd>Alt</kbd> や <kbd>Shift</kbd> の状態、また <kbd>CapsLock</kbd> や <kbd>NumLock</kbd> などのキーがロック状態にあるかどうかもやはり同様です。これらの特別なキーを、「窓使いの憂鬱」では、モディファイヤと呼んでいます。
+キー割り当て変更は、このようにモディファイヤを含めて指定することができます。
   </p>
 <p>
-$B5U$K$$$&$H!"A0>O$^$G$N%-!<3d$jEv$FJQ99$G$O(B
-$B%b%G%#%U%!%$%d$r2?$b;XDj$7$F$$$^$;$s$+$i!"(B
-<kbd>Ctrl</kbd>$B$d(B<kbd>Alt</kbd>$B$J$I$,2!$5$l$F$$$k$H(B
-$B%-!<%$%Y%s%H$NCV$-49$($r9T$$$^$;$s!#(B
+逆にいうと、前章までのキー割り当て変更では
+モディファイヤを何も指定していませんから、
+<kbd>Ctrl</kbd>や<kbd>Alt</kbd>などが押されていると
+キーイベントの置き換えを行いません。
 </p>
 		  
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#modifier">$B%b%G%#%U%!%$%d$N;XDj(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#modifier">モディファイヤの指定</a></p>
 		</div>
 		
-	    <dt class="h2"><a name="modifier2">vi. $B%b%G%#%U%!%$%d%-!<$N>uBV$HL54X78$KCV$-49$($F$_$k(B</a>
+	    <dt class="h2"><a name="modifier2">vi. モディファイヤキーの状態と無関係に置き換えてみる</a>
 
 	    <dd class="d2">
 		<div>
 
-		  <p>$BA0>O$N@_Dj$G$O!"(B<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$HF~NO$7$?>l9g!"JQ49$5$l$:$K$=$N$^$^F~NO$5$l$F$7$^$$$^$9!#4{$K@bL@$7$?DL$j!"$3$l$O@5$7$$F0:n$G$9!#(B($BIT@53N$J8@$$J}$G$9$,!"%b%G%#%U%!%$%d$,2!$5$l$F$$$k$HJL$N%-!<L>$K$J$k$N$G!"A0>O$N;XDj$G$OCV$-49$($,5/$-$J$$!"$HM}2r$7$F$/$@$5$$(B)</p>
+		  <p>前章の設定では、<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> と入力した場合、変換されずにそのまま入力されてしまいます。既に説明した通り、これは正しい動作です。(不正確な言い方ですが、モディファイヤが押されていると別のキー名になるので、前章の指定では置き換えが起きない、と理解してください)</p>
 
-		  <p><kbd>Alt</kbd> $B$,2!$5$l$F$$$k$+$I$&$+$K$+$+$o$i$:(B <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$r(B <kbd>Home</kbd>/<kbd>End</kbd> $B$N$h$&$KF0:n$5$;$k$K$O!"A0>O$N@_Dj$rJQ99$7$F0J2<$N$h$&$K=$@5$7$^$9!#(B</p>
+		  <p><kbd>Alt</kbd> が押されているかどうかにかかわらず <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> を <kbd>Home</kbd>/<kbd>End</kbd> のように動作させるには、前章の設定を変更して以下のように修正します。</p>
 
 		  <p class="sample">
 		  window	InternetExplorer /iexplore\.exe/ : Global<br>
@@ -380,9 +380,9 @@
 		  key     *A-C-PageDown = *A-End<br>
 		  </p>
 
-		  <p>$B$3$l$O!"(B<kbd>Alt</kbd> $B$,2!$5$l$F$$$k$+$I$&$+$HL54X78$K(B <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$r(B <kbd>Home</kbd>/<kbd>End</kbd> $B$HCV$-49$(!"$=$N:]$K(B <kbd>Alt</kbd> $B$N>uBV$OJ]B8$7$?$^$^$K$9$k@_Dj$G$9!#$D$^$j!"(B<kbd>Alt</kbd> $B$,2!$5$l$F$$$J$1$l$PA0>O$HF1MM$NCV$-49$($r9T$$!"(B<kbd>Alt</kbd> $B$,2!$5$l$F$$$l$P(B <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PageUp</kbd> $B$r(B <kbd>Alt</kbd> + <kbd>Home</kbd> $B$N$h$&$KCV$-49$($^$9!#(B</p>
+		  <p>これは、<kbd>Alt</kbd> が押されているかどうかと無関係に <kbd>Ctrl</kbd> + <kbd>PageUp</kbd>/<kbd>PageDown</kbd> を <kbd>Home</kbd>/<kbd>End</kbd> と置き換え、その際に <kbd>Alt</kbd> の状態は保存したままにする設定です。つまり、<kbd>Alt</kbd> が押されていなければ前章と同様の置き換えを行い、<kbd>Alt</kbd> が押されていれば <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>PageUp</kbd> を <kbd>Alt</kbd> + <kbd>Home</kbd> のように置き換えます。</p>
 		  
-		  <p>$B$3$l$r2!$7?J$a$k$H!"$"$i$f$k%b%G%#%U%!%$%d$N>uBV$K94$o$i$:$KCV$-49$($r$7$F!"$+$D$"$i$f$k%b%G%#%U%!%$%d$N>uBV$rJ]B8$7$FCV$-49$($k!"$H$$$&@_Dj$,2DG=$G$9!#6qBNE*$K$O!"(B<kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$r(B <kbd>Home</kbd>/<kbd>End</kbd> $B$HA4$/F1MM$K;H$$$?$$$H$$$&>l9g$K!"0J2<$N$h$&$J@_Dj$,$G$-$^$9!#(B</p>
+		  <p>これを押し進めると、あらゆるモディファイヤの状態に拘わらずに置き換えをして、かつあらゆるモディファイヤの状態を保存して置き換える、という設定が可能です。具体的には、<kbd>PageUp</kbd>/<kbd>PageDown</kbd> を <kbd>Home</kbd>/<kbd>End</kbd> と全く同様に使いたいという場合に、以下のような設定ができます。</p>
 		  
 		  <p class="sample">
 		  window	InternetExplorer /iexplore\.exe/ : Global<br>
@@ -390,48 +390,48 @@
 		  key     *PageDown = *End<br>
 		  </p>
 
-		  <p>$B$3$N$h$&$K$9$l$P!"$"$i$f$k%b%G%#%U%!%$%d$N>uBV$K4X78$J$/!"(BInternet Explorer $B$G$N(B <kbd>PageUp</kbd>/<kbd>PageDown</kbd> $B$,(B <kbd>Home</kbd>/<kbd>End</kbd> $B$N$h$&$KF/$-$^$9!#(B</p>
+		  <p>このようにすれば、あらゆるモディファイヤの状態に関係なく、Internet Explorer での <kbd>PageUp</kbd>/<kbd>PageDown</kbd> が <kbd>Home</kbd>/<kbd>End</kbd> のように働きます。</p>
 		  
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#ignoreModifier">$B%b%G%#%U%!%$%d%-!<$NL5;k(B</a>$B!&(B<a href="CUSTOMIZE-ja.html#inputModifier">$BF~NO$5$l$?%-!<$HF1$8%b%G%#%U%!%$%d$N;XDj(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#ignoreModifier">モディファイヤキーの無視</a>・<a href="CUSTOMIZE-ja.html#inputModifier">入力されたキーと同じモディファイヤの指定</a></p>
 		</div>
 
-	    <dt class="h2"><a name="mod">vii. $B%b%G%#%U%!%$%d$K$J$C$F$$$k%-!<$rCV$-49$($k(B</a>
+	    <dt class="h2"><a name="mod">vii. モディファイヤになっているキーを置き換える</a>
 		
 	    <dd class="d2">
 		<div>
-		  <p>$B%-!<3d$jEv$F$NJQ99$N:]$K!"%b%G%#%U%!%$%d%-!<$rCV$-49$($?$j!"%b%G%#%U%!%$%d%-!<$KCV$-49$($k>l9g$K$O!"FCJL$J@_Dj$,I,MW$K$J$j$^$9!#(B</p>
+		  <p>キー割り当ての変更の際に、モディファイヤキーを置き換えたり、モディファイヤキーに置き換える場合には、特別な設定が必要になります。</p>
 		  
-		  <p>$B$?$H$($P!"(B<kbd>$BL5JQ49(B</kbd> $B%-!<$r:8(B <kbd>Alt</kbd> $B%-!<$H$7$F;HMQ$9$k$K$O!"(B</p>
+		  <p>たとえば、<kbd>無変換</kbd> キーを左 <kbd>Alt</kbd> キーとして使用するには、</p>
 
 		  <p class="sample">
 		  keymap Global<br>
-		  mod alt += $BL5JQ49(B<br>
-		  key *$BL5JQ49(B = *LeftAlt<br>
+		  mod alt += 無変換<br>
+		  key *無変換 = *LeftAlt<br>
 		  </p>
 
-		  <p>$B$N$h$&$K$J$j$^$9!#(B3 $B9TL\$O:#$^$GDL$j$N;XDj$G$9$,!"(B2 $B9TL\$N$h$&$K!"(B<code>mod $B%b%G%#%U%!%$%dL>(B += $B%-!<L>(B</code> $B$H$$$&;XDj$K$h$j!"?7$?$K%b%G%#%U%!%$%d$H$7$F(B<kbd>$BL5JQ49(B</kbd> $B%-!<$rEPO?$9$kI,MW$,$"$j$^$9!#(B</p>
+		  <p>のようになります。3 行目は今まで通りの指定ですが、2 行目のように、<code>mod モディファイヤ名 += キー名</code> という指定により、新たにモディファイヤとして<kbd>無変換</kbd> キーを登録する必要があります。</p>
 
-		  <p>$B5U$K!"%b%G%#%U%!%$%d$H$J$C$F$$$k%-!<$r%b%G%#%U%!%$%d$G$O$J$$%-!<$K3d$jEv$F$?$$>l9g$O!"(B<code>mod $B%b%G%#%U%!%$%dL>(B -= $B%-!<L>(B</code> $B$K$h$j!"%b%G%#%U%!%$%d@_Dj$r:o=|$9$kI,MW$,$"$j$^$9!#(B</p>
+		  <p>逆に、モディファイヤとなっているキーをモディファイヤではないキーに割り当てたい場合は、<code>mod モディファイヤ名 -= キー名</code> により、モディファイヤ設定を削除する必要があります。</p>
 		  
-		  <p>$B$?$H$($P!"1&(B <kbd>Windows</kbd> $B%-!<$G(B IME $B$N%*%s%*%U$r$9$k$K$O!"(B</p>
+		  <p>たとえば、右 <kbd>Windows</kbd> キーで IME のオンオフをするには、</p>
 		  
 		  <p class="sample">mod windows -= RightWindows<br>
 		  key RightWindows = $ToggleIME<br>
 		  </p>
 
-		  <p>$B$N$h$&$K$9$kI,MW$,$"$j$^$9!#$A$J$_$K!"(B<code>$ToggleIME</code> $B$H$$$&$N$O!"(B<a href="../109.mayu"><code>109.mayu</code></a> $B$^$?$O(B <a href="../104.mayu"><code>104.mayu</code></a> $B$GDj5A$5$l$F$$$k(B<a href="CUSTOMIZE-ja.html#keyseq">$B%-!<%7!<%1%s%9(B</a>$B$G!"(B109 $B%-!<%\!<%I$J$i$P(B <code>A-$BH>3Q(B/$BA43Q(B</code> $B$H=q$/$N$HF1$80UL#$K$J$j$^$9!#(B</p>
+		  <p>のようにする必要があります。ちなみに、<code>$ToggleIME</code> というのは、<a href="../109.mayu"><code>109.mayu</code></a> または <a href="../104.mayu"><code>104.mayu</code></a> で定義されている<a href="CUSTOMIZE-ja.html#keyseq">キーシーケンス</a>で、109 キーボードならば <code>A-半角/全角</code> と書くのと同じ意味になります。</p>
 
-		  <p>$B;2>H(B: <a href="CUSTOMIZE-ja.html#mod">$B%b%G%#%U%!%$%d%-!<3d$jEv$F$NJQ99(B</a></p>
+		  <p>参照: <a href="CUSTOMIZE-ja.html#mod">モディファイヤキー割り当ての変更</a></p>
 		</div>
 		
-	    <dt class="h2"><a name="more">viii. $B$h$j9bEY$J@_Dj(B</a>
+	    <dt class="h2"><a name="more">viii. より高度な設定</a>
 		
 	    <dd class="d2">
 		<div>
 		  
-		  <p>$B$3$3$^$GFI$a$P$b$&%A%e!<%H%j%"%k$OB46H$G$9!#$3$3$^$G$NFbMF$,40`z$J$i!">e5i<T$rL>>h$l$k$[$I$N%l%Y%k$^$GMh$F$$$^$9!#0l2s$GM}2r$9$k$N$OFq$7$$$+$b$7$l$^$;$s$,!"=,$&$h$j47$l$m$G!"D4::%&%$%s%I%&$G$"$l$3$l;n$7$F$_$F$/$@$5$$!#<+J,9%$_$N@_Dj$r$"$l$3$l=q$-2C$($F$$$/$&$A$K!">e$K$"$k3F%j%s%/$NFbMF$KL\$rDL$9I,MW$,=P$F$/$k$O$:$G$9$,!"$=$&$7$F$$$k$&$A$K%^%K%e%"%k$N8+J}$K$b47$l$F$/$k$O$:$G$9!#(B</p>
+		  <p>ここまで読めばもうチュートリアルは卒業です。ここまでの内容が完璧なら、上級者を名乗れるほどのレベルまで来ています。一回で理解するのは難しいかもしれませんが、習うより慣れろで、調査ウインドウであれこれ試してみてください。自分好みの設定をあれこれ書き加えていくうちに、上にある各リンクの内容に目を通す必要が出てくるはずですが、そうしているうちにマニュアルの見方にも慣れてくるはずです。</p>
 		  
-		  <p>$B$5$i$J$k5!G=$H$7$F$O!"(B<a href="CUSTOMIZE-ja.html#function_Prefix">2 $B%9%H%m!<%/%-!<$N@_Dj(B</a>$B!"(B<a href="CUSTOMIZE-ja.html#oneShotModifier">OneShot $B%b%G%#%U%!%$%d(B</a>$B!"(BWindow$BA`:n$r$O$8$a$H$7$?(B<a href="CUSTOMIZE-ja.html#function">$BK-IY$J4X?t72(B</a>$B!"(B<a href="CUSTOMIZE-ja.html#def_subst">$BBeMQDj5A(B</a>$B$J$I$,$"$j$^$9!#$3$l$i$OI,MW$J>l9g$N$_L\$rDL$;$P==J,$G$9!#(B</p>
+		  <p>さらなる機能としては、<a href="CUSTOMIZE-ja.html#function_Prefix">2 ストロークキーの設定</a>、<a href="CUSTOMIZE-ja.html#oneShotModifier">OneShot モディファイヤ</a>、Window操作をはじめとした<a href="CUSTOMIZE-ja.html#function">豊富な関数群</a>、<a href="CUSTOMIZE-ja.html#def_subst">代用定義</a>などがあります。これらは必要な場合のみ目を通せば十分です。</p>
 		</div>
 		
 	  </dl>
@@ -442,100 +442,100 @@
   <dd class="d1">
       <div>
 	<dl>
-	  <dt class="h2">Q1. $B!VAk;H$$$NM+]5!W$r;H$C$F$$$k$H>!<j$K%-!<%j%T!<%H$7$F$7$^$$$^$9!#(B
-	  <dt class="h2">Q2. $B!VAk;H$$$NM+]5!W$r=*N;8e$K(B Windows $B$,0[>o=*N;$7$^$9!#(B
-	  <dt class="h2">Q3. $B!VAk;H$$$NM+]5!W$r;H$C$F$$$k$H$$$m$$$mJQ$K$J$j$^$9!#(B
+	  <dt class="h2">Q1. 「窓使いの憂鬱」を使っていると勝手にキーリピートしてしまいます。
+	  <dt class="h2">Q2. 「窓使いの憂鬱」を終了後に Windows が異常終了します。
+	  <dt class="h2">Q3. 「窓使いの憂鬱」を使っているといろいろ変になります。
 	  <dd class="d2">
-	      <p>$B$"$J$?$O0JA0(B AltIME $B$r;HMQ$7$F$$$?$O$:$G$9!#$3$l$i$N>I>u$O(B AltIME $B$,@5$7$/%"%s%$%s%9%H!<%k$5$l$F$$$J$$;~$K=P$^$9!#(B</p>
+	      <p>あなたは以前 AltIME を使用していたはずです。これらの症状は AltIME が正しくアンインストールされていない時に出ます。</p>
 	      
-	      <p>AltIME 2.27 $B$N(B README $B$K$h$l$P0J2<$N$h$&$K$9$k$=$&$G$9$N$G!"$=$N$h$&$K$7$F$/$@$5$$!#(B</p>
+	      <p>AltIME 2.27 の README によれば以下のようにするそうですので、そのようにしてください。</p>
 	      
 	      <ol>
-		<li><p>AltIME $B$N@_Dj$G>oCs$5$;$F$$$k$J$i0lC6>oCs$N%*%W%7%g%s$r$O$:$7$F$/$@$5$$!#(B</p>
-		    <p>$B%9%?!<%H%"%C%W$G5/F0$7$F$$$k$H$-$O%9%?!<%H%"%C%W$+$i:o=|$7$F$/$@$5$$!#(B</p>
-		    <p>$B%5%&%s%I$r;HMQ$7$F$$$k>l9g$O@_Dj$r30$7!"@_Dj$r40A4$K:o=|$7$F$/$@$5$$!#(B</p>
-		<li><p>$B%?%9%/%H%l%$>e$N%"%$%3%s$r:8%/%j%C%/$7$F(B AltIME $B$N%*%W%7%g%s%@%$%"%m%0$rI=<($5$;!"%"%s%$%s%9%H!<%k%\%?%s$r2!$7$F$/$@$5$$!#(B</p>
-		<li><p>$B$$$C$?$s:F5/F08e!"(B<code>ALTIME*.*</code> $B$N%U%!%$%k$r:o=|$7$F$/$@$5$$!#(B</p>
+		<li><p>AltIME の設定で常駐させているなら一旦常駐のオプションをはずしてください。</p>
+		    <p>スタートアップで起動しているときはスタートアップから削除してください。</p>
+		    <p>サウンドを使用している場合は設定を外し、設定を完全に削除してください。</p>
+		<li><p>タスクトレイ上のアイコンを左クリックして AltIME のオプションダイアログを表示させ、アンインストールボタンを押してください。</p>
+		<li><p>いったん再起動後、<code>ALTIME*.*</code> のファイルを削除してください。</p>
 	      </ol>
-	      <p class="noindent">$B!ZCm0U![(BWindows2000$B$G$O%"%s%$%s%9%H!<%k%\%?%s$r;HMQ$;$:$K(B <code>\winnt\system32\drivers\altime.sys</code> $B$r:o=|$9$k$H(B Windows $B$,5/F0$G$-$J$/$J$k$3$H$,$"$j$^$9!#(B</p>
+	      <p class="noindent">【注意】Windows2000ではアンインストールボタンを使用せずに <code>\winnt\system32\drivers\altime.sys</code> を削除すると Windows が起動できなくなることがあります。</p>
 
-	  <dt class="h2">Q4. Explorer $B$G!"I=<((B(V) $B$r(B <kbd>ALT</kbd> + <kbd>v</kbd> $B$GA*$Y$^$;$s!#(B(2ch $B$NK?%9%l$h$j(B)
-	  <dt class="h2">Q5. PowerPoint $B$G!"(B<code>C-x</code>, <code>C-c</code>, <code>C-v</code> $B$J$I$G%3%T!<!&%Z!<%9%H$G$-$^$;$s!#(B
+	  <dt class="h2">Q4. Explorer で、表示(V) を <kbd>ALT</kbd> + <kbd>v</kbd> で選べません。(2ch の某スレより)
+	  <dt class="h2">Q5. PowerPoint で、<code>C-x</code>, <code>C-c</code>, <code>C-v</code> などでコピー・ペーストできません。
 	  <dd class="d2">
-	      <p>$B$"$J$?$O$*$=$i$/(B <a href="../default.mayu"><code>default.mayu</code></a> $B$r;H$C$F$$$^$9!#$3$l$rMxMQ$9$k$H$+$J$j?'!9$JA`:n$r(B Emacs $BIw$K$5$l$F$7$^$$$^$9$N$G!"$"$J$?$N(B Windows $B1x@wEY$,9b$+$C$?$j!"(BEmacs $B1x@wEY$,Dc$+$C$?$j$9$k$H8MOG$&$3$H$G$7$g$&!#(B<a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> $B$r;29M$K!"<+J,9%$_$K%+%9%?%^%$%:$7$F$/$@$5$$!#(B</p>
+	      <p>あなたはおそらく <a href="../default.mayu"><code>default.mayu</code></a> を使っています。これを利用するとかなり色々な操作を Emacs 風にされてしまいますので、あなたの Windows 汚染度が高かったり、Emacs 汚染度が低かったりすると戸惑うことでしょう。<a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> を参考に、自分好みにカスタマイズしてください。</p>
 
-	      <p>$B$A$J$_$K!"(BWindows $B$J$s$@$7(B <code>C-z</code>, <code>C-x</code>, <code>C-c</code>, <code>C-v</code> $B$@$1$O;H$o$;$m!"$H$$$&?M$N$?$a$K!"(B<code>ZXCV</code> $B$H$$$&%7%s%\%k$,Dj5A$5$l$F$$$^$9!#(B<code>-DZXCV</code> $B$9$k$J$j(B <code>define ZXCV</code> $B$9$l$P!"$=$l$@$1$O(B Windows $B$C$]$/F0$-$^$9!#(B</p>
+	      <p>ちなみに、Windows なんだし <code>C-z</code>, <code>C-x</code>, <code>C-c</code>, <code>C-v</code> だけは使わせろ、という人のために、<code>ZXCV</code> というシンボルが定義されています。<code>-DZXCV</code> するなり <code>define ZXCV</code> すれば、それだけは Windows っぽく動きます。</p>
 	      
-	  <dt class="h2">Q6. IME$B%*%s$N$H$-$N!VAk;H$$$NM+]5!W$N%-!<F~$lBX$($N5sF0$,L/$G$9!#(B1$B$D$a$N%-!<F~NO0J30$&$^$/F~$lBX$($i$l$^$;$s!#(B
+	  <dt class="h2">Q6. IMEオンのときの「窓使いの憂鬱」のキー入れ替えの挙動が妙です。1つめのキー入力以外うまく入れ替えられません。
 
-	  <dd class="d2"><p>IME$B%*%s$N>uBV$G$O(B <code>IL-</code>(IME$B%*%s(B) $B$G$9$,!"(B1$BJ8;zF~NO$7$?;~E@$G$5$i$K(B <code>IC-</code> $B!J(BIME$BJQ49Cf!K$H$J$j$^$9!#0lJ}$GI8=`$N%G%U%)%k%H%b%G%#%U%!%$%d$O(B <code>*IL-~IC-</code> $B$G$9!#;W$$DL$j$K%-!<F~$lBX$($5$l$F$$$J$$$o$1$G$O$J$/!"%G%U%)%k%H%b%G%#%U%!%$%d$N@_Dj$K=>$C$FF~$lBX$($r9T$C$F$$$J$$$@$1$G$O$J$$$G$7$g$&$+!#(B</p>
+	  <dd class="d2"><p>IMEオンの状態では <code>IL-</code>(IMEオン) ですが、1文字入力した時点でさらに <code>IC-</code> （IME変換中）となります。一方で標準のデフォルトモディファイヤは <code>*IL-~IC-</code> です。思い通りにキー入れ替えされていないわけではなく、デフォルトモディファイヤの設定に従って入れ替えを行っていないだけではないでしょうか。</p>
 
-	  <dt class="h2">Q7. $B%G%U%)%k%H%b%G%#%U%!%$%d$,>e5-$N$h$&$J@_Dj$K$J$C$F$$$k$N$O$J$<$G$9$+!#ITJX$G$9!#(B
+	  <dt class="h2">Q7. デフォルトモディファイヤが上記のような設定になっているのはなぜですか。不便です。
 
-	  <dd class="d2"><p>$B:n<T$O(BIME2000$B$r;H$C$F$*$j!"(BIME$BJQ49Cf$N%-!<%P%$%s%G%#%s%0$K$D$$$F$O!V%W%m%Q%F%#!W(B-$B!VA4HL!W(B-$B!V@_Dj!W$G%+%9%?%^%$%:$9$k$3$H$rA[Dj$7$F$$$^$9!#$`$d$_$K(BIME$BJQ49Cf$N%-!<%P%$%s%G%#%s%0$,JQ99$5$l$k$H!"$3$N(BIME$B$N%+%9%?%^%$%:$,$d$j$K$/$$$N$G$O$J$$$+$H;W$$$^$9!#(B</p>
+	  <dd class="d2"><p>作者はIME2000を使っており、IME変換中のキーバインディングについては「プロパティ」-「全般」-「設定」でカスタマイズすることを想定しています。むやみにIME変換中のキーバインディングが変更されると、このIMEのカスタマイズがやりにくいのではないかと思います。</p>
 
-	      <p>$B$b$7ITJX$9$.$F2fK}$G$-$J$$!"$H$$$&>l9g$K$O!"(B <code>key *IC- =</code> $B$N$h$&$K(B<a href="./CUSTOMIZE-ja.html#defaultModifier">$B%G%U%)%k%H%b%G%#%U%!%$%d$rJQ99(B</a>$B$7$F$b$$$$$+$b$7$l$^$;$s!#5U$KITJX$J$3$H$b$"$k$+$H;W$$$^$9$N$G!"$*A&$a$7$^$;$s$1$I!#(B</p>
+	      <p>もし不便すぎて我慢できない、という場合には、 <code>key *IC- =</code> のように<a href="./CUSTOMIZE-ja.html#defaultModifier">デフォルトモディファイヤを変更</a>してもいいかもしれません。逆に不便なこともあるかと思いますので、お薦めしませんけど。</p>
 
 
-	  <dt class="h2">Q8.$B%N!<%H%Q%=%3%s$N(B<kbd>Fn</kbd>$B%-!<$K2?$+5!G=$r3d$jEv$F$k$3$H$O$G$-$^$9$+!)(B 
-	  <dd class="d2"><p>$B$[$H$s$I$N%-!<%\!<%I$G$OIT2DG=$G$9!#(B</p>
-<p><kbd>Fn</kbd> $B%-!<$rC1BN$G2!$7$F$b(B Windows $B$K%-!<%$%Y%s%H$OMh$J$$$O$:$G$9(B ($B%9%-%c%s%3!<%I$ND4::$GD4$Y$i$l$^$9(B)$B!#EvA3$J$,$i!"$3$N$h$&$J%-!<$K5!G=$r3d$jEv$F$k$3$H$O$G$-$^$;$s!#(B</p>
+	  <dt class="h2">Q8.ノートパソコンの<kbd>Fn</kbd>キーに何か機能を割り当てることはできますか？ 
+	  <dd class="d2"><p>ほとんどのキーボードでは不可能です。</p>
+<p><kbd>Fn</kbd> キーを単体で押しても Windows にキーイベントは来ないはずです (スキャンコードの調査で調べられます)。当然ながら、このようなキーに機能を割り当てることはできません。</p>
 	      
-	  <dt class="h2">Q9. <kbd>Caps/$B1Q?t(B</kbd> $B$r(B <kbd>Ctrl</kbd> $B$K$7$F$$$^$9!#(B<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>x</kbd> $B$K5!G=$r3d$j?6$C$F$*$j!"@5>o$KF0$$$F$$$k$N$G$9$,!"(B<kbd>Caps/$B1Q?t(B</kbd> + <kbd>Shift</kbd> + <kbd>x</kbd> $B$rBG$C$F$b!"2?$b5/$-$^$;$s!#$J$<$G$9$+!#(B
-	  <dd class="d2"><p>$B!VAk;H$$$NM+]5!W$NLdBj$G$O$J$/!"$"$J$?$N;H$C$F$$$k%-!<%\!<%I$NLdBj$@$H;W$o$l$^$9!#(B</p>
-<p>$B%-!<%\!<%I$K$h$C$F$O!"FCDj$N(B3$B%-!<$NF1;~2!$7$rG'<1$G$-$J$$$b$N$,$"$j$^$9!#%9%-%c%s%3!<%I$ND4::$G!"$I$s$J%-!<%$%Y%s%H$,H/@8$7$F$$$k$+$r%A%'%C%/$7$F$_$F$/$@$5$$!#%b%G%#%U%!%$%d(B2$B8D$r2!$7$?>uBV$G!"(B3$B8DL\$N%-!<$r2!$7$?$H$-$K%-!<%$%Y%s%H$,H/@8$7$F$$$J$$$h$&$G$"$l$P!"$=$N%-!<%\!<%I$G$O;H$($J$$%-!<$NAH$_9g$o$;$H$$$&$3$H$G$9!#(B</p>
+	  <dt class="h2">Q9. <kbd>Caps/英数</kbd> を <kbd>Ctrl</kbd> にしています。<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>x</kbd> に機能を割り振っており、正常に動いているのですが、<kbd>Caps/英数</kbd> + <kbd>Shift</kbd> + <kbd>x</kbd> を打っても、何も起きません。なぜですか。
+	  <dd class="d2"><p>「窓使いの憂鬱」の問題ではなく、あなたの使っているキーボードの問題だと思われます。</p>
+<p>キーボードによっては、特定の3キーの同時押しを認識できないものがあります。スキャンコードの調査で、どんなキーイベントが発生しているかをチェックしてみてください。モディファイヤ2個を押した状態で、3個目のキーを押したときにキーイベントが発生していないようであれば、そのキーボードでは使えないキーの組み合わせということです。</p>
 
-	  <dt class="h2">Q10. $B%9%-%c%s%3!<%I$ND4::$G!"Nc$($P(B <kbd>Shift</kbd> + <kbd>$B",(B</kbd> $B$r2!$7$?$H$-$J$I!"$?$^$K=P$k$O$:$N$J$$(B <code>E0-0x2a</code> $B$H$$$&%-!<%$%Y%s%H$,=P$k$h$&$G$9$,!"$3$l$O2?$G$9$+!)(B
-	  <dd class="d2"><p>$BITL@$G$9!#$3$N%9%-%c%s%3!<%I$K4X$9$k>pJs$r$*BT$A$7$F$*$j$^$9!#(B</p>
+	  <dt class="h2">Q10. スキャンコードの調査で、例えば <kbd>Shift</kbd> + <kbd>↑</kbd> を押したときなど、たまに出るはずのない <code>E0-0x2a</code> というキーイベントが出るようですが、これは何ですか？
+	  <dd class="d2"><p>不明です。このスキャンコードに関する情報をお待ちしております。</p>
 
-	  <dt class="h2">Q11. $B1&(B <kbd>Windows</kbd> $B%-!<$r2!$9$H(B IME $B$N%*%s%*%U$,$G$-$k$h$&$K$7$?$$!#(B
+	  <dt class="h2">Q11. 右 <kbd>Windows</kbd> キーを押すと IME のオンオフができるようにしたい。
 	  <dd class="d2">
 	      <p class="sample">mod windows -= RightWindows # ... (1)<br>
 	      key RightWindows = $ToggleIME<br>
 	      </p>
 	      
-	      <p>$B1&(B <kbd>Windows</kbd> $B%-!<$O%b%G%#%U%!%$%d%-!<$J$N$GFCJL07$$$5$l$^$9!#$7$?$,$C$FIaDL$N%-!<$N$h$&$KF0:n$9$k$h$&$K$9$k$K$O!"(B<code>(1)</code> $B$N$h$&$K$7$F%b%G%#%U%!%$%d%-!<$H$7$FF0:n$7$J$$$h$&$K$7$^$9!#$3$l$O(B <kbd>Alt</kbd> $B$d(B <kbd>Shift</kbd> $B$d(B <kbd>Control</kbd> $B$G$bF1MM$G$9!#(B</p>
+	      <p>右 <kbd>Windows</kbd> キーはモディファイヤキーなので特別扱いされます。したがって普通のキーのように動作するようにするには、<code>(1)</code> のようにしてモディファイヤキーとして動作しないようにします。これは <kbd>Alt</kbd> や <kbd>Shift</kbd> や <kbd>Control</kbd> でも同様です。</p>
 	      
-	  <dt class="h2">Q12. $B%&%$%s%I%&$N%/%i%9L>$O$I$&$d$C$FD4$Y$k$s$G$9$+!)(B
-	  <dd class="d2"><p>$B%?%9%/%H%l%$$N!VAk;H$$$NM+]5!W$N%"%$%3%s$G%^%&%9$N1&%\%?%s$r2!$7$F(B<a href="#menu-i" class="menu-item">$BD4::(B(I)...</a>$B$rA*$S$^$9!#(B</p>
+	  <dt class="h2">Q12. ウインドウのクラス名はどうやって調べるんですか？
+	  <dd class="d2"><p>タスクトレイの「窓使いの憂鬱」のアイコンでマウスの右ボタンを押して<a href="#menu-i" class="menu-item">調査(I)...</a>を選びます。</p>
 	      
-	  <dt class="h2">Q13. $B%"%/%F%#%V$J;~$K$7$+8+$($J$$Ak$J$I$N>l9g!">e5-$NJ}K!$G$OD4::$G$-$J$$$G$9$,!)(B
-	  <dd class="d2"><p><a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> $B$r;H$C$F$/$@$5$$!#(B<a href="../default.mayu"><code>default.mayu</code></a> $B$G$O(B <kbd>Ctrl</kbd> +<kbd>Shift</kbd> + <kbd>D</kbd> $B$K3d$j?6$C$F$"$j$^$9!#(B</p>
+	  <dt class="h2">Q13. アクティブな時にしか見えない窓などの場合、上記の方法では調査できないですが？
+	  <dd class="d2"><p><a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> を使ってください。<a href="../default.mayu"><code>default.mayu</code></a> では <kbd>Ctrl</kbd> +<kbd>Shift</kbd> + <kbd>D</kbd> に割り振ってあります。</p>
 	      
-	  <dt class="h2">Q14. $B%$%s%9%H!<%k;~$K$O(B 109 $B%-!<%\!<%I$@$C$?$N$G$9$,!":#EY(B 104 $B%-!<%\!<%I$r9XF~$7$^$7$?!#$7$+$7!"%?%9%/%H%l%$%a%K%e!<$N(B<span class="menu-item">$BA*Br(B(<u>C</u>) &#9658;</span>$B$K$O(B 109 $B$7$+=P$F$-$^$;$s!#$I$&$9$l$P$$$$$G$9$+!#(B
+	  <dt class="h2">Q14. インストール時には 109 キーボードだったのですが、今度 104 キーボードを購入しました。しかし、タスクトレイメニューの<span class="menu-item">選択(<u>C</u>) &#9658;</span>には 109 しか出てきません。どうすればいいですか。
 	  <dd class="d2">
-	      <p>$B%$%s%9%H!<%k;~$NA*Br$K$h$j!"0J2<$NI=$N>e(B 4 $B$D$^$?$O2<(B 4 $B$D$,A*$P$l$^$9!#!V@_Dj!W%@%$%"%m%0%\%C%/%9$GE,@Z$K@_Dj$7$F$/$@$5$$!#(B(<code>%MAYU_DIR%</code> $B$O(B mayu $B$r%$%s%9%H!<%k$7$?%G%#%l%/%H%j$G$9(B)</p>
+	      <p>インストール時の選択により、以下の表の上 4 つまたは下 4 つが選ばれます。「設定」ダイアログボックスで適切に設定してください。(<code>%MAYU_DIR%</code> は mayu をインストールしたディレクトリです)</p>
 	      
 	      <table class="default-settings">
-		<tr class="name-japanese"><th>$BL>A0(B</th><td>$BF|K\8l(B 109 $B%-!<%\!<%I(B (Emacs $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE109;-DUSEdefault</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$BF|K\8l(B 109 $B%-!<%\!<%I(B (104 $BIw(B, Emacs $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE109;-DUSEdefault;-DUSE104on109</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$BF|K\8l(B 109 $B%-!<%\!<%I(B</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE109</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$BF|K\8l(B 109 $B%-!<%\!<%I(B (104 $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE109;-DUSE104on109</code></td></tr>
-		<tr class="name-english"><th>$BL>A0(B</th><td>$B1Q8l(B 104 $B%-!<%\!<%I(B (Emacs $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE104;-DUSEdefault</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$B1Q8l(B 104 $B%-!<%\!<%I(B (109 $BIw(B, Emacs $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE104;-DUSEdefault;-DUSE109on104</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$B1Q8l(B 104 $B%-!<%\!<%I(B</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE104</code></td></tr>
-		<tr class="name"><th>$BL>A0(B</th><td>$B1Q8l(B 104 $B%-!<%\!<%I(B (109 $BIw(B)</td></tr>
-		<tr class="filename"><th>$B@_Dj%U%!%$%kL>(B</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
-		<tr class="symbol"><th>$B%7%s%\%k(B</th><td><code>-DUSE104;-DUSE109on104</code></td></tr>
+		<tr class="name-japanese"><th>名前</th><td>日本語 109 キーボード (Emacs 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE109;-DUSEdefault</code></td></tr>
+		<tr class="name"><th>名前</th><td>日本語 109 キーボード (104 風, Emacs 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE109;-DUSEdefault;-DUSE104on109</code></td></tr>
+		<tr class="name"><th>名前</th><td>日本語 109 キーボード</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE109</code></td></tr>
+		<tr class="name"><th>名前</th><td>日本語 109 キーボード (104 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE109;-DUSE104on109</code></td></tr>
+		<tr class="name-english"><th>名前</th><td>英語 104 キーボード (Emacs 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE104;-DUSEdefault</code></td></tr>
+		<tr class="name"><th>名前</th><td>英語 104 キーボード (109 風, Emacs 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE104;-DUSEdefault;-DUSE109on104</code></td></tr>
+		<tr class="name"><th>名前</th><td>英語 104 キーボード</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE104</code></td></tr>
+		<tr class="name"><th>名前</th><td>英語 104 キーボード (109 風)</td></tr>
+		<tr class="filename"><th>設定ファイル名</th><td><code>%MAYU_DIR%\dot.mayu</code></td></tr>
+		<tr class="symbol"><th>シンボル</th><td><code>-DUSE104;-DUSE109on104</code></td></tr>
 	      </table>
 	      
-	  <dt class="h2">Q15. $B!VAk;H$$$NM+]5!W$G$O%^%&%9%$%Y%s%H$rCV$-49$($i$l$J$$$N$G$9$+!#(B
-	  <dd class="d2"><p>$B!VAk;H$$$NM+]5!W$NA0?H$K$"$?$k(B cmkey $B$G$O%^%&%9%$%Y%s%H$rCV$-49$($k$3$H$,$G$-$^$7$?$,!"!VAk;H$$$NM+]5!W$O(B cmkey $B$H$O0[$J$k%l%$%d!<$G<B8=$7$F$$$k$N(B
-$B$G!"CV$-49$($k$3$H$O$G$-$^$;$s!#>/$J$/$H$b:n<T$OI,MW@-$r46$8$F$$$J$$$N$G$9$,!"%^%&%9%I%i%$%P$r=q$1$P<B8=$G$-$^$9$N$G!"%9%-%k$bI,MW@-$b$"$kJ}$,$$$l$P!":n$C$F%=!<%9$rAw$C$F$/$@$5$$!#!VAk;H$$$NM+]5!W$K:NMQ$5$;$F$$$?$@$-$^$9!#(B
+	  <dt class="h2">Q15. 「窓使いの憂鬱」ではマウスイベントを置き換えられないのですか。
+	  <dd class="d2"><p>「窓使いの憂鬱」の前身にあたる cmkey ではマウスイベントを置き換えることができましたが、「窓使いの憂鬱」は cmkey とは異なるレイヤーで実現しているの
+で、置き換えることはできません。少なくとも作者は必要性を感じていないのですが、マウスドライバを書けば実現できますので、スキルも必要性もある方がいれば、作ってソースを送ってください。「窓使いの憂鬱」に採用させていただきます。
 </p>
 	</dl>
       </div>
@@ -543,17 +543,17 @@
   <dt class="h1"><a name="CUSTOMIZE" href="CUSTOMIZE-ja.html">7. customize</a>
       
   <dd class="d1">
-      <p><a href="CUSTOMIZE-ja.html">$B%+%9%?%^%$%:(B</a>$B!#(B</p>
+      <p><a href="CUSTOMIZE-ja.html">カスタマイズ</a>。</p>
 
 
   <dt class="h1"><a name="SECURITY">8. security</a>
       
   <dd class="d1">
-      <p class="bug">$BB>?M$,;HMQ$9$k2DG=@-$N$"$k(B PC $B$X!VAk;H$$$NM+]5!W$r%$%s%9%H!<%k$7$F$O$$$1$^$;$s!#(B</p>
+      <p class="bug">他人が使用する可能性のある PC へ「窓使いの憂鬱」をインストールしてはいけません。</p>
       
-      <p>$B!VAk;H$$$NM+]5!W$O%I%i%$%P$r;HMQ$7$F%-!<%\!<%I$KF~NO$5$l$?%-!<$rG'<1$7$^$9$,!"$=$N%I%i%$%P$X$OA4$F$N%f!<%6!<$,%"%/%;%9$G$-$^$9!#$G$9$+$i!"B>?M$N%-!<%\!<%IF~NO$rFI$_<h$k$3$H$,2DG=$G$9!#(B</p>
+      <p>「窓使いの憂鬱」はドライバを使用してキーボードに入力されたキーを認識しますが、そのドライバへは全てのユーザーがアクセスできます。ですから、他人のキーボード入力を読み取ることが可能です。</p>
 
-      <p>$BNc$($P!"%m%0%$%s2hLL$G$NB>?M$N%Q%9%o!<%I$rF@$k$3$H$b!"$=$N$h$&$J%"%W%j%1!<%7%g%s$r:n@.$9$k$3$H$G2DG=$K$J$j$^$9!#(B</p>
+      <p>例えば、ログイン画面での他人のパスワードを得ることも、そのようなアプリケーションを作成することで可能になります。</p>
   </dd>
 
 
@@ -561,9 +561,9 @@
 
   <dd class="d1">
       <ul>
-	<li><span class="bug">[$B;EMM(B]</span> $B%3%^%s%I%W%m%s%W%H$G$O%m%C%/%-!<$H(BIME$B$N>uBV$r6hJL$9$k$3$H$,$G$-$^$;$s!#$^$?!"%3%^%s%I%W%m%s%W%H$N%W%m%Q%F%#$KBP$7$F$OL5NO$G$9!#(B
-	<li><span class="bug">[$B%P%0(B]</span> <a href="http://www.pgpi.org/products/pgp/versions/freeware/win32/7.0.3/" target="_top">PGPi</a> $B$rMxMQ$7$F$$$k$H$&$^$/F0$+$J$$$h$&$G$9!#(B
-	<li><a href="http://www.microsoft.com/japan/support/kb/articles/J054/8/50.htm" target="_top">USB $B%-!<%\!<%I%G%P%$%9@\B38e$K1Q8l(B 101 $B%-!<%\!<%IG[Ns$K$J$k(B</a>
+	<li><span class="bug">[仕様]</span> コマンドプロンプトではロックキーとIMEの状態を区別することができません。また、コマンドプロンプトのプロパティに対しては無力です。
+	<li><span class="bug">[バグ]</span> <a href="http://www.pgpi.org/products/pgp/versions/freeware/win32/7.0.3/" target="_top">PGPi</a> を利用しているとうまく動かないようです。
+	<li><a href="http://www.microsoft.com/japan/support/kb/articles/J054/8/50.htm" target="_top">USB キーボードデバイス接続後に英語 101 キーボード配列になる</a>
 	    
       </ul>
 
@@ -571,22 +571,22 @@
       
   <dd class="d1">
       <div>
-	<p>$B0J2<$N%=%U%H$HF1;~$K$O;H$o$J$$$h$&$K$7$F$/$@$5$$!#$=$b$=$b;H$($J$$$b$N$b$"$j$^$9$7!";H$($?$H$7$F$b$-$C$H$o$1$N$o$+$i$J$$$3$H$K$J$k$G$7$g$&!#(B</p>
+	<p>以下のソフトと同時には使わないようにしてください。そもそも使えないものもありますし、使えたとしてもきっとわけのわからないことになるでしょう。</p>
 	
 	<dl>
 	  <dt class="h2"><a href="http://lukewarm.s101.xrea.com/" target="_top">AUtoHotkey</a>
-	  <dd class="d2">$B%9%/%j%W%H$r=q$/$3$H$G%-!<%\!<%I$J$I$K$5$^$6$^$JF0:n$r3d$jEv$F$k$3$H$,$G$-$^$9!#(B
+	  <dd class="d2">スクリプトを書くことでキーボードなどにさまざまな動作を割り当てることができます。
 
-	  <dt class="h2"><a href="http://www.remus.dti.ne.jp/~kurotora/" target="_top">$BG-$^$M$-(B</a>
-	  <dd class="d2">$B!VAk;H$$$NM+]5!W$N$[$&$,%+%9%?%^%$%:$N<+M3EY$O9b$$$N$G$9$,!"G-$^$M$-$K$O(B GUI $B$,$D$$$F$$$F=i?4<T$K$b$d$5$7$$$+$b$7$l$^$;$s!#!VAk;H$$$NM+]5!W$K$J$$5!G=$bB8:_$7$^$9!#%U%j!<%&%'%"!#(B
+	  <dt class="h2"><a href="http://www.remus.dti.ne.jp/~kurotora/" target="_top">猫まねき</a>
+	  <dd class="d2">「窓使いの憂鬱」のほうがカスタマイズの自由度は高いのですが、猫まねきには GUI がついていて初心者にもやさしいかもしれません。「窓使いの憂鬱」にない機能も存在します。フリーウェア。
 	  <dt class="h2"><a href="http://hp.vector.co.jp/authors/VA000092/tools/" target="_top">RemapKey</a>
-	  <dd class="d2">$B%-!<%\!<%I$N%-!<$rJL$N%-!<$XF~$lBX$($k$3$H$,$G$-$k%=%U%H$G$9!#Ak;H$$$NM+]5$G$O%m%0%$%s2hLL$G$N%-!<$rJQ99$9$k$3$H$,$G$-$^$;$s$,(B RemapKey $B$G$O$G$-$^$9!#(B
+	  <dd class="d2">キーボードのキーを別のキーへ入れ替えることができるソフトです。窓使いの憂鬱ではログイン画面でのキーを変更することができませんが RemapKey ではできます。
 
 	  <dt class="h2"><a href="http://sbcookie.hp.infoseek.co.jp/MetaX.html" target="_top">MetaX</a>
-	  <dd class="d2">$B%3%s%;%W%HE*$K!VAk;H$$$NM+]5!W$d(B cmkey $B$HHs>o$K$h$/;w$F$$$^$9$,!"$h$j(B Emacs $BE*$J@_Dj%U%!%$%k$r=q$-!"%_%K%P%C%U%!$rMxMQ$7$?Jd40$J$I$,2DG=$G$9!#(B
+	  <dd class="d2">コンセプト的に「窓使いの憂鬱」や cmkey と非常によく似ていますが、より Emacs 的な設定ファイルを書き、ミニバッファを利用した補完などが可能です。
 	      
 	  <dt class="h2"><a href="http://www.cam.hi-ho.ne.jp/oishi/" target="_top">Xkeymacs</a>
-	  <dd class="d2">Windows $B>e$NA4$F$N%"%W%j%1!<%7%g%s$K$*$$$F(B Emacs like $B$JA`:n@-$r<B8=$9$k$?$a$N%-!<%\!<%I%f!<%F%#%j%#%F%#$G$9!#(BEmacs like $B$JA`:n@-$K$7$?$$$,!"!VAk;H$$$NM+]5!W$N@_Dj$9$k$N$OLLE]$H$$$&?M$K$*4+$a$G$9!#(B
+	  <dd class="d2">Windows 上の全てのアプリケーションにおいて Emacs like な操作性を実現するためのキーボードユーティリィティです。Emacs like な操作性にしたいが、「窓使いの憂鬱」の設定するのは面倒という人にお勧めです。
 	      
 	  <dt class="h2">
 
@@ -601,10 +601,10 @@
 	      <a href="http://michiko.shiratori.riec.tohoku.ac.jp/~jir/windows/keymacs+" target="_top">Keymacs+</a> /
 	      <a href="http://homepage2.nifty.com/mamao2/down/Mmkbd/Mmkbd.htm" target="_top">Max Min Keybord</a> / 
 
-	      <a href="http://www.vector.co.jp/soft/win95/util/se042027.html" target="_top">$B$M$3$]$$(B</a> / 
-	      <a href="http://hide.maruo.co.jp/software/hidecaps.html" target="_top">$B=((BCAPS</a> /
-	      <a href="http://hp.vector.co.jp/authors/VA011751/software/himeodorikosou/" target="_top">$BI1MY;RAp(B</a>
-	  <dd class="d2">$B%-!<%\!<%I$K$h$kA`:n$r2~A1$7$h$&$H$5$^$6$^$J%=%U%H$,3+H/$5$l$F$$$^$9!#(B
+	      <a href="http://www.vector.co.jp/soft/win95/util/se042027.html" target="_top">ねこぽい</a> / 
+	      <a href="http://hide.maruo.co.jp/software/hidecaps.html" target="_top">秀CAPS</a> /
+	      <a href="http://hp.vector.co.jp/authors/VA011751/software/himeodorikosou/" target="_top">姫踊子草</a>
+	  <dd class="d2">キーボードによる操作を改善しようとさまざまなソフトが開発されています。
 	</dl>
       </div>
       
@@ -612,29 +612,29 @@
       
   <dd class="d1">
       <div>
-	<p>$B5$$K$J$kJ8>O$X$N%j%s%/!#(B</p>
+	<p>気になる文章へのリンク。</p>
 
 	<dl>
-	  <dt class="h2"><a href="http://jisx6004.client.jp/mayu.html" target="_top">$BKz;H$$$NM+]5(B</a>
-	  <dd class="d2">$B%A%e!<%H%j%"%k$NJ,$+$j$K$/$$8D=j$J$I$rJ,$+$j0W$/2r@b$7$F$"$j$^$9!#(B
+	  <dt class="h2"><a href="http://jisx6004.client.jp/mayu.html" target="_top">繭使いの憂鬱</a>
+	  <dd class="d2">チュートリアルの分かりにくい個所などを分かり易く解説してあります。
 	  <dt class="h2"><a href="http://www.ric.hi-ho.ne.jp/giraffe/" target="_top">Giraffe+ software index</a>
-	  <dd class="d2"><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_PlugIn"><code>&amp;PlugIn</code></a> $B$KMxMQ$G$-$k%W%i%0%$%s$,G[I[$5$l$F$$$^$9!#$=$b$=$b%W%i%0%$%s$N5!G=$O(B Giraffe+ $B$5$s$K$h$j<BAu$5$l$^$7$?!#(B
-	  <dt class="h2"><a href="http://www.fiercewinds.net/programming/SakuraLayout/VariousMethods.htm" target="_top">$B$$$m$$$m$J2>L>F~NOJ}K!(B</a>
-	  <dd class="d2">$B$$$m$$$m$J2>L>F~NOJ}K!$N!VAk;H$$$NM+]5!WMQ@_Dj%U%!%$%k$,$"$j$^$9!#(B
+	  <dd class="d2"><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_PlugIn"><code>&amp;PlugIn</code></a> に利用できるプラグインが配布されています。そもそもプラグインの機能は Giraffe+ さんにより実装されました。
+	  <dt class="h2"><a href="http://www.fiercewinds.net/programming/SakuraLayout/VariousMethods.htm" target="_top">いろいろな仮名入力方法</a>
+	  <dd class="d2">いろいろな仮名入力方法の「窓使いの憂鬱」用設定ファイルがあります。
 	  <dt class="h2"><a href="http://www.geocities.co.jp/SiliconValley-PaloAlto/5093/tron.txt" target="_top">Commutative Field in GeoCities</a>
-	  <dd class="d2">tron$BG[Ns@_Dj%U%!%$%k$J$I$,$"$j$^$9!#(B
+	  <dd class="d2">tron配列設定ファイルなどがあります。
 	      
-	  <dt class="h2"><a href="http://ohkubo.s53.xrea.com/xyzzy/index.html#mayu-mode" target="_top">$B;(5-D!(B</a>
-	  <dd class="d2">mayu-mode.l $B$,G[I[$5$l$F$$$^$9!#(B
+	  <dt class="h2"><a href="http://ohkubo.s53.xrea.com/xyzzy/index.html#mayu-mode" target="_top">雑記帖</a>
+	  <dd class="d2">mayu-mode.l が配布されています。
 
-	  <dt class="h2"><a href="http://homepage3.nifty.com/songs/tcode/mayu/" target="_top">$B!VAk;H$$$NM+]5!W$r;H$C$F(B T-Code $BF~NO$7$F$_$k(B</a>
-	  <dd class="d2">T-Code $BMQ@_Dj%U%!%$%k$J$I$,G[I[$5$l$F$$$^$9!#(B
+	  <dt class="h2"><a href="http://homepage3.nifty.com/songs/tcode/mayu/" target="_top">「窓使いの憂鬱」を使って T-Code 入力してみる</a>
+	  <dd class="d2">T-Code 用設定ファイルなどが配布されています。
 
-	  <dt class="h2"><a href="http://www.tamanegi.org/prog/mayu-plugins/" target="_top">mayu-plugins -- $BAk;H$$$NM+]5MQ%W%i%0%$%s(B</a>
-	  <dd class="d2">window-select, migemo-isearch, ie-migemo-search $B$H$$$C$?%W%i%0%$%s$,G[I[$5$l$F$$$^$9!#(B
+	  <dt class="h2"><a href="http://www.tamanegi.org/prog/mayu-plugins/" target="_top">mayu-plugins -- 窓使いの憂鬱用プラグイン</a>
+	  <dd class="d2">window-select, migemo-isearch, ie-migemo-search といったプラグインが配布されています。
 	      
-	  <dt class="h2"><a href="http://www.vector.co.jp/magazine/softnews/050427/n0504273.html" target="_top">Vector: $B?7Ce%=%U%H%l%S%e!<(B</a>
-	  <dd class="d2">$B?7Ce%=%U%H%l%S%e!<(B
+	  <dt class="h2"><a href="http://www.vector.co.jp/magazine/softnews/050427/n0504273.html" target="_top">Vector: 新着ソフトレビュー</a>
+	  <dd class="d2">新着ソフトレビュー
 	</dl>
 	
       </div>
@@ -644,7 +644,7 @@
   <dd class="d1">
       <div>
 	<dl>
-	  <dt class="h2">$BAk;H$$$NM+]5(B
+	  <dt class="h2">窓使いの憂鬱
 	  <dd class="d2">
 	      <p class="noindent">
 	      Copyright (C) 1999-2005, <a href="http://www.ganaware.jp" target="_top">TAGA Nayuta</a> &lt;nayuta&#64;users.sourceforge.net&gt;<br>
@@ -701,14 +701,14 @@
   <dd class="d1">
       <div>
 	<dl>
-	  <dt class="h2">$B!VAk;H$$$NM+]5!W%[!<%`%Z!<%8(B
+	  <dt class="h2">「窓使いの憂鬱」ホームページ
 	  <dd class="d2"><p><a href="http://mayu.sourceforge.net" target="_top">http://mayu.sourceforge.net</a></p>
-	  <dt class="h2">$B!VAk;H$$$NM+]5!W%a!<%j%s%0%j%9%H(B
+	  <dt class="h2">「窓使いの憂鬱」メーリングリスト
 	  <dd class="d2">
-	      <p><a href="http://lists.sourceforge.net/mailman/listinfo/mayu-support" target="_top">Mayu-support Info Page</a> $B$N(B Subscribing to Mayu-support $B$N%U%)!<%`$K!"<+J,$N%a!<%k%"%I%l%9$H!"(BMayu-support $B%a!<%j%s%0%j%9%H$N0Y$N%Q%9%o!<%I$rF~$l$F(B Subscribe $B$7$F$/$@$5$$!#(B</p>
-	  <dt class="h2">$B!VAk;H$$$NM+]5!W(B2ch $B%9%l(B
+	      <p><a href="http://lists.sourceforge.net/mailman/listinfo/mayu-support" target="_top">Mayu-support Info Page</a> の Subscribing to Mayu-support のフォームに、自分のメールアドレスと、Mayu-support メーリングリストの為のパスワードを入れて Subscribe してください。</p>
+	  <dt class="h2">「窓使いの憂鬱」2ch スレ
 	  <dd class="d2">
-	      <p><a href="http://pc8.2ch.net/test/read.cgi/win/1118469602/" target="_top">2ch $B$K%9%l(B</a>$B$,$?$C$F$7$^$C$?$h$&$J$N$GE,Ev$K3hMQ$7$^$7$g$&!#:n<T$b;~!98+$F$$$^$9!#(B</p>
+	      <p><a href="http://pc8.2ch.net/test/read.cgi/win/1118469602/" target="_top">2ch にスレ</a>がたってしまったようなので適当に活用しましょう。作者も時々見ています。</p>
 	</dl>
       </div>
       
@@ -716,15 +716,15 @@
 
   <dd class="d1">
       <div>
-	<p>Windows9x/XP $BMQ$N%I%i%$%P$r:n@.$7$F$/$@$5$C$?>.NS5AL@$5$s!"$"$j$,$H$&$4$6$$$^$9!#(B</p>
+	<p>Windows9x/XP 用のドライバを作成してくださった小林義明さん、ありがとうございます。</p>
 	
-	<p>$B:G$b?H6a$J%f!<%6!<$G$"$j!"?tB?$/$N=u8@$r$7$F$/$l$?H9M?;VIW$5$s$K46<U$7$^$9!#2?$h$jH`$NG4$j6/$$MW5a$OBUBF$J:n<T$K?75,%j%j!<%9$X$N3hNO$rM?$($F$/$l$^$7$?!#(B</p>
+	<p>最も身近なユーザーであり、数多くの助言をしてくれた塙与志夫さんに感謝します。何より彼の粘り強い要求は怠惰な作者に新規リリースへの活力を与えてくれました。</p>
 	
-	<p>$B2OIt=$OB$5$s!"(BKANAI Makoto $B$5$s!"(BHAJANO Na&ograve;qui $B$5$s$K$O@_Dj%U%!%$%k$rDs6!$7$F$$$?$@$-$^$7$?!#$*Ni$r?=$7>e$2$^$9!#(B</p>
+	<p>河部修和さん、KANAI Makoto さん、HAJANO Na&ograve;qui さんには設定ファイルを提供していただきました。お礼を申し上げます。</p>
 
-	<p>Hosaka Yuji $B$5$s$K$O!"%^%k%A%b%K%?BP1~%Q%C%A$r$$$?$@$-$^$7$?!#$"$j$,$H$&$4$6$$$^$9!#(B</p>
+	<p>Hosaka Yuji さんには、マルチモニタ対応パッチをいただきました。ありがとうございます。</p>
 	
-	<p>$B!VAk;H$$$NM+]5!W$O$?$/$5$s$N?M$N9W8%$N>e$K@.$jN)$C$F$$$^$9!#$3$3$KL>A0$r5s$2$F$$$J$$J}$K$b?4$+$i46<U$7$^$9!#(B</p>
+	<p>「窓使いの憂鬱」はたくさんの人の貢献の上に成り立っています。ここに名前を挙げていない方にも心から感謝します。</p>
       </div>
 
   <dt class="h1"><a name="HISTORY">15. history</a>
@@ -735,75 +735,75 @@
 	  <dt>200?/??/?? 3.31
 	  <dd>
 	      <ul>
-		<li>$B!VAk;H$$$NM+]5!W0J30$N%"%W%j%1!<%7%g%s$+$i!VAk;H$$$NM+]5!W$NF0:n$r(B on/off $B$G$-$k$h$&$J;EAH$_$rMQ0U$7$^$7$?!#;HMQ$9$k>l9g$O!"%=!<%9$N(B <code>mayuipc.h</code> $B$r8+$F$/$@$5$$!#(B
-		<li>WindowsXP $B$N!V%f!<%6!<$N@Z$jBX$(!W5!G=$K:#EY$3$=BP1~!D$7$?$D$b$j!#(B
-		<li><a href="#secrity">security</a> $B$H$$$&>O$rDI2C!#(B
+		<li>「窓使いの憂鬱」以外のアプリケーションから「窓使いの憂鬱」の動作を on/off できるような仕組みを用意しました。使用する場合は、ソースの <code>mayuipc.h</code> を見てください。
+		<li>WindowsXP の「ユーザーの切り替え」機能に今度こそ対応…したつもり。
+		<li><a href="#secrity">security</a> という章を追加。
 	      </ul>
 	  </dd>
 	  <dt>2005/04/18 3.30
 	  <dd>
 	      <dl>
-		<dt>$B%b%G%#%U%!%$%d(B
+		<dt>モディファイヤ
 		<dd>
 		    <ul>
-		      <li>$B%+%J%m%C%/$rI=$9%b%G%#%U%!%$%d(B <a href="CUSTOMIZE-ja.html#modifier"><code>KL-</code></a> $B$rDI2C!#(B<a href="CUSTOMIZE-ja.html#def_option_KL" target="MANUAL">$B%*%W%7%g%s(B (KL-)</a>$B$r$h$/FI$`$3$H!#(B
-		      <li>$B%b%G%#%U%!%$%d(B <a href="CUSTOMIZE-ja.html#modifier"><code>MAX-, MIN-, MMAX-, MMIN-</code></a> $B$rDI2C!#(B(Thanks to $B>.NS(B)
-		      <li>Java $B%"%W%j%1!<%7%g%s$J$I$G(B <a href="CUSTOMIZE-ja.html#modifier"><code>IL-</code></a> $B$,8!=P$5$l$J$$$3$H$,$"$k%P%0$r=$@5!#(B
-		      <li><a href="CUSTOMIZE-ja.html#oneShotRepeatableModifier">$B%-!<%j%T!<%HM-(B One Shot (<code>!!!</code>)</a> $B$N%-!<%j%T!<%H$,;O$^$k$^$G$N;~4V$r(B <a href="CUSTOMIZE-ja.html#def_option_delay_of_oneShotRepeatableModifier" target="MANUAL">$B%*%W%7%g%s(B (delay-of !!!)</a> $B$G;XDj$G$-$k$h$&$K$7$?!#(B
+		      <li>カナロックを表すモディファイヤ <a href="CUSTOMIZE-ja.html#modifier"><code>KL-</code></a> を追加。<a href="CUSTOMIZE-ja.html#def_option_KL" target="MANUAL">オプション (KL-)</a>をよく読むこと。
+		      <li>モディファイヤ <a href="CUSTOMIZE-ja.html#modifier"><code>MAX-, MIN-, MMAX-, MMIN-</code></a> を追加。(Thanks to 小林)
+		      <li>Java アプリケーションなどで <a href="CUSTOMIZE-ja.html#modifier"><code>IL-</code></a> が検出されないことがあるバグを修正。
+		      <li><a href="CUSTOMIZE-ja.html#oneShotRepeatableModifier">キーリピート有 One Shot (<code>!!!</code>)</a> のキーリピートが始まるまでの時間を <a href="CUSTOMIZE-ja.html#def_option_delay_of_oneShotRepeatableModifier" target="MANUAL">オプション (delay-of !!!)</a> で指定できるようにした。
 		    </ul>
 		</dd>
 		    
 		<dt><code><em>FUNCTION</em></code>
 		<dd>
 		    <ul>
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> $B$J$I$G!"@_Dj%U%!%$%k$r%m!<%I$7$?;~$K!"%m%0$K%m!<%I$7$?$3$H$,I=<($5$l$k$h$&$K$7$?!#(B
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Prefix"><code>&amp;Prefix</code></a> $B$N@bL@$r@5$7$/=$@5!#(B
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_SetImeStatus"><code>&amp;SetImeStatus</code></a> $B$rDI2C!#(B(Thanks to $B>.NS(B)
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_SetImeString"><code>&amp;SetImeString</code></a> $B$rDI2C!#(B(Thanks to $B>.NS(B)
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_ShellExecute"><code>&amp;ShellExecute</code></a> $B$,<:GT$7$?;~$N%(%i!<%a%C%;!<%8$,I=<($5$l$J$$$3$H$,$"$k%P%0$r=$@5!#(B
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a> $B$GF~NO$G$-$k%^%&%9%\%?%s$K(B XBUTTON1 $B$H(B XBUTTON2 $B$rDI2C!#B>!"$5$^$6$^$J2>A[%-!<$rDI2C!#(B
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMonitor"><code>&amp;WindowMonitor</code></a> $B$rDI2C!#(B(Thanks to Hosaka Yuji)
-		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMonitorTo"><code>&amp;WindowMonitorTo</code></a> $B$rDI2C!#(B(Thanks to Hosaka Yuji)
-		      <li><code><em>FUNCTION</em></code> $B$N(B<a href="CUSTOMIZE-ja.html#arg_subst">$B0z?tCV49(B</a>$B5!G=$rDI2C!#(B(Thanks to $B>.NS(B)
-		      <li>$B4{B8(B <code><em>FUNCTION</em></code> $B$N%^%k%A%b%K%?BP1~!#(B(Thanks to Hosaka Yuji)
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> などで、設定ファイルをロードした時に、ログにロードしたことが表示されるようにした。
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Prefix"><code>&amp;Prefix</code></a> の説明を正しく修正。
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_SetImeStatus"><code>&amp;SetImeStatus</code></a> を追加。(Thanks to 小林)
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_SetImeString"><code>&amp;SetImeString</code></a> を追加。(Thanks to 小林)
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_ShellExecute"><code>&amp;ShellExecute</code></a> が失敗した時のエラーメッセージが表示されないことがあるバグを修正。
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a> で入力できるマウスボタンに XBUTTON1 と XBUTTON2 を追加。他、さまざまな仮想キーを追加。
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMonitor"><code>&amp;WindowMonitor</code></a> を追加。(Thanks to Hosaka Yuji)
+		      <li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMonitorTo"><code>&amp;WindowMonitorTo</code></a> を追加。(Thanks to Hosaka Yuji)
+		      <li><code><em>FUNCTION</em></code> の<a href="CUSTOMIZE-ja.html#arg_subst">引数置換</a>機能を追加。(Thanks to 小林)
+		      <li>既存 <code><em>FUNCTION</em></code> のマルチモニタ対応。(Thanks to Hosaka Yuji)
 		    </ul>
 		</dd>
 		    
-		<dt>$B%^%K%e%"%k(B
+		<dt>マニュアル
 		<dd>
 		    <ul>
-		      <li><a href="#ACKNOWLEDGEMENT">acknowledgements</a> $B99?7!#(B
-		      <li><a href="#RELATEDWORK">related work</a> $B$r99?7!#(B
-		      <li><a href="#REFERENCES">references</a> $B$r99?7!#(B
+		      <li><a href="#ACKNOWLEDGEMENT">acknowledgements</a> 更新。
+		      <li><a href="#RELATEDWORK">related work</a> を更新。
+		      <li><a href="#REFERENCES">references</a> を更新。
 		    </ul>
 		</dd>
 
-		<dt>$B%S%k%I(B
+		<dt>ビルド
 		<dd>
 		    <ul>
-		      <li>Windows9x/Me/NT4.0 $BHsBP1~$K$J$j$^$7$?!#(B
-		      <li>Borland C++ 5.5.1 $B$G%S%k%IIT2DG=$K$J$j$^$7$?!#(B
-		      <li>Visual C++ Toolkit 2003 $B$G(B<a href="CUSTOMIZE-ja.html#compile">$B%S%k%I(B</a>$B$9$k$?$a$NMM!9$JCm0U;v9`$r5-:\!#(B(Thanks to $B>.NS(B)
+		      <li>Windows9x/Me/NT4.0 非対応になりました。
+		      <li>Borland C++ 5.5.1 でビルド不可能になりました。
+		      <li>Visual C++ Toolkit 2003 で<a href="CUSTOMIZE-ja.html#compile">ビルド</a>するための様々な注意事項を記載。(Thanks to 小林)
 		    </ul>
 		</dd>
 		    
-		<dt>$B%I%i%$%P(B
+		<dt>ドライバ
 		<dd>
 		    <ul>
-		      <li>2000/XP $BMQ%I%i%$%P$N(B SMP/HT $BBP1~!#(B(Thanks to $B>.NS(B)
-		      <li>2000/XP $BMQ%I%i%$%P$N(B PS/2 $B@lMQHG$H(B USB $BBP1~HG$N%P%$%J%jE}9g!#(B(Thanks to $B>.NS(B)
-		      <li><a href="#rescue_driver">$BI|5lMQ%I%i%$%P(B</a>$B$rDI2C!#(B(Thanks to $B>.NS(B)
+		      <li>2000/XP 用ドライバの SMP/HT 対応。(Thanks to 小林)
+		      <li>2000/XP 用ドライバの PS/2 専用版と USB 対応版のバイナリ統合。(Thanks to 小林)
+		      <li><a href="#rescue_driver">復旧用ドライバ</a>を追加。(Thanks to 小林)
 		    </ul>
 		</dd>
 
-		<dt>$B$=$NB>(B
+		<dt>その他
 		<dd>
 		    <ul>
-		      <li>WindowsXP $B$N!V%f!<%6!<$N@Z$jBX$(!W5!G=$KBP1~!#(B
-		      <li>$B$4$/$?$^$K!"(B<a href="http://support.microsoft.com/kb/835874/JA/" target="_top">$B%?%9%/%H%l%$$N%"%$%3%s$,I=<($5$l$J$$LdBj(B</a>$B$r=$@5$7$?$D$b$j!#$^$?!"I=<($5$l$F$$$J$$$H$-$K!"$b$&0lEY5/F0$9$l$P%"%$%3%s$,%?%9%/%l%$$KI=<($5$l$k$h$&$K$7$?!#(B($B!V4{$KAk;H$$$NM+]5$OF0:nCf$G$9!W$H$$$&%@%$%"%m%0%\%C%/%9$,=P$k$HF1;~$K%"%$%3%s$,I=<($5$l$^$9(B)
-		      <li>$B%m%0$r>C5n$7$?;~9o$r%m%0I=<($9$k$h$&$K$7$?!#(B
-		      <li><a href="../109.mayu"><code>109.mayu</code></a> $B$K(B MultiMedia Keyboard $BMQ$NFC<l%-!<$J$I$rDI2C!#(B
-		      <li>$B%9%J%C%W%7%g%C%HHG$G!V","-"+"*!W$H$$$&J8;z$,%-!<L>$H$7$F;HMQ$G$-$J$/$J$C$F$$$?%P%0$N=$@5!#(B
+		      <li>WindowsXP の「ユーザーの切り替え」機能に対応。
+		      <li>ごくたまに、<a href="http://support.microsoft.com/kb/835874/JA/" target="_top">タスクトレイのアイコンが表示されない問題</a>を修正したつもり。また、表示されていないときに、もう一度起動すればアイコンがタスクレイに表示されるようにした。(「既に窓使いの憂鬱は動作中です」というダイアログボックスが出ると同時にアイコンが表示されます)
+		      <li>ログを消去した時刻をログ表示するようにした。
+		      <li><a href="../109.mayu"><code>109.mayu</code></a> に MultiMedia Keyboard 用の特殊キーなどを追加。
+		      <li>スナップショット版で「↑↓←→」という文字がキー名として使用できなくなっていたバグの修正。
 		    </ul>
 		</dd>
 	      </dl>
@@ -811,189 +811,189 @@
 	  <dt>2003/07/16 3.29
 	  <dd>
 	      <ul>
-		<li>Windows XP $BMQ$N%I%i%$%P!#(B(Thanks to $B>.NS(B)
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_PlugIn"><code>&amp;PlugIn</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Recenter"><code>&amp;Recenter</code></a> $B$rDI2C!#(B
-		<li><a href="../contrib/109onAX.mayu"><code>contrib/109onAX.mayu</code></a> $B$rDI2C!#(B(Thanks to $B>>K\Gn5*(B)
-		<li><a href="../104.mayu"><code>104.mayu</code></a> $B$H(B <a href="../contrib/ax.mayu"><code>contrib/ax.mayu</code></a> $B$N5-=R%_%9$r=$@5!#(B(Thanks to $B>>K\Gn5*(B)
-		<li><a href="../contrib/DVORAKon109.mayu"><code>contrib/DVORAKon109.mayu</code></a> $B$rDI2C!#(B(Thanks to 2ch)
-		<li>$B$=$NB>=$@5!D(B
+		<li>Windows XP 用のドライバ。(Thanks to 小林)
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_PlugIn"><code>&amp;PlugIn</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Recenter"><code>&amp;Recenter</code></a> を追加。
+		<li><a href="../contrib/109onAX.mayu"><code>contrib/109onAX.mayu</code></a> を追加。(Thanks to 松本博紀)
+		<li><a href="../104.mayu"><code>104.mayu</code></a> と <a href="../contrib/ax.mayu"><code>contrib/ax.mayu</code></a> の記述ミスを修正。(Thanks to 松本博紀)
+		<li><a href="../contrib/DVORAKon109.mayu"><code>contrib/DVORAKon109.mayu</code></a> を追加。(Thanks to 2ch)
+		<li>その他修正…
 	      </ul>
 	  <dt>2001/10/08 3.28
 	  <dd>
 	      <ul>
-		<li><a href="#TUTORIAL">$B%A%e!<%H%j%"%k(B</a>$B$H(B<a href="#MENU">$B%?%9%/%H%l%$%a%K%e!<(B</a>$B$N>O$rDI2C!#(B(Thanks to hanawa)
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B Key Bat $B$rDI2C!#(B
-		<li>$B%a%K%e!<$r%"%/%;%9$7$F$$$k;~$N%&%#%s%I%&%/%i%9L>$O:G8e$K(B <code>:MENU</code> $B$,$D$/!#(B
-		<li><code>=&gt;</code> $B$NBe$o$j$K(B <code>=</code> $B$,;H$($k$h$&$K$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#def_subst">subst</a> $B$N1&B&$K(B <code>M0-</code> $B$J$I$N%b%G%#%U%!%$%d$,;XDj$G$-$J$$%P%0$r=$@5!#(B
-		<li><a href="CUSTOMIZE-ja.html#perKeymapDefinition">$B%-!<%^%C%W$,1F6A$9$kDj5A(B</a>$B$N@bL@$rDI2C!#(B
-		<li>W2k $B$G(B USB $B%I%i%$%P$r4JC1$K%$%s%9%H!<%k$G$-$k$h$&$K$7$?!#(B
-		<li>$B$=$NB>=$@5!#(B(Thanks to $B>.NS(B)
+		<li><a href="#TUTORIAL">チュートリアル</a>と<a href="#MENU">タスクトレイメニュー</a>の章を追加。(Thanks to hanawa)
+		<li><a href="#RELATEDWORK">related work</a> に Key Bat を追加。
+		<li>メニューをアクセスしている時のウィンドウクラス名は最後に <code>:MENU</code> がつく。
+		<li><code>=&gt;</code> の代わりに <code>=</code> が使えるようにした。
+		<li><a href="CUSTOMIZE-ja.html#def_subst">subst</a> の右側に <code>M0-</code> などのモディファイヤが指定できないバグを修正。
+		<li><a href="CUSTOMIZE-ja.html#perKeymapDefinition">キーマップが影響する定義</a>の説明を追加。
+		<li>W2k で USB ドライバを簡単にインストールできるようにした。
+		<li>その他修正。(Thanks to 小林)
 	      </ul>
 	  <dt>2001/09/02 3.27
 	  <dd>
 	      <ul>
-		<li>3.26 $B$G(B <code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Sync"><code>&amp;Sync</code></a> $B$,F0:n$7$J$/$J$C$F$$$?%P%0$r=$@5!#(B<code>C-k</code> $B$b$A$c$s$HF0:n$7$^$9!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_KeymapPrevPrefix"><code>&amp;KeymapPrevPrefix</code></a> $B$rDI2C!#(B
-		<li><a href="#FAQ">FAQ</a> $B$K!V1&(B <kbd>Windows</kbd> $B%-!<$r2!$9$H(B IME $B$N%*%s%*%U$,$G$-$k$h$&$K$7$?$$!#!W$rDI2C!#(B
+		<li>3.26 で <code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Sync"><code>&amp;Sync</code></a> が動作しなくなっていたバグを修正。<code>C-k</code> もちゃんと動作します。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_KeymapPrevPrefix"><code>&amp;KeymapPrevPrefix</code></a> を追加。
+		<li><a href="#FAQ">FAQ</a> に「右 <kbd>Windows</kbd> キーを押すと IME のオンオフができるようにしたい。」を追加。
 	      </ul>
 	  <dt>2001/08/26 3.26
 	  <dd>
 	      <ul>
-		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot $B%b%G%#%U%!%$%d(B</a>$B$NNc$,4V0c$C$F$$$?$N$G=$@5!#(B(Thanks to $B>.NS(B)
-		<li>Windows $BB&$G$ON%$5$l$F$$$k$3$H$K$J$C$F$$$k%-!<$K$D$$$F!"!VAk;H$$$NM+]5!W$,%-!<$rN%$9%9%-%c%s%3!<%I$r(B Windows $BB&$XAw$k$3$H$,$J$$$h$&$K$7$?!#(B(Thanks to $B>.NS(B)
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B Word Emacs $B$rDI2C!#(B
-		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> $B$G(B <code>M-;</code> (<code>indent-for-comment</code>) $B$,;HMQ$G$-$k$h$&$K$J$C$?(B (Thanks to $B1JLn7=0lO:(B)
-		<li>$B5:$l$K(B <code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DirectSSTP"><code>&amp;DirectSSTP</code></a> $B$rDI2C$7$F$_$?!#(B
+		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot モディファイヤ</a>の例が間違っていたので修正。(Thanks to 小林)
+		<li>Windows 側では離されていることになっているキーについて、「窓使いの憂鬱」がキーを離すスキャンコードを Windows 側へ送ることがないようにした。(Thanks to 小林)
+		<li><a href="#RELATEDWORK">related work</a> に Word Emacs を追加。
+		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> で <code>M-;</code> (<code>indent-for-comment</code>) が使用できるようになった (Thanks to 永野圭一郎)
+		<li>戯れに <code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DirectSSTP"><code>&amp;DirectSSTP</code></a> を追加してみた。
 	      </ul>
 	  <dt>2001/08/13 3.25
 	  <dd>
 	      <ul>
-		<li><code>*.mayu</code> $B$N%"%$%3%s$,4V0c$C$F$$$?$N$rD>$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#mod"><code>-=</code></a> $B$GJ#?t%-!<$r@_Dj$7$F$b0l$D$7$+M-8z$K$J$i$J$$%P%0$N=$@5!#(B
-		<li>WindowsNT4.0 $B0J30(B (9x, Me, 2000) $B$G!"!VAk;H$$$NM+]5!W$r=*N;$5$;$?$"$H$K2?$+$N%-!<$r2!$5$J$$$H=*N;$7$J$$%P%0$NB`<#!#(B(Thanks to $B>.NS(B)
-		<li>$B@_Dj%U%!%$%k$GNY$j9g$&J#?t$NJ8;zNs$r0l$D$NJ8;zNs$H$7$F<h$j07$&$h$&$K$7$?!#(B
+		<li><code>*.mayu</code> のアイコンが間違っていたのを直した。
+		<li><a href="CUSTOMIZE-ja.html#mod"><code>-=</code></a> で複数キーを設定しても一つしか有効にならないバグの修正。
+		<li>WindowsNT4.0 以外 (9x, Me, 2000) で、「窓使いの憂鬱」を終了させたあとに何かのキーを押さないと終了しないバグの退治。(Thanks to 小林)
+		<li>設定ファイルで隣り合う複数の文字列を一つの文字列として取り扱うようにした。
 		    <p class="sample">
-		    key X = &HelpMessage("$B%5%s%W%k(B C-x-", \<br>
-		    &nbsp;"C-x C-s\t$B>e=q$-J]B8(B\r\n" \<br>
-		    &nbsp;"C-x C-f\t$B3+$/(B\t\r\n" \<br>
-		    &nbsp;"C-x k\t\t$B?75,:n@.(B\r\n" \<br>
-		    &nbsp;"C-x C-c\t$B=*N;(B")
+		    key X = &HelpMessage("サンプル C-x-", \<br>
+		    &nbsp;"C-x C-s\t上書き保存\r\n" \<br>
+		    &nbsp;"C-x C-f\t開く\t\r\n" \<br>
+		    &nbsp;"C-x k\t\t新規作成\r\n" \<br>
+		    &nbsp;"C-x C-c\t終了")
 		    </p>
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DescribeBindings"><code>&amp;DescribeBindings</code></a> $B$rHyL/$K2~NI!#(B
-		<li>$B%"%s%$%s%9%H!<%k$,$G$-$J$/$J$C$F$$$?$N$r=$@5!#(B(Thanks to $B>.NS(B)
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DescribeBindings"><code>&amp;DescribeBindings</code></a> を微妙に改良。
+		<li>アンインストールができなくなっていたのを修正。(Thanks to 小林)
 	      </ul>
 	  <dt>2001/08/05 3.24
 	  <dd>
 	      <ul>
-		<li><a href="../default.mayu"><code>default.mayu</code></a> $B$G!"(B<kbd>$B1Q?t(B</kbd> $B$r(B <kbd>Control</kbd> $B$H$7$F;HMQ$7$F$$$k>l9g$K(B <code>C-Q</code> $B$,@5$7$/F/$+$J$$LdBj$r=$@5!#(Bversion 3.19 $B$G=$@5$7$?$b$N$H860x$OF1$8!#(B(Thanks to hanawa)
-		<li>Windows9x $B$N%I%i%$%P$r99?7!#@D2hLL$G$bA`:n$G$-$k$h$&$K$J$j$^$7$?!#(B(Thanks to $B>.NS(B)
-		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot $B%b%G%#%U%!%$%d(B</a>$B$G$"$k$H@k8@$7$?%-!<$,2!$5$l$F$$$k4V$K%-!<$,2!$5$l$?;~$N$_!"%b%G%#%U%!%$%d$H$7$F07$o$l$k$h$&$K$7$?!#:#$^$G$O!"N%$5$l$?;~$K$b%b%G%#%U%!%$%d07$$$K$J$C$F$$$?!#(B
-		<li>$B0l;~Dd;_$K$7$?$H$-$K%?%9%/%H%l%$$N%"%$%3%s$rJQ2=$5$;$k$h$&$K$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#keyRepeat"><code>R-</code></a> $B$r?7@_!#(B(Thanks to hanawa)$B!#(B<a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> $B$G?'$,$D$/$h$&$K$7$?!#(B
-		<li><a href="http://www.borland.co.jp/cppbuilder/freecompiler/index.html" target="_top">Borland C++ 5.5.1</a> $B$G(B<a href="CUSTOMIZE-ja.html#compile">$B%S%k%I(B</a>$B$G$-$k$h$&$K$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot $B%b%G%#%U%!%$%d(B</a>$B$rN%$7$?$H$-$KM-8z$J%b%G%#%U%!%$%d$O2!$7$?$H$-$HF1$8$K$J$k$h$&$K$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#function_EmacsEditKillLine"><code>&amp;EmacsEditKillLineFunc</code></a>, <a href="CUSTOMIZE-ja.html#function_EmacsEditKillLine"><code>&amp;EmacsEditKillLinePred</code></a> $B$N@bL@$rDI2C!#(B
-		<li>USB $BBP1~%I%i%$%P$O:#2s$O<}O?$7$F$$$^$;$s!#(B
-		<li>BETA $B$G$O$J$$$G$9!#(B
+		<li><a href="../default.mayu"><code>default.mayu</code></a> で、<kbd>英数</kbd> を <kbd>Control</kbd> として使用している場合に <code>C-Q</code> が正しく働かない問題を修正。version 3.19 で修正したものと原因は同じ。(Thanks to hanawa)
+		<li>Windows9x のドライバを更新。青画面でも操作できるようになりました。(Thanks to 小林)
+		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot モディファイヤ</a>であると宣言したキーが押されている間にキーが押された時のみ、モディファイヤとして扱われるようにした。今までは、離された時にもモディファイヤ扱いになっていた。
+		<li>一時停止にしたときにタスクトレイのアイコンを変化させるようにした。
+		<li><a href="CUSTOMIZE-ja.html#keyRepeat"><code>R-</code></a> を新設。(Thanks to hanawa)。<a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> で色がつくようにした。
+		<li><a href="http://www.borland.co.jp/cppbuilder/freecompiler/index.html" target="_top">Borland C++ 5.5.1</a> で<a href="CUSTOMIZE-ja.html#compile">ビルド</a>できるようにした。
+		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot モディファイヤ</a>を離したときに有効なモディファイヤは押したときと同じになるようにした。
+		<li><a href="CUSTOMIZE-ja.html#function_EmacsEditKillLine"><code>&amp;EmacsEditKillLineFunc</code></a>, <a href="CUSTOMIZE-ja.html#function_EmacsEditKillLine"><code>&amp;EmacsEditKillLinePred</code></a> の説明を追加。
+		<li>USB 対応ドライバは今回は収録していません。
+		<li>BETA ではないです。
 	      </ul>
 	  <dt>2001/07/06 3.23 (BETA)
 	  <dd>
 	      <ul>
-		<li><a href="../104on109.mayu"><code>104on109.mayu</code></a> $B$G!V(B`$B!W$,F~NO$G$-$J$+$C$?%P%0$rD>$7$?!#(B(Thanks to Oiwa)
-		<li><a href="CUSTOMIZE-ja.html#oneShotRepeatableModifier">One Shot ($B%-!<%j%T!<%HM-(B)</a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Toggle"><code>&amp;Toggle</code></a> $B$G!"6/@)E*$K%*%s%*%U$G$-$k$h$&$K$7$?!#(B
-		<li><a href="../109.mayu"><code>109.mayu</code></a> $B$K(B VAIO $B%?%o!<MQ$NFC<l%-!<$rDI2C!#(B
-		<li>WindowsNT4.0 $B$G%$%s%9%H!<%k$G$-$J$/$J$C$F$$$?LdBj$r=$@5!#(B(Makefile $B$N=q$-J}$N%_%9(B)
-		<li>Windows9x $B$N%I%i%$%P$r99?7!#(B
-		<li>$B?75,%$%s%9%H!<%k$7$?;~$K!V%[!<%`%G%#%l%/%H%j$+$i!W$,A*Br$5$l$F$$$F%-!<F~NO$,$G$-$J$/$J$C$F$7$^$&LdBj$r=$@5!#(B
-		<li><a href="#SUPPORT">support</a> $B$K(B 2ch $B$rDI2C!#(B
+		<li><a href="../104on109.mayu"><code>104on109.mayu</code></a> で「`」が入力できなかったバグを直した。(Thanks to Oiwa)
+		<li><a href="CUSTOMIZE-ja.html#oneShotRepeatableModifier">One Shot (キーリピート有)</a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Toggle"><code>&amp;Toggle</code></a> で、強制的にオンオフできるようにした。
+		<li><a href="../109.mayu"><code>109.mayu</code></a> に VAIO タワー用の特殊キーを追加。
+		<li>WindowsNT4.0 でインストールできなくなっていた問題を修正。(Makefile の書き方のミス)
+		<li>Windows9x のドライバを更新。
+		<li>新規インストールした時に「ホームディレクトリから」が選択されていてキー入力ができなくなってしまう問題を修正。
+		<li><a href="#SUPPORT">support</a> に 2ch を追加。
 	      </ul>
 	  <dt>2001/03/24 3.22 (BETA)
 	  <dd>
 	      <ul>
-		<li><a href="CUSTOMIZE-ja.html#def_subst">$BBeMQDj5A(B</a>$B$rDI2C$7$?!#$*$+$2$G(B <a href="../104on109.mayu"><code>104on109.mayu</code></a> $B$J$I$,%9%^!<%H$KDj5A$G$-$k$h$&$K$J$C$?!#(B
-		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> $B$GBeMQDj5A$K$b?'$,$D$/$h$&$K$7$?!#(B
-		<li>$B4V0c$C$F%G%P%C%0%S%k%I$7$?$b$N$r<}O?$7$F$$$?$N$r%j%j!<%9%S%k%I$r<}O?$9$k$h$&$K$7$?!#(B
-		<li>$B4V0c$C$F2u$l$?(B Windows9x $B$N%I%i%$%P$r<}O?$7$F$7$^$C$?$N$G@5$7$$%I%i%$%P$rF~$l$?!#(B
+		<li><a href="CUSTOMIZE-ja.html#def_subst">代用定義</a>を追加した。おかげで <a href="../104on109.mayu"><code>104on109.mayu</code></a> などがスマートに定義できるようになった。
+		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> で代用定義にも色がつくようにした。
+		<li>間違ってデバッグビルドしたものを収録していたのをリリースビルドを収録するようにした。
+		<li>間違って壊れた Windows9x のドライバを収録してしまったので正しいドライバを入れた。
 	      </ul>
 	  <dt>2001/03/23 version 3.21 (BETA)
 	  <dd>
 	      <ul>
-		<li>Windows95 $B$G(B CPU $B;~4V$r(B 100% $B@j$a$F$7$^$&LdBj$,$J$*$C$?!#(B(Thanks to $B>.NS5AL@(B)
-		<li>NEC PC-98x1 $B$GF0:n$7$J$$LdBj$,$J$*$C$?!#(B(Thanks to $B>.NS5AL@(B)
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> $B$G!"$I$N@_Dj$r%m!<%I$9$k$+;XDj$G$-$k$h$&$K$J$C$?!#(B
-		<li><a href="../contrib/98x1.mayu"><code>contrib/98x1.mayu</code></a> $B$rDI2C!#(B(Thanks to HAJANO Na&ograve;qui)
-		<li><a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a> $B$K!"(B<code>mayu.exe</code> $B$N%+%l%s%H%G%#%l%/%H%j$rDI2C!#(B		  
+		<li>Windows95 で CPU 時間を 100% 占めてしまう問題がなおった。(Thanks to 小林義明)
+		<li>NEC PC-98x1 で動作しない問題がなおった。(Thanks to 小林義明)
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_LoadSetting"><code>&amp;LoadSetting</code></a> で、どの設定をロードするか指定できるようになった。
+		<li><a href="../contrib/98x1.mayu"><code>contrib/98x1.mayu</code></a> を追加。(Thanks to HAJANO Na&ograve;qui)
+		<li><a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a> に、<code>mayu.exe</code> のカレントディレクトリを追加。		  
 	      </ul>
 	  <dt>2001/03/10 version 3.20 (BETA)
 	  <dd>
 	      <ul>
-		<li>Windows95 $B$G$bF0:n$9$k$h$&$K$J$C$?!#(B
-		<li><a href="#ACKNOWLEDGEMENT">acknowledgements</a> $B99?7!#(B
-		<li><code>cab32.dll</code> $B$G$O$J$/(B <code>iexpress</code> $B$r;HMQ$7$F%Q%C%1!<%8$r:n@.$9$k$h$&$K$7$?!#(B
-		<li>$B%=!<%9$r%Q%C%1!<%8$+$iJ,N%$7$?!#(B
+		<li>Windows95 でも動作するようになった。
+		<li><a href="#ACKNOWLEDGEMENT">acknowledgements</a> 更新。
+		<li><code>cab32.dll</code> ではなく <code>iexpress</code> を使用してパッケージを作成するようにした。
+		<li>ソースをパッケージから分離した。
 	      </ul>
 	  <dt>2001/03/05 version 3.19 (BETA)
 	  <dd>
 	      <ul>
-		<li>$B$3$N%P!<%8%g%s$OFbIt9=B$$rBgI}$KJQ$($?$N$GIT0BDj$G$"$k2DG=@-$,9b$$$G$9!#$I$&$7$F$b$3$N%P!<%8%g%s$,I,MW$J?M$N$_;HMQ$7$F$/$@$5$$!#(B
-		<li><kbd>Control</kbd> + <kbd>U</kbd> $BA`:n$N2~NI!#(B
-		<li><a href="../default.mayu"><code>default.mayu</code></a> $B$r;H$C$F$$$k>l9g$O!"(B<code>Global</code> $B%-!<%^%C%W$G(B <kbd>$B1Q?t(B</kbd> $B$r(B <kbd>Control</kbd> $B$K$7$F$$$k$,!"(B<code>Global</code> $B%-!<%^%C%W$r?F%-!<%^%C%W$H$7$F;}$?$J$$(B <a href="CUSTOMIZE-ja.html#keymap2"><code>keymap2</code></a> $B$NCf$G$O(B ($BEvA3$J$,$i(B) <kbd>$B1Q?t(B</kbd> $B$r(B <kbd>Control</kbd> $B$H$7$F;HMQ$G$-$J$$$N$G!"$A$c$s$H(B <code>Global</code> $B%-!<%^%C%W$r?F%-!<%^%C%W$H$7$F;}$D$h$&$K@_Dj%U%!%$%k$r=$@5!#(B
-		<li><a href="../default.mayu"><code>default.mayu</code></a> $B$G!"(B<code>-DMAP-ESCAPE-TO-META</code> $B$H$9$k$H(B <kbd>Alt</kbd> + <kbd>X</kbd> $B$J$I$r(B <kbd>ESCAPE] [X</kbd> $B$GBeMQ$9$k$h$&$K$7$?!#(B
-		<li>WindowsNT/2000 $BHG$N%W%m%0%i%`FbIt$G$OA4$F(B UNICODE $B$G=hM}$9$k$h$&$K$7$?!#(B
-		<li>WindowsNT/2000 $BHG$G$O!"@_Dj%U%!%$%k$NJ8;z%3!<%I$K!"(Bshift_jis $B$@$1$G$J$/(B UTF-16LE/BE $B$d(B UTF-8 $B$r;HMQ$G$-$k$h$&$K$J$C$?!#!V%a%bD"!W$G!"!V(BUnicode$B!W$d!V(BUnicode big endien$B!W$d!V(BUTF-8$B!W$rA*$s$G%;!<%V$9$l$P!"F|K\8l$@$1$G$J$/%O%s%0%k$J$I$N(B UNICODE $B$G07$($kJ8;z$,A4$F@_Dj%U%!%$%k$K=q$1$k$h$&$K$J$k!#8=:_$OJ8;z%3!<%I$O<+F0H=JL$5$l!"<+F0H=JL$K<:GT$7$?>l9g$N5_:QA<CV$O$J$$!#<+F0H=JL$K<:GT$9$k$h$&$J$i<+F0H=JL$G$-$=$&$JJ8;z$r%3%a%s%H$K$G$b=q$$$F$*$/$3$H!#(B
-		<li>$B@55,I=8=%i%$%V%i%j$r(B <a href="http://ourworld.compuserve.com/homepages/John_Maddock/regexpp.htm" target="_top">Regex++</a> $B$KJQ99$7$?!#(B
-		<li>$B$$$m$$$mJQ$($?7k2LB?J,(B bcc32 $B$G$O%3%s%Q%$%k$G$-$J$/$J$C$?!#>/$7=$@5$9$k$@$1$@$H;W$&$,!#(B
-		<li><a href="../contrib/ax.mayu"><code>contrib/ax.mayu</code></a> $B$rDI2C!#(B(Thanks to KAWABE Nobukazu)
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B MetaX $B$rDI2C!#(B
-		<li><a href="CUSTOMIZE-ja.html#defaultModifier">$B%G%U%)%k%H%b%G%#%U%!%$%d$NJQ99(B</a>$B$N%5%s%W%k$,4V0c$C$F$$$?$N$GD>$7$?!#(B(<code>key IC-* =</code> $B$G$O$J$/(B <code>key *IC- =</code> $B$,@5$7$$(B) (Thanks to Hirotaka Kasaki)
-		<li><a href="CUSTOMIZE-ja.html#defaultKey">$B%G%U%)%k%H%-!<(B</a>$B$NCf$GDj5ACf$N%-!<%^%C%WL>$r;2>H$G$-$J$+$C$?%P%0$r=$@5$7$?!#$D$^$j!"(B<code>keymap Hoge = &amp;Prefix(Hoge)</code> $B$J$I$,$G$-$k$h$&$K$J$C$?!#(B(Thanks to HANAWA Yoshio)
-		<li>Windows9x $BMQ$N%I%i%$%P$r:n@.$5$l$?$N$G!"$3$N%P!<%8%g%s$+$i(B WindowsNT/2000 $BMQ$N%Q%C%1!<%8$H(B Windows9x $BMQ$N%Q%C%1!<%8$,B8:_$7$^$9!#(B(Thanks to $B>.NS5AL@(B)
-		<li>$B8=:_!"(BWindows9x $B$G$O!"(B<a href="CUSTOMIZE-ja.html#function_HelpMessage"><code>&amp;HelpMessage</code></a>$B!"(B<a href="CUSTOMIZE-ja.html#function_HelpVariable"><code>&amp;HelpVariable</code></a>$B!"(B<a href="CUSTOMIZE-ja.html#function_WindowSetAlpha"><code>&amp;WindowSetAlpha</code></a> $B$O;HMQ$G$-$^$;$s!#(B
-		<li><a href="../default.mayu"><code>default.mayu</code></a> $B$r;HMQ$7$F$$$k>l9g!"%7%s%\%k(B <code>ZXCV</code> $B$rDj5A$7$F$*$/$H!"(B<kbd>Control</kbd> + <kbd>Z</kbd>, <kbd>Control</kbd> + <kbd>X</kbd>, <kbd>Control</kbd> + <kbd>C</kbd>, <kbd>Control</kbd> + <kbd>V</kbd> $B$,(B Windows $B$HF1$8F0$-$r$9$k$h$&$K$J$j$^$9!#(B(Thanks to HANAWA Yoshio)
+		<li>このバージョンは内部構造を大幅に変えたので不安定である可能性が高いです。どうしてもこのバージョンが必要な人のみ使用してください。
+		<li><kbd>Control</kbd> + <kbd>U</kbd> 操作の改良。
+		<li><a href="../default.mayu"><code>default.mayu</code></a> を使っている場合は、<code>Global</code> キーマップで <kbd>英数</kbd> を <kbd>Control</kbd> にしているが、<code>Global</code> キーマップを親キーマップとして持たない <a href="CUSTOMIZE-ja.html#keymap2"><code>keymap2</code></a> の中では (当然ながら) <kbd>英数</kbd> を <kbd>Control</kbd> として使用できないので、ちゃんと <code>Global</code> キーマップを親キーマップとして持つように設定ファイルを修正。
+		<li><a href="../default.mayu"><code>default.mayu</code></a> で、<code>-DMAP-ESCAPE-TO-META</code> とすると <kbd>Alt</kbd> + <kbd>X</kbd> などを <kbd>ESCAPE] [X</kbd> で代用するようにした。
+		<li>WindowsNT/2000 版のプログラム内部では全て UNICODE で処理するようにした。
+		<li>WindowsNT/2000 版では、設定ファイルの文字コードに、shift_jis だけでなく UTF-16LE/BE や UTF-8 を使用できるようになった。「メモ帳」で、「Unicode」や「Unicode big endien」や「UTF-8」を選んでセーブすれば、日本語だけでなくハングルなどの UNICODE で扱える文字が全て設定ファイルに書けるようになる。現在は文字コードは自動判別され、自動判別に失敗した場合の救済措置はない。自動判別に失敗するようなら自動判別できそうな文字をコメントにでも書いておくこと。
+		<li>正規表現ライブラリを <a href="http://ourworld.compuserve.com/homepages/John_Maddock/regexpp.htm" target="_top">Regex++</a> に変更した。
+		<li>いろいろ変えた結果多分 bcc32 ではコンパイルできなくなった。少し修正するだけだと思うが。
+		<li><a href="../contrib/ax.mayu"><code>contrib/ax.mayu</code></a> を追加。(Thanks to KAWABE Nobukazu)
+		<li><a href="#RELATEDWORK">related work</a> に MetaX を追加。
+		<li><a href="CUSTOMIZE-ja.html#defaultModifier">デフォルトモディファイヤの変更</a>のサンプルが間違っていたので直した。(<code>key IC-* =</code> ではなく <code>key *IC- =</code> が正しい) (Thanks to Hirotaka Kasaki)
+		<li><a href="CUSTOMIZE-ja.html#defaultKey">デフォルトキー</a>の中で定義中のキーマップ名を参照できなかったバグを修正した。つまり、<code>keymap Hoge = &amp;Prefix(Hoge)</code> などができるようになった。(Thanks to HANAWA Yoshio)
+		<li>Windows9x 用のドライバを作成されたので、このバージョンから WindowsNT/2000 用のパッケージと Windows9x 用のパッケージが存在します。(Thanks to 小林義明)
+		<li>現在、Windows9x では、<a href="CUSTOMIZE-ja.html#function_HelpMessage"><code>&amp;HelpMessage</code></a>、<a href="CUSTOMIZE-ja.html#function_HelpVariable"><code>&amp;HelpVariable</code></a>、<a href="CUSTOMIZE-ja.html#function_WindowSetAlpha"><code>&amp;WindowSetAlpha</code></a> は使用できません。
+		<li><a href="../default.mayu"><code>default.mayu</code></a> を使用している場合、シンボル <code>ZXCV</code> を定義しておくと、<kbd>Control</kbd> + <kbd>Z</kbd>, <kbd>Control</kbd> + <kbd>X</kbd>, <kbd>Control</kbd> + <kbd>C</kbd>, <kbd>Control</kbd> + <kbd>V</kbd> が Windows と同じ動きをするようになります。(Thanks to HANAWA Yoshio)
 	      </ul>
 	  <dt>2000/12/17 version 3.18
 	  <dd>
 	      <ul>
-		<li>$B%X%k%W$,3+$1$J$$%P%0$N=$@5!#(B
-		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> $B$,E83+$5$l$F$$$J$+$C$?$N$rD>$7$?!#$D$$$G$K>/$7$@$1=$@5!#(B
-		<li><code>IC-</code> $B$,;~!9L5;k$5$l$k%P%0$,D>$C$?$O$:!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_HelpMessage"><code>&amp;HelpMessage</code></a> $B$rDI2C!#(B<a href="../default.mayu"><code>default.mayu</code></a> $B$r;H$C$F$$$k>l9g$O%a%bD"$G(B <kbd>Control</kbd> + <kbd>X</kbd> $B$r2!$7$F$_$h$&(B ($B$?$@$7(B IE5.0 $B0J>e$r;H$C$F$$$k>l9g$N$_(B)$B!#(B
-		<li><a href="CUSTOMIZE-ja.html#event"><code>event</code></a> $B$rDI2C!#(B
-		<li>$B$3$l$i$NDI2C$K$h$j!"%W%l%U%#%C%/%9%-!<$,2!$5$l$?;~$K%a%C%;!<%8$rI=<($9$k$3$H$,2DG=$K$J$C$?!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_KeymapWindow"><code>&amp;KeymapWindow</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Variable"><code>&amp;Variable</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Repeat"><code>&amp;Repeat</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_HelpVariable"><code>&amp;HelpVariable</code></a> $B$rDI2C!#(B
-		<li>$B$3$l$i$NDI2C$K$h$j(B Emacs $B$N(B <kbd>Control</kbd> + <kbd>U</kbd> $B$,2DG=$K$J$C$?!#;d$K%a!<%k$rAw$k$?$a$K(B 1000000000000000000000000000000000000000000000000000000000000@tsg.ne.jp $B$HF~NO$9$k$N$b$i$/$i$/$G$9!#(B
-		<li>$B%A%e!<%H%j%"%k!&(BFAQ $B$N=<<B$O<!2s$K1d4|!#(B
+		<li>ヘルプが開けないバグの修正。
+		<li><a href="../mayu-mode.el" target="MANUAL"><code>mayu-mode.el</code></a> が展開されていなかったのを直した。ついでに少しだけ修正。
+		<li><code>IC-</code> が時々無視されるバグが直ったはず。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_HelpMessage"><code>&amp;HelpMessage</code></a> を追加。<a href="../default.mayu"><code>default.mayu</code></a> を使っている場合はメモ帳で <kbd>Control</kbd> + <kbd>X</kbd> を押してみよう (ただし IE5.0 以上を使っている場合のみ)。
+		<li><a href="CUSTOMIZE-ja.html#event"><code>event</code></a> を追加。
+		<li>これらの追加により、プレフィックスキーが押された時にメッセージを表示することが可能になった。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_KeymapWindow"><code>&amp;KeymapWindow</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Variable"><code>&amp;Variable</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Repeat"><code>&amp;Repeat</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_HelpVariable"><code>&amp;HelpVariable</code></a> を追加。
+		<li>これらの追加により Emacs の <kbd>Control</kbd> + <kbd>U</kbd> が可能になった。私にメールを送るために 1000000000000000000000000000000000000000000000000000000000000@tsg.ne.jp と入力するのもらくらくです。
+		<li>チュートリアル・FAQ の充実は次回に延期。
 	      </ul>
 	  <dt>2000/12/03 version 3.17
 	  <dd>
 	      <ul>
-		<li>$B%a!<%j%s%0%j%9%H$r(B <a href="http://lists.sourceforge.net/mailman/listinfo/mayu-support" target="_top">Source Forge</a> $B$X0\F0!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMoveTo"><code>&amp;WindowMoveTo</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowResizeTo"><code>&amp;WindowResizeTo</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_MayuDialog"><code>&amp;MayuDialog</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DescribeBindings"><code>&amp;DescribeBindings</code></a> $B$rDI2C!#I=<(7A<0$,$$$^$$$AJ,$+$j$K$/$$$N$G$I$&$7$h$&$+;W0FCf!#(B
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B Pastel Touch $B$rDI2C!#(B
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B KeyMap $B$rDI2C!#(B
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B dvorak kr, swap2k $B$rDI2C!#(B
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B Q's Nicolatter $B$rDI2C!#(B
-		<li><a href="#FAQ">FAQ</a> $B$rDI2C!#(B
-		<li><code>mailto:</code> $B$r%I%-%e%a%s%H$+$i:o=|!#(B
-		<li><a href="http://www.linuxsupportline.com/~doc++/" target="_top">DOC++</a> $B$GI=<($G$-$k$h$&$K%=!<%9$N%3%a%s%H$r=q$-49$($?!#(B
-		<li>Emacs $B$G@_Dj%U%!%$%k$rJT=8$9$k?M$N$?$a$K(B <a href="../mayu-mode.el"><code>mayu-mode.el</code></a> $B$rDI2C!#$?$@$7!"?'$,$D$/$@$1$G$9!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> $B$G!"%&%#%s%I%&$N0LCV$HBg$-$5$bI=<($9$k$h$&$K$7$?!#(B
-		<li><a href="../contrib/keitai.mayu"><code>contrib/keitai.mayu</code></a> $B$rDI2C!#%F%s%-!<$G7HBSEEOC<0$R$i$,$JF~NO$r$7$h$&$H$$$&2h4|E*@_Dj%U%!%$%k(B ($BCm(B:Joke)$B!#(B(Thanks to HANAWA Yoshio)
-		<li>$B@_Dj%U%!%$%k$,8+$D$+$i$J$+$C$?$H$-$O%(%i!<$r=P$9$h$&$K$J$C$?!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
-		<li>$BD4::%@%$%"%m%0$rF0$+$9$H%m%0%&%#%s%I%&$bF0$/$h$&$K$7$?!#(B
-		<li>$B@_Dj%@%$%"%m%0(B
+		<li>メーリングリストを <a href="http://lists.sourceforge.net/mailman/listinfo/mayu-support" target="_top">Source Forge</a> へ移動。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMoveTo"><code>&amp;WindowMoveTo</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowResizeTo"><code>&amp;WindowResizeTo</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_MayuDialog"><code>&amp;MayuDialog</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_DescribeBindings"><code>&amp;DescribeBindings</code></a> を追加。表示形式がいまいち分かりにくいのでどうしようか思案中。
+		<li><a href="#RELATEDWORK">related work</a> に Pastel Touch を追加。
+		<li><a href="#RELATEDWORK">related work</a> に KeyMap を追加。
+		<li><a href="#RELATEDWORK">related work</a> に dvorak kr, swap2k を追加。
+		<li><a href="#RELATEDWORK">related work</a> に Q's Nicolatter を追加。
+		<li><a href="#FAQ">FAQ</a> を追加。
+		<li><code>mailto:</code> をドキュメントから削除。
+		<li><a href="http://www.linuxsupportline.com/~doc++/" target="_top">DOC++</a> で表示できるようにソースのコメントを書き換えた。
+		<li>Emacs で設定ファイルを編集する人のために <a href="../mayu-mode.el"><code>mayu-mode.el</code></a> を追加。ただし、色がつくだけです。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> で、ウィンドウの位置と大きさも表示するようにした。
+		<li><a href="../contrib/keitai.mayu"><code>contrib/keitai.mayu</code></a> を追加。テンキーで携帯電話式ひらがな入力をしようという画期的設定ファイル (注:Joke)。(Thanks to HANAWA Yoshio)
+		<li>設定ファイルが見つからなかったときはエラーを出すようになった。
+		<li>設定ファイルを更新。
+		<li>調査ダイアログを動かすとログウィンドウも動くようにした。
+		<li>設定ダイアログ
 		    <ul>
-		      <li>$B%?%9%/%H%l%$$N%a%K%e!<$+$iBt;33+$1$k%P%0$r=$@5!#(B
-		      <li>$B!VJT=8!W$r2!$7$FJT=8%@%$%"%m%0$,=P$F$$$k:GCf$K$b$&0lEY!VJT=8!W$r2!$;$k%P%0$N=$@5!#(B
-		      <li>$B!VJT=8!W$G!"%U%!%$%kL>$r6u$K$G$-$J$$%P%0$N=$@5!#(B
-		      <li>$B%5%$%:JQ99$G$-$k$h$&$K$7$?!#(B
+		      <li>タスクトレイのメニューから沢山開けるバグを修正。
+		      <li>「編集」を押して編集ダイアログが出ている最中にもう一度「編集」を押せるバグの修正。
+		      <li>「編集」で、ファイル名を空にできないバグの修正。
+		      <li>サイズ変更できるようにした。
 		    </ul>
 	      </ul>
 	  <dt>2000/05/28 version 3.16
 	  <dd>
 	      <ul>
-		<li>$B%$%s%9%H!<%i$,%F%s%]%i%j%U%)%k%@$K:n$C$?(B contrib $B$r:o=|$7$J$$%P%0$rD>$7$?!#(B
-		<li>$B%"%s%$%s%9%H!<%i$,!VAk;H$$$NM+]5!W4XO"$N%l%8%9%H%j$rA4$F>C$9$h$&$KJQ99!#(B
-		<li>$B%P!<%8%g%s%@%$%"%m%0$N!V:G?7%P!<%8%g%s$N%@%&%s%m!<%I!W%\%?%s$,Mx$+$J$/$J$C$F$$$?%P%0$rD>$7$?!#(B
+		<li>インストーラがテンポラリフォルダに作った contrib を削除しないバグを直した。
+		<li>アンインストーラが「窓使いの憂鬱」関連のレジストリを全て消すように変更。
+		<li>バージョンダイアログの「最新バージョンのダウンロード」ボタンが利かなくなっていたバグを直した。
 	      </ul>
 	  <dt>2000/05/23 version 3.15
 	  <dd>
 	      <ul>
-		<li>$B%I%i%$%P$r5/F0;~$K%9%?!<%H$5$;$k$3$H$K$7$?!#$N$G!"(BAdministrator $B$8$c$J$/$F$bAk;H$$$NM+]5$r5/F0$G$-$k$h$&$K$J$C$?$O$:!#$?$@$7$3$l$rM-8z$K$9$k$K$O!"Ak;H$$$NM+]5$r0lC6%"%s%$%s%9%H!<%k$7$F!"%3%s%T%e!<%?$r%j%;%C%H$7$F$+$i:F$S%$%s%9%H!<%k$9$k$3$H!#(B
-		<li>$B%"%W%j%1!<%7%g%s=*N;;~$K;~!9%(%i!<$,5/$-$F$$$?%P%0$rB`<#!#(B
-		<li>$B!VAk;H$$$NM+]5$N@_Dj!W%@%$%"%m%0$N2~NI!#(B
-		<li>version 3.10 $B$"$?$j$+$i!"(B<a href="CUSTOMIZE-ja.html#HOME">$B%[!<%`%G%#%l%/%H%j(B</a>$B$N$&$A!V@_Dj(B(S)... $B$G;XDj$7$?%U%!%$%k$N$"$k%G%#%l%/%H%j!W$,8!:w$5$l$J$/$J$C$F$$$?%P%0$r=$@5!#(B
-		<li>$B0J2<$N(B <code><em>FUNCTION</em></code> $B$N:G8e$N0z?t$K(B <code>MDI</code> $B$r;XDj$9$k$H!"(BMDI $B;R%&%#%s%I%&$rA`:n$G$-$k$h$&$K$7$?!#(B
+		<li>ドライバを起動時にスタートさせることにした。ので、Administrator じゃなくても窓使いの憂鬱を起動できるようになったはず。ただしこれを有効にするには、窓使いの憂鬱を一旦アンインストールして、コンピュータをリセットしてから再びインストールすること。
+		<li>アプリケーション終了時に時々エラーが起きていたバグを退治。
+		<li>「窓使いの憂鬱の設定」ダイアログの改良。
+		<li>version 3.10 あたりから、<a href="CUSTOMIZE-ja.html#HOME">ホームディレクトリ</a>のうち「設定(S)... で指定したファイルのあるディレクトリ」が検索されなくなっていたバグを修正。
+		<li>以下の <code><em>FUNCTION</em></code> の最後の引数に <code>MDI</code> を指定すると、MDI 子ウィンドウを操作できるようにした。
 		    <a href="CUSTOMIZE-ja.html#function_WindowCling"><code>&amp;WindowClingToBottom</code></a>,
 		    <a href="CUSTOMIZE-ja.html#function_WindowCling"><code>&amp;WindowClingToLeft</code></a>,
 		    <a href="CUSTOMIZE-ja.html#function_WindowCling"><code>&amp;WindowClingToRight</code></a>,
@@ -1007,121 +1007,121 @@
 		    <a href="CUSTOMIZE-ja.html#function_WindowMoveVisibly"><code>&amp;WindowMoveVisibly</code></a>,
 		    <a href="CUSTOMIZE-ja.html#function_WindowRiseLower"><code>&amp;WindowRaise</code></a>,
 		    <a href="CUSTOMIZE-ja.html#function_WindowMaxMinHVMax"><code>&amp;WindowVMaximize</code></a>
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
+		<li>設定ファイルを更新。
 	      </ul>
 	  <dt>2000/05/19 version 3.14
 	  <dd>
 	      <ul>
-		<li>$B@55,I=8=%i%$%V%i%j$r:F$S(B BUG FIX$B!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
+		<li>正規表現ライブラリを再び BUG FIX。
+		<li>設定ファイルを更新。
 	      </ul>
 	  <dt>2000/05/13 version 3.13
 	  <dd>
 	      <ul>
-		<li>$B@55,I=8=%i%$%V%i%j$N(B BUG FIX$B!#(B
+		<li>正規表現ライブラリの BUG FIX。
 	      </ul>
 	  <dt>2000/05/08 version 3.12
 	  <dd>
 	      <ul>
-		<li>$B@55,I=8=%i%$%V%i%j$N(B BUG FIX$B!#!V%^%$%s%9%$!<%Q!W$K%^%C%A$5$;$k$3$H$,$G$-$k$h$&$K$J$C$?!#(B
+		<li>正規表現ライブラリの BUG FIX。「マインスイーパ」にマッチさせることができるようになった。
 	      </ul>
 	  <dt>2000/05/06 version 3.11
 	  <dd>
 	      <ul>
-		<li><a href="../contrib/dvorak.mayu"><code>contrib/dvorak.mayu</code></a> $B$r99?7!#(B(Thanks to KANAI Makoto)
-		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> $B$r99?7!#(B(Thanks to HANAWA Yoshio)
+		<li><a href="../contrib/dvorak.mayu"><code>contrib/dvorak.mayu</code></a> を更新。(Thanks to KANAI Makoto)
+		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> を更新。(Thanks to HANAWA Yoshio)
 	      </ul>
 	  <dt>2000/05/05 version 3.10
 	  <dd>
 	      <ul>
-		<li><a href="http://www.inprise.com/bcppbuilder/freecompiler" target="_top">Borland C++ Compiler 5.5</a> $B$G(B<a href="CUSTOMIZE-ja.html#compile">$B%S%k%I(B</a>$B$G$-$k$h$&$K$7$?!#(B(Thanks to HANAWA Yoshio)
-		<li><a href="CUSTOMIZE-ja.html#inputModifier">$BF~NO$5$l$?%-!<$HF1$8%b%G%#%U%!%$%d$N;XDj(B</a> $B$,$G$-$k$h$&$K$7$?!#(B
-		<li>$BJ#?t$N%-!<@_Dj$r%a%K%e!<$G@Z$jBX$(2DG=$K$7$?!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
-		<li><a href="#INSTALL">DLL $B99?7(B</a>$B!#(B
-		<li>($BHs8x3+(B)
+		<li><a href="http://www.inprise.com/bcppbuilder/freecompiler" target="_top">Borland C++ Compiler 5.5</a> で<a href="CUSTOMIZE-ja.html#compile">ビルド</a>できるようにした。(Thanks to HANAWA Yoshio)
+		<li><a href="CUSTOMIZE-ja.html#inputModifier">入力されたキーと同じモディファイヤの指定</a> ができるようにした。
+		<li>複数のキー設定をメニューで切り替え可能にした。
+		<li>設定ファイルを更新。
+		<li><a href="#INSTALL">DLL 更新</a>。
+		<li>(非公開)
 	      </ul>
 	  <dt>2000/04/24 version 3.09
 	  <dd>
 	      <ul>
-		<li><a href="../contrib/dvorak.mayu"><code>contrib/dvorak.mayu</code></a> $B$rDI2C!#(B(Thanks to KANAI Makoto)
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_InvestigateCommand"><code>&amp;InvestigateCommand</code></a> $B$rDI2C!#(B<a href="CUSTOMIZE-ja.html#function_PostMessage"><code>&amp;PostMessage</code></a> $B$N0Y$ND4::MQ!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_EditNextModifier"><code>&amp;EditNextModifier</code></a> $B$rDI2C!#(B<kbd>Alt</kbd> + <kbd>X</kbd> $B$J$I$r(B <kbd>ESCAPE</kbd> <kbd>X</kbd> $B$J$I$GBeMQ$9$k$3$H$,2DG=$K!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Prefix"><code>&amp;Prefix</code></a> $B$rJQ99!#(B<a href="CUSTOMIZE-ja.html#keymap2"><code>keymap2</code></a> $B$r;H$&$H$-$N$*LsB+(B (<code>mod !shift !alt !control !windows</code>) $B$,ITMW$K!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
+		<li><a href="../contrib/dvorak.mayu"><code>contrib/dvorak.mayu</code></a> を追加。(Thanks to KANAI Makoto)
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_InvestigateCommand"><code>&amp;InvestigateCommand</code></a> を追加。<a href="CUSTOMIZE-ja.html#function_PostMessage"><code>&amp;PostMessage</code></a> の為の調査用。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_EditNextModifier"><code>&amp;EditNextModifier</code></a> を追加。<kbd>Alt</kbd> + <kbd>X</kbd> などを <kbd>ESCAPE</kbd> <kbd>X</kbd> などで代用することが可能に。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Prefix"><code>&amp;Prefix</code></a> を変更。<a href="CUSTOMIZE-ja.html#keymap2"><code>keymap2</code></a> を使うときのお約束 (<code>mod !shift !alt !control !windows</code>) が不要に。
+		<li>設定ファイルを更新。
 	      </ul>
 	  <dt>2000/04/15 version 3.08
 	  <dd>
 	      <ul>
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowSetAlpha"><code>&amp;WindowSetAlpha</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowRedraw"><code>&amp;WindowRedraw</code></a> $B$rDI2C!#(B
-		<li><a href="#RELATEDWORK">related work</a> $B$K(B KillGates $B$rDI2C!#(B
-		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> $B$r99?7!#(B(Thanks to HANAWA Yoshio)
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowSetAlpha"><code>&amp;WindowSetAlpha</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowRedraw"><code>&amp;WindowRedraw</code></a> を追加。
+		<li><a href="#RELATEDWORK">related work</a> に KillGates を追加。
+		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> を更新。(Thanks to HANAWA Yoshio)
+		<li>設定ファイルを更新。
 	      </ul>
 	  <dt>2000/04/01 version 3.07
 	  <dd>
 	      <ul>
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Wait"><code>&amp;Wait</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_MouseWheel"><code>&amp;MouseWheel</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a> $B$r3HD%$7$F%^%&%9%\%?%s$rF~NO$G$-$k$h$&$K$7$?!#(B
-		<li>$B%^%K%e%"%k$NFbMF$r(B<a href="#ABSTRACT">$B$$(B</a> <a href="#INSTALL">$B$/(B</a> <a href="#BUGS">$B$D(B</a>$B$+=$@5!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
-		<li>$B1Q8l%j%=!<%9$r$D$1$F$_$?!#$,!";H$$J}ITL@!#(B
-		<li>$BO"Mm@h$N=$@5!#(B
-		<li>$B$o$?$7$O%(%$%W%j%k%U!<%k$O7y$$$G$9!#(B
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_Wait"><code>&amp;Wait</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_MouseWheel"><code>&amp;MouseWheel</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a> を拡張してマウスボタンを入力できるようにした。
+		<li>マニュアルの内容を<a href="#ABSTRACT">い</a> <a href="#INSTALL">く</a> <a href="#BUGS">つ</a>か修正。
+		<li>設定ファイルを更新。
+		<li>英語リソースをつけてみた。が、使い方不明。
+		<li>連絡先の修正。
+		<li>わたしはエイプリルフールは嫌いです。
 	      </ul>
 	  <dt>2000/03/21 version 3.06
 	  <dd>
 	      <ul>
-		<li>$B$$$/$D$+$N(B typo $B$r=$@5!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMaxMinHVMax"><code>&amp;WindowHMaximize</code>, <code>&amp;WindowVMaximize</code></a> $B$G!"(BH $B$H(B V $B$rN>J}F1$8%&%#%s%I%&$XE,MQ$7$?>l9g$NF0:n$r=$@5!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_ClipboardCopy"><code>&amp;ClipboardCopy</code></a> $B$rDI2C!#(B
-		<li>$B@_Dj%U%!%$%k$r99?7!#(B
-		<li><a href="CUSTOMIZE-ja.html#modifier"><code>IL-</code></a> $B$rF3F~$7!"(B<code>I-</code> $B$O(B <code>IC-</code> $B$KL>A0$rJQ99!#$?$@$7!"8_49@-$N0Y(B <code>I-</code> $B$b0z$-B3$-;HMQ2DG=$G$9!#(B
-		<li>$B%3%s%=!<%k$N%U%)!<%+%9$NDI@W$K;~!9<:GT$7$F$$$?$N$,D>$C$?$+$b$7$l$J$$!#(B($B$+$b$7$l$J$$$P$C$+$@!D(B)
+		<li>いくつかの typo を修正。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMaxMinHVMax"><code>&amp;WindowHMaximize</code>, <code>&amp;WindowVMaximize</code></a> で、H と V を両方同じウィンドウへ適用した場合の動作を修正。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_ClipboardCopy"><code>&amp;ClipboardCopy</code></a> を追加。
+		<li>設定ファイルを更新。
+		<li><a href="CUSTOMIZE-ja.html#modifier"><code>IL-</code></a> を導入し、<code>I-</code> は <code>IC-</code> に名前を変更。ただし、互換性の為 <code>I-</code> も引き続き使用可能です。
+		<li>コンソールのフォーカスの追跡に時々失敗していたのが直ったかもしれない。(かもしれないばっかだ…)
 	      </ul>
 	  <dt>2000/03/10 version 3.05
 	  <dd>
 	      <ul>
-		<li>$B%;%C%H%"%C%W$r=$@5!#(B
-		<li>$B%3%s%=!<%k$N%U%)!<%+%9$NDI@W$K;~!9<:GT$7$F$$$?$N$,D>$C$?$+$b$7$l$J$$!#(B
-		<li>($BHs8x3+(B)
+		<li>セットアップを修正。
+		<li>コンソールのフォーカスの追跡に時々失敗していたのが直ったかもしれない。
+		<li>(非公開)
 	      </ul>
 	  <dt>2000/03/08 version 3.04
 	  <dd>
 	      <ul>
-		<li>$B@_Dj%U%!%$%k$r=$@5!#(B($B%G%U%)%k%H$G1Q?t%-!<$r(B Control $B$K(B)
-		<li>$B%^%K%e%"%k$N%P%0$rD>$7$?!#(B
-		<li>$B%^%K%e%"%k$r(B Mozilla $B$G$b$A$c$s$HI=<($G$-$k$h$&$K$7$?!#(B(IE $B$G8+$k$H$-$O%U%)%s%H%5%$%:!V>.!W$K$9$k$H$+$C$3$$$$$,!"$h$_$K$/$$$N$G$7$J$/$F$$$$$G$9(B)
+		<li>設定ファイルを修正。(デフォルトで英数キーを Control に)
+		<li>マニュアルのバグを直した。
+		<li>マニュアルを Mozilla でもちゃんと表示できるようにした。(IE で見るときはフォントサイズ「小」にするとかっこいいが、よみにくいのでしなくていいです)
 	      </ul>
 	  <dt>2000/03/04 version 3.03
 	  <dd>
 	      <ul>
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMaxMinHVMax"><code>&amp;WindowHMaximize</code></a> $B$rDI2C!#(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> $B$rDI2C!#(B
-		<li>$B@_Dj%U%!%$%k$rBgI}$K99?7$7$?!#(B
-		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> $B$NDI2C!#(B(Thanks to HANAWA Yoshio)
-		<li>Windows2000 $BMQ$N%I%i%$%P$r%Q%o!<%^%M%8%a%s%HBP1~$K$7$?!#(B
-		<li>$B%3%s%=!<%k$N%U%)!<%+%9$NDI@W$K;~!9<:GT$7$F$$$?$N$,D>$C$?$+$b$7$l$J$$!#(B
-		<li>PlayStation2 $B$NH/GdF|!#(B
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowMaxMinHVMax"><code>&amp;WindowHMaximize</code></a> を追加。
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_WindowIdentify"><code>&amp;WindowIdentify</code></a> を追加。
+		<li>設定ファイルを大幅に更新した。
+		<li><a href="../contrib/mayu-settings.txt"><code>contrib/mayu-settings.txt</code></a> の追加。(Thanks to HANAWA Yoshio)
+		<li>Windows2000 用のドライバをパワーマネジメント対応にした。
+		<li>コンソールのフォーカスの追跡に時々失敗していたのが直ったかもしれない。
+		<li>PlayStation2 の発売日。
 	      </ul>
 	  <dt>1999/11/01 version 3.02
 	  <dd>
 	      <ul>
-		<li>setup $B;~$K%-!<%\!<%I$N<oN`$rJ9$/$h$&$K$7$?!#(B
-		<li>KeyboardLayout/$B$[$2$[$2(B $B$NGQ;_(B ($BF|K\8l$N>l9g$O%-!<%\!<%I$K$h$i$:!"(BIME $B$K$h$C$F7hDj$5$l$k$?$a(B)$B!#(B
-		<li>$B@_Dj%U%!%$%k$r:FFI$_9~$_$7$?8e$K!"%3%s%H%m!<%k%-!<$J$I$,2!$5$l$C$Q$J$7$K$J$k$3$H$,$"$k%P%0$rD>$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot $B%b%G%#%U%!%$%d(B</a>$B$N@bL@$,4V0c$C$F$$$?$N$G=$@5!#(B
-		<li>$B%G%U%)%k%H$N%b%G%#%U%!%$%d$r(B<a href="CUSTOMIZE-ja.html#defaultModifier">$BJQ99(B</a>$B$G$-$k$h$&$K$7$?!#(B
-		<li><a href="CUSTOMIZE-ja.html#include">include</a> $B$G$O!"$^$:!"%l%8%9%H%j$G;XDj$7$F$"$k@_Dj%U%!%$%k$HF1$8%U%)%k%@$r8!:w$9$k$h$&$K$7$?!#(B
-		<li>$B%$%s%9%H!<%i$r>/!9JQ99(B
-		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a>  $B$G!"(B<code>U-</code> $B$H(B <code>D-</code> $B$,5U$K$J$C$F$$$?%P%0$r=$@5!#(B
+		<li>setup 時にキーボードの種類を聞くようにした。
+		<li>KeyboardLayout/ほげほげ の廃止 (日本語の場合はキーボードによらず、IME によって決定されるため)。
+		<li>設定ファイルを再読み込みした後に、コントロールキーなどが押されっぱなしになることがあるバグを直した。
+		<li><a href="CUSTOMIZE-ja.html#oneShotModifier">One Shot モディファイヤ</a>の説明が間違っていたので修正。
+		<li>デフォルトのモディファイヤを<a href="CUSTOMIZE-ja.html#defaultModifier">変更</a>できるようにした。
+		<li><a href="CUSTOMIZE-ja.html#include">include</a> では、まず、レジストリで指定してある設定ファイルと同じフォルダを検索するようにした。
+		<li>インストーラを少々変更
+		<li><code><em>FUNCTION</em></code> <a href="CUSTOMIZE-ja.html#function_VK"><code>&amp;VK</code></a>  で、<code>U-</code> と <code>D-</code> が逆になっていたバグを修正。
 	      </ul>
 	  <dt>1999/10/30 version 3.01
 	  <dd>
 	      <ul>
-		<li><a href="../104on109.mayu"><code>104on109.mayu</code></a> $B$H(B <a href="../109on104.mayu"><code>109on104.mayu</code></a> $B$r:n$C$?!#(B
+		<li><a href="../104on109.mayu"><code>104on109.mayu</code></a> と <a href="../109on104.mayu"><code>109on104.mayu</code></a> を作った。
 	      </ul>
 	  <dt>1999/10/29 version 3.00
 	  <dt>1999/09/08 cmkey version 2.21
