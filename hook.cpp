@@ -878,6 +878,10 @@ DllExport int installKeyboardHook(INPUT_DETOUR i_keyboardDetour, Engine *i_engin
 /// install mouse hook
 DllExport int installMouseHook(INPUT_DETOUR i_mouseDetour, Engine *i_engine, bool i_install)
 {
+	if (IsDebuggerPresent()) {
+		// If the process is being debugged, installing a mouse hook may cause deadlock.
+		return 0;
+	}
 	if (i_install) {
 		if (!g.m_isInitialized)
 			initialize(true);
