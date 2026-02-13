@@ -6,3 +6,8 @@ functions.h
 /Debug
 /Release
 /proj/.vs
+/.claude
+/tmp
+nul
+?:
+?
