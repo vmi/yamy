@@ -208,7 +208,7 @@ static bool isSymbolChar(_TCHAR i_c)
 
 #ifdef UNICODE
 	// check arrows
-	if (_tcschr(_T("\x2190\x2191\x2192\x2193"), i_c)) {
+	if (_tcschr(_T("\u2190\u2191\u2192\u2193"), i_c)) {
 		return true;
 	}
 #endif // UNICODE
