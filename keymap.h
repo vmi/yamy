@@ -7,6 +7,7 @@
 
 #  include "keyboard.h"
 #  include "function.h"
+#  include <memory>
 #  include <vector>
 
 
@@ -87,7 +88,7 @@ public:
 class ActionFunction : public Action
 {
 public:
-	FunctionData * const m_functionData;		/// function data
+	const std::unique_ptr<FunctionData> m_functionData;		/// function data
 	const Modifier m_modifier;			/// modifier for &Sync
 
 private:
@@ -112,7 +113,7 @@ public:
 class KeySeq
 {
 public:
-	using Actions = std::vector<Action *>;	///
+	using Actions = std::vector<std::unique_ptr<Action>>;	///
 
 private:
 	Actions m_actions;				///

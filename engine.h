@@ -9,6 +9,7 @@
 #  include "setting.h"
 #  include "msgstream.h"
 #  include "hook.h"
+#  include <memory>
 #  include <set>
 #  include <queue>
 #  include <mutex>
@@ -182,7 +183,7 @@ private:
 	// engine thread state
 	HANDLE m_threadHandle;
 	unsigned m_threadId;
-	std::deque<KEYBOARD_INPUT_DATA> *m_inputQueue;
+	std::unique_ptr<std::deque<KEYBOARD_INPUT_DATA>> m_inputQueue;
 	HANDLE m_queueMutex;
 	MSLLHOOKSTRUCT m_msllHookCurrent;
 	bool m_buttonPressed;

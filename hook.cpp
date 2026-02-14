@@ -12,6 +12,7 @@
 #include <locale.h>
 #include <imm.h>
 #include <richedit.h>
+#include <vector>
 
 
 ///
@@ -388,15 +389,14 @@ static void notifyName(HWND i_hwnd, Notify::Type i_type = Notify::Type_name)
 	tstring titleName;
 	getClassNameTitleName(i_hwnd, g.m_isInMenu, &className, &titleName);
 
-	NotifySetFocus *nfc = new NotifySetFocus;
-	nfc->m_type = i_type;
-	nfc->m_threadId = GetCurrentThreadId();
-	nfc->setHwnd(i_hwnd);
-	tcslcpy(nfc->m_className, className.c_str(), NUMBER_OF(nfc->m_className));
-	tcslcpy(nfc->m_titleName, titleName.c_str(), NUMBER_OF(nfc->m_titleName));
+	NotifySetFocus nfc;
+	nfc.m_type = i_type;
+	nfc.m_threadId = GetCurrentThreadId();
+	nfc.setHwnd(i_hwnd);
+	tcslcpy(nfc.m_className, className.c_str(), NUMBER_OF(nfc.m_className));
+	tcslcpy(nfc.m_titleName, titleName.c_str(), NUMBER_OF(nfc.m_titleName));
 
-	notify(nfc, sizeof(*nfc));
-	delete nfc;
+	notify(&nfc, sizeof(nfc));
 }
 
 
@@ -529,7 +529,7 @@ static void funcSetImeStatus(HWND i_hwnd, int i_status)
 // &SetImeString
 static void funcSetImeString(HWND i_hwnd, int i_size)
 {
-	_TCHAR *buf = new _TCHAR(i_size);
+	std::vector<_TCHAR> buf(i_size);
 	DWORD len = 0;
 	_TCHAR ImeDesc[GANA_MAX_ATOM_LENGTH];
 	UINT ImeDescLen;
@@ -539,7 +539,7 @@ static void funcSetImeString(HWND i_hwnd, int i_size)
 	= CreateFile(addSessionId(HOOK_PIPE_NAME).c_str(), GENERIC_READ,
 				 FILE_SHARE_READ, (SECURITY_ATTRIBUTES *)NULL,
 				 OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, (HANDLE)NULL);
-	error = ReadFile(hPipe, buf, i_size, &len, NULL);
+	error = ReadFile(hPipe, buf.data(), i_size, &len, NULL);
 	CloseHandle(hPipe);
 
 	ImeDescLen = ImmGetDescription(GetKeyboardLayout(0),
@@ -552,8 +552,7 @@ static void funcSetImeString(HWND i_hwnd, int i_size)
 		return;
 
 	int status = ImmGetOpenStatus(hIMC);
-	ImmSetCompositionString(hIMC, SCS_SETSTR, buf, len / denom, NULL, 0);
-	delete buf;
+	ImmSetCompositionString(hIMC, SCS_SETSTR, buf.data(), len / denom, NULL, 0);
 	ImmNotifyIME(hIMC, NI_COMPOSITIONSTR, CPS_COMPLETE, 0);
 	if (!status)
 		ImmSetOpenStatus(hIMC, status);

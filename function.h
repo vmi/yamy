@@ -5,6 +5,7 @@
 #ifndef _FUNCTION_H
 #  define _FUNCTION_H
 
+#include <memory>
 
 class SettingLoader;
 class Engine;
@@ -229,7 +230,7 @@ class StrExpr;
 class StrExprArg
 {
 private:
-	StrExpr *m_expr;
+	std::unique_ptr<StrExpr> m_expr;
 public:
 	enum Type {
 		Literal,

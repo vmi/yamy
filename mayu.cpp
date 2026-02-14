@@ -81,7 +81,7 @@ class Mayu
 	int m_escapeNlsKeys;
 	FixScancodeMap m_fixScancodeMap;
 
-	Setting *m_setting;				/// current setting
+	std::unique_ptr<Setting> m_setting;		/// current setting
 	bool m_isSettingDialogOpened;			/// is setting dialog opened ?
 
 	Engine m_engine;				/// engine
@@ -748,7 +748,7 @@ private:
 
 	/// load setting
 	void load() {
-		Setting *newSetting = new Setting;
+		auto newSetting = std::make_unique<Setting>();
 
 		// set symbol
 		for (int i = 1; i < __argc; ++ i) {
@@ -756,19 +756,17 @@ private:
 				newSetting->m_symbols.insert(__targv[i] + 2);
 		}
 
-		if (!SettingLoader(&m_log, &m_log).load(newSetting)) {
+		if (!SettingLoader(&m_log, &m_log).load(newSetting.get())) {
 			ShowWindow(m_hwndLog, SW_SHOW);
 			SetForegroundWindow(m_hwndLog);
-			delete newSetting;
 			Acquire a(&m_log, 0);
 			m_log << _T("error: failed to load.") << std::endl;
 			return;
 		}
 		m_log << _T("successfully loaded.") << std::endl;
-		while (!m_engine.setSetting(newSetting))
+		while (!m_engine.setSetting(newSetting.get()))
 			Sleep(1000);
-		delete m_setting;
-		m_setting = newSetting;
+		m_setting = std::move(newSetting);
 	}
 
 	// show message (a baloon from the task tray icon)
@@ -1026,7 +1024,6 @@ public:
 			m_canUseTasktrayBaloon(
 				PACKVERSION(5, 0) <= getDllVersion(_T("shlwapi.dll"))),
 			m_log(WM_APP_msgStreamNotify),
-			m_setting(NULL),
 			m_isSettingDialogOpened(false),
 			m_sessionState(0),
 			m_engine(m_log) {
@@ -1234,7 +1231,7 @@ public:
 		}
 
 		// remove setting;
-		delete m_setting;
+		m_setting.reset();
 	}
 
 	/// message loop

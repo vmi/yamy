@@ -78,7 +78,6 @@ ActionFunction::ActionFunction(FunctionData *i_functionData,
 //
 ActionFunction::~ActionFunction()
 {
-	delete m_functionData;
 }
 
 //
@@ -96,7 +95,7 @@ Action *ActionFunction::clone() const
 // stream output
 tostream &ActionFunction::output(tostream &i_ost) const
 {
-	return i_ost << m_modifier << m_functionData;
+	return i_ost << m_modifier << m_functionData.get();
 }
 
 
@@ -106,15 +105,14 @@ tostream &ActionFunction::output(tostream &i_ost) const
 
 void KeySeq::copy()
 {
-	for (Actions::iterator i = m_actions.begin(); i != m_actions.end(); ++ i)
-		(*i) = (*i)->clone();
+	for (auto &action : m_actions)
+		action.reset(action->clone());
 }
 
 
 void KeySeq::clear()
 {
-	for (Actions::iterator i = m_actions.begin(); i != m_actions.end(); ++ i)
-		delete (*i);
+	m_actions.clear();
 }
 
 
@@ -126,27 +124,28 @@ KeySeq::KeySeq(const tstringi &i_name)
 
 
 KeySeq::KeySeq(const KeySeq &i_ks)
-		: m_actions(i_ks.m_actions),
-		m_name(i_ks.m_name),
+		: m_name(i_ks.m_name),
 		m_mode(i_ks.m_mode)
 {
-	copy();
+	m_actions.reserve(i_ks.m_actions.size());
+	for (const auto &action : i_ks.m_actions)
+		m_actions.emplace_back(action->clone());
 }
 
 
 KeySeq::~KeySeq()
 {
-	clear();
 }
 
 
 KeySeq &KeySeq::operator=(const KeySeq &i_ks)
 {
 	if (this != &i_ks) {
-		clear();
-		m_actions = i_ks.m_actions;
+		m_actions.clear();
+		m_actions.reserve(i_ks.m_actions.size());
+		for (const auto &action : i_ks.m_actions)
+			m_actions.emplace_back(action->clone());
 		m_mode = i_ks.m_mode;
-		copy();
 	}
 	return *this;
 }
@@ -154,7 +153,7 @@ KeySeq &KeySeq::operator=(const KeySeq &i_ks)
 
 KeySeq &KeySeq::add(const Action &i_action)
 {
-	m_actions.push_back(i_action.clone());
+	m_actions.emplace_back(i_action.clone());
 	return *this;
 }
 
@@ -163,7 +162,7 @@ KeySeq &KeySeq::add(const Action &i_action)
 ModifiedKey KeySeq::getFirstModifiedKey() const
 {
 	if (0 < m_actions.size()) {
-		const Action *a = m_actions.front();
+		const Action *a = m_actions.front().get();
 		switch (a->getType()) {
 		case Action::Type_key:
 			return reinterpret_cast<const ActionKey *>(a)->m_modifiedKey;

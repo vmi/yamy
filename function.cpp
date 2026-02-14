@@ -985,7 +985,7 @@ void Engine::shellExecute()
 
 	FunctionData_ShellExecute *fd =
 		reinterpret_cast<FunctionData_ShellExecute *>(
-			m_afShellExecute->m_functionData);
+			m_afShellExecute->m_functionData.get());
 
 	int r = static_cast<int>(reinterpret_cast<intptr_t>(ShellExecute(
 				NULL,
@@ -1084,7 +1084,7 @@ void Engine::funcSetForegroundWindow(FunctionParam *i_param, const tregex &,
 		return;
 	EnumWindowsForSetForegroundWindowParam
 	ep(static_cast<const FunctionData_SetForegroundWindow *>(
-		   i_param->m_af->m_functionData));
+		   i_param->m_af->m_functionData.get()));
 	EnumWindows(enumWindowsForSetForegroundWindow,
 				reinterpret_cast<LPARAM>(&ep));
 	if (ep.m_hwnd)
@@ -2195,14 +2195,14 @@ void Engine::funcPlugIn(FunctionParam *i_param,
 	if (!i_param->m_isPressed)
 		return;
 
-	shu::PlugIn *plugin = new shu::PlugIn();
+	auto plugin = std::make_unique<shu::PlugIn>();
 	if (!plugin->load(i_dllName.eval(), i_funcName.eval(), i_funcParam.eval(), m_log)) {
-		delete plugin;
 		return;
 	}
 	if (i_doesCreateThread) {
-		if (_beginthread(shu::plugInThread, 0, plugin) == -1) {
-			delete plugin;
+		auto rawPlugin = plugin.release();
+		if (_beginthread(shu::plugInThread, 0, rawPlugin) == -1) {
+			delete rawPlugin;
 			Acquire a(&m_log);
 			m_log << std::endl;
 			m_log << _T("error: &PlugIn() failed to create thread.");
@@ -2353,24 +2353,23 @@ public:
 // default constructor
 StrExprArg::StrExprArg()
 {
-	m_expr = new StrExpr(_T(""));
+	m_expr = std::make_unique<StrExpr>(_T(""));
 }
 
 
 // copy contructor
 StrExprArg::StrExprArg(const StrExprArg &i_data)
 {
-	m_expr = i_data.m_expr->clone();
+	m_expr.reset(i_data.m_expr->clone());
 }
 
 
 StrExprArg &StrExprArg::operator=(const StrExprArg &i_data)
 {
-	if (i_data.m_expr == m_expr)
+	if (i_data.m_expr.get() == m_expr.get())
 		return *this;
 
-	delete m_expr;
-	m_expr = i_data.m_expr->clone();
+	m_expr.reset(i_data.m_expr->clone());
 
 	return *this;
 }
@@ -2381,15 +2380,15 @@ StrExprArg::StrExprArg(const tstringq &i_symbol, Type i_type)
 {
 	switch (i_type) {
 	case Literal:
-		m_expr = new StrExpr(i_symbol);
+		m_expr = std::make_unique<StrExpr>(i_symbol);
 		break;
 	case Builtin:
 		if (i_symbol == _T("Clipboard"))
-			m_expr = new StrExprClipboard(i_symbol);
+			m_expr = std::make_unique<StrExprClipboard>(i_symbol);
 		else if (i_symbol == _T("WindowClassName"))
-			m_expr = new StrExprWindowClassName(i_symbol);
+			m_expr = std::make_unique<StrExprWindowClassName>(i_symbol);
 		else if (i_symbol == _T("WindowTitleName"))
-			m_expr = new StrExprWindowTitleName(i_symbol);
+			m_expr = std::make_unique<StrExprWindowTitleName>(i_symbol);
 		break;
 	default:
 		break;
@@ -2399,7 +2398,6 @@ StrExprArg::StrExprArg(const tstringq &i_symbol, Type i_type)
 
 StrExprArg::~StrExprArg()
 {
-	delete m_expr;
 }
 
 

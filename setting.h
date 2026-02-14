@@ -9,6 +9,7 @@
 #  include "keymap.h"
 #  include "parser.h"
 #  include "multithread.h"
+#  include <memory>
 #  include <set>
 
 
@@ -89,8 +90,7 @@ private:
 	Tokens m_tokens;				/// tokens for current line
 	Tokens::iterator m_ti;			/// current processing token
 
-	static Prefixes *m_prefixes;			/// prefix terminal symbol
-	static size_t m_prefixesRefCcount;		/// reference count of prefix
+	static std::shared_ptr<Prefixes> m_prefixes;	/// prefix terminal symbol
 
 	Keymap *m_currentKeymap;			/// current keymap
 

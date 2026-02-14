@@ -450,7 +450,7 @@ void Engine::generateActionEvents(const Current &i_c, const Action *i_a,
 
 		{
 			Acquire a(&m_log, 1);
-			m_log << _T("\t\t     >\t") << af->m_functionData;
+			m_log << _T("\t\t     >\t") << af->m_functionData.get();
 		}
 
 		FunctionParam param;
@@ -483,16 +483,16 @@ void Engine::generateKeySeqEvents(const Current &i_c, const KeySeq *i_keySeq,
 	if (actions.empty())
 		return;
 	if (i_part == Part_up)
-		generateActionEvents(i_c, actions[actions.size() - 1], false);
+		generateActionEvents(i_c, actions[actions.size() - 1].get(), false);
 	else {
 		size_t i;
 		for (i = 0 ; i < actions.size() - 1; ++ i) {
-			generateActionEvents(i_c, actions[i], true);
-			generateActionEvents(i_c, actions[i], false);
+			generateActionEvents(i_c, actions[i].get(), true);
+			generateActionEvents(i_c, actions[i].get(), false);
 		}
-		generateActionEvents(i_c, actions[i], true);
+		generateActionEvents(i_c, actions[i].get(), true);
 		if (i_part == Part_all)
-			generateActionEvents(i_c, actions[i], false);
+			generateActionEvents(i_c, actions[i].get(), false);
 	}
 }
 
@@ -973,7 +973,7 @@ void Engine::keyboardHandler()
 
 		WaitForSingleObject(m_queueMutex, INFINITE);
 		while (SignalObjectAndWait(m_queueMutex, m_readEvent, INFINITE, true) == WAIT_OBJECT_0) {
-			if (m_inputQueue == NULL) {
+			if (!m_inputQueue) {
 				ReleaseMutex(m_queueMutex);
 				return;
 			}
@@ -1192,7 +1192,6 @@ Engine::Engine(tomsgstream &i_log)
 		m_dragging(false),
 		m_keyboardHandler(installKeyboardHook, Engine::keyboardDetour),
 		m_mouseHandler(installMouseHook, Engine::mouseDetour),
-		m_inputQueue(NULL),
 		m_readEvent(NULL),
 		m_queueMutex(NULL),
 		m_sts4mayu(NULL),
@@ -1254,7 +1253,7 @@ void Engine::start() {
 	m_keyboardHandler.start(this);
 	m_mouseHandler.start(this);
 
-	CHECK_TRUE( m_inputQueue = new std::deque<KEYBOARD_INPUT_DATA> );
+	m_inputQueue = std::make_unique<std::deque<KEYBOARD_INPUT_DATA>>();
 	CHECK_TRUE( m_queueMutex = CreateMutex(NULL, FALSE, NULL) );
 	CHECK_TRUE( m_readEvent = CreateEvent(NULL, TRUE, FALSE, NULL) );
 	m_ol.Offset = 0;
@@ -1271,8 +1270,7 @@ void Engine::stop() {
 	m_keyboardHandler.stop();
 
 	WaitForSingleObject(m_queueMutex, INFINITE);
-	delete m_inputQueue;
-	m_inputQueue = NULL;
+	m_inputQueue.reset();
 	SetEvent(m_readEvent);
 	ReleaseMutex(m_queueMutex);
 
@@ -1410,7 +1408,7 @@ bool Engine::setSetting(Setting *i_setting) {
 
 void Engine::unlocked()
 {
-	if (m_inputQueue == NULL) {
+	if (!m_inputQueue) {
 		return;
 	}
 

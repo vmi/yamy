@@ -973,7 +973,7 @@ KeySeq *SettingLoader::load_KEY_SEQUENCE(
 
 			// search function
 			ActionFunction af(createFunctionData(t->getString()), modifier);
-			if (af.m_functionData == NULL)
+			if (!af.m_functionData)
 				throw ErrorMessage() << _T("`&") << *t
 				<< _T("': unknown function name.");
 			af.m_functionData->load(this);
@@ -1422,7 +1422,7 @@ void SettingLoader::load(const tstringi &i_filename)
 	}
 
 	// prefix
-	if (m_prefixesRefCcount == 0) {
+	if (!m_prefixes) {
 		static const _TCHAR *prefixes[] = {
 			_T("="), _T("=>"), _T("&&"), _T("||"), _T(":"), _T("$"), _T("&"),
 			_T("-="), _T("+="), _T("!!!"), _T("!!"), _T("!"),
@@ -1439,16 +1439,19 @@ void SettingLoader::load(const tstringi &i_filename)
 			_T("L0-"), _T("L1-"), _T("L2-"), _T("L3-"), _T("L4-"),
 			_T("L5-"), _T("L6-"), _T("L7-"), _T("L8-"), _T("L9-"),
 		};
-		m_prefixes = new std::vector<tstringi>;
+		m_prefixes = std::make_shared<std::vector<tstringi>>();
 		for (size_t i = 0; i < NUMBER_OF(prefixes); ++ i)
 			m_prefixes->push_back(prefixes[i]);
 		std::sort(m_prefixes->begin(), m_prefixes->end(), prefixSortPred);
 	}
-	m_prefixesRefCcount ++;
 
 	// create parser
+	// Hold a local copy of the shared_ptr so that nested load() calls
+	// (via load_INCLUDE()) can reset the static m_prefixes without
+	// destroying the data while this parser still references it.
+	auto localPrefixes = m_prefixes;
 	Parser parser(data.c_str(), data.size());
-	parser.setPrefixes(m_prefixes);
+	parser.setPrefixes(localPrefixes.get());
 
 	while (true) {
 		try {
@@ -1486,9 +1489,7 @@ void SettingLoader::load(const tstringi &i_filename)
 	}
 
 	// m_prefixes
-	-- m_prefixesRefCcount;
-	if (m_prefixesRefCcount == 0)
-		delete m_prefixes;
+	m_prefixes.reset();
 
 	if (0 < m_canReadStack.size()) {
 		Acquire a(m_soLog);
@@ -1692,6 +1693,4 @@ bool SettingLoader::load(Setting *i_setting, const tstringi &i_filename)
 }
 
 
-std::vector<tstringi> *SettingLoader::m_prefixes; // m_prefixes terminal symbol
-size_t SettingLoader::m_prefixesRefCcount;	/* reference count of
-						   m_prefixes */
+std::shared_ptr<std::vector<tstringi>> SettingLoader::m_prefixes; // prefix terminal symbol
